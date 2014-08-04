@@ -101,10 +101,12 @@ However, this averaging fails when the ratio of frequencies is the ratio of inte
 
 In this work we seek to characterise the importance of these resonances for the purposes of modelling EMRIs. The amplitude of expected signals shall be below the level of noise in a space-based GW detector. However, systems remain in band for many hundreds of thousands of cycles and so may be detected using a matched filter, provided we have sufficiently accurate waveform templates. Ensuring the accuracy of EMRI templates requires calculating the impact that passing through a resonance has on the orbital evolution and discovering for which resonances this is significant.
 
+In \secref{problem}, we formulate the specific problem at hand: that of geodesic motion in Kerr spacetime, perturbed by the gravitational self-force. We then study generic properties of transient resonances in \secref{properties}, detailing their location in parameter space, the time-scales over which they affect the motion and the resulting GW flux enhancements. Specific examples are considered to illustrate the effects of resonances at the start of \secref{astrophysics}, before finally turning to an astrophysical population in \secref{population}. Our conclusions can be found in \secref{conclusion}.
+
 We use geometric units with $G = c = 1$ throughout. We always use $M$ for the mass of the central massive BH and $a$ as the spin parameter. We also use the dimensionless spin $a_\ast \equiv a/M$; we take the convention that $0 \leq a_\ast < 1$.
 
 \section{Problem formulation}
-
+\label{sec:problem}
 \subsection{Kerr geodesics}
 
 The evolution of an extreme-mass-ratio ($\eta \ll 1$) system is slow. Instantaneously, the motion of the orbiting mass can be described as geodesic, with the integrals of the motion changing on time-scales of many orbital periods. We analyse the behaviour of resonances within the osculating element framework, where the trajectory is described by a sequence of geodesics that each match onto the motion at a particular instance. It is therefore necessary to develop an understanding of the Kerr geodesics.
@@ -244,6 +246,7 @@ where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-for
 
 
 \section{Properties of Transient Resonances}
+\label{sec:properties}
 \subsection{Location}
 
 The first step in studying the effect of transient resonance is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. \Figref{res-plane-2-5-95} shows the semilatus rectum, eccentricity and (cosine of the) inclination angle of the $\nu = 2/5$ resonance surface for a BH of spin $a_\ast = 0.95$. 
@@ -367,6 +370,7 @@ exactly as expected.
 
 
 \section{Astrophysical implications}
+\label{sec:astrophysics}
 
 To investigate how resonances would impact real-world observations of EMRIs using GWs, we need to generate a realistic astrophysical population of EMRIs\footnote{The actual distribution in parameter space of observable EMRI systems is unknown, but we can make reasonable estimates.} and then evolve these systems in time, including a mechanism to generate the GWs at infinity, which can then be analysed.
 
@@ -570,6 +574,7 @@ The circularising effect of GW emission can be observed in the eccentricity dist
 \end{figure*}
 
 \subsection{Population results}
+\label{sec:population}
 
 We take draws from the EMRI parameter distributions, using them as initial conditions for the full instantaneous evolution, from which we generate a family of adiabatic evolutions, as discussed in \secref{SNRloss}. There are broadly three categories of system regarding the effect of resonances on the evolution:
 
@@ -604,6 +609,7 @@ Even within the low eccentricity systems considered here, it is possible for som
 \end{figure}
 
 \section{Concluding remarks}
+\label{sec:conclusion}
 
 Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral. However, due to the low eccentricity of detectable sources, the overall effect on SNR recovery is small; it is therefore likely to be sufficient to use adiabatic models to detect EMRIs. An unresolved question here is how these adiabatic models affect parameter estimation: systematic biases may be introduced if we neglect the presence of important resonances.
 
