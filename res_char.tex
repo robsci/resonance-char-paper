@@ -175,7 +175,7 @@ The $(0,\,0)$ coefficients in these series give the average secular rate of incr
 \begin{equation}
 \Gamma = T_{0,\,0}, \quad \Upsilon_\phi = \Phi_{0,\,0}
 \end{equation}
-to act as Mino time frequencies. We can now convert to coordinate time frequencies with
+to act as Mino-time frequencies. We can now convert to coordinate-time frequencies with
 \begin{equation}
 \Omega_r = \frac{\Upsilon_r}{\Gamma}, \quad \Omega_\theta = \frac{\Upsilon_\theta}{\Gamma}, \quad \Omega_\phi = \frac{\Upsilon_\phi}{\Gamma}.
 \end{equation}
@@ -184,9 +184,9 @@ Transient resonances occur when the radial and poloidal motions are commensurate
 \begin{equation}
 \nu = \frac{\Upsilon_r}{\Upsilon_\theta} = \frac{\Omega_r}{\Omega_\theta} = \frac{n_\theta}{n_r}
 \end{equation}
-is the ratio of small integers. At this point any Fourier series like those in \eqnref{Mino-Fourier} goes from being an expansion in two frequencies to being an expansion in a single frequency~\cite{Bosley1992}.
+is the ratio of small integers. At this point, any Fourier series like those in \eqnref{Mino-Fourier} goes from being an expansion in two frequencies to being an expansion in a single frequency~\cite{Bosley1992}.
 
-For a general non-resonant orbit there is no fixed correlation between the radial and polar coordinates. After a sufficiently long time, the trajectory comes arbitrarily close to every point in the range of motion (with $r\sub{p} \leq r \leq r\sub{a}$ and $\theta_- \leq \theta \leq \pi - \theta_-$); on account of the orbital precession, the whole space is densely covered. This does not happen on resonance, as the radial and polar motions are locked together such that we can express one as a function of the other, and so the trajectory keeps cycling over the same path. The points visited are controlled by the relative phases of the $r$ and $\theta$ motions. To represent this, we use the $r$ phase at the $\theta$ turning point $\psi_{\theta_-} = \psi(\chi = 0)$. Varying $\psi_{\theta_-}$ across its full range allows every point in the range of motion to be reached. Hence averaging over all values of $\psi_{\theta_-}$ for a resonant orbit is equivalent to averaging over the $\psi$--$\chi$ $2$-torus for non-resonant orbits.
+For a general non-resonant orbit there is no fixed correlation between the radial and polar coordinates. After a sufficiently long time, the trajectory comes arbitrarily close to every point in the range of motion (with $r\sub{p} \leq r \leq r\sub{a}$ and $\theta_- \leq \theta \leq \pi - \theta_-$); on account of the orbital precession, the whole space is densely covered. This does not happen on resonance, as the radial and polar motions are locked together such that we can express one as a function of the other, and so the trajectory keeps cycling over the same path. The points visited are controlled by the relative phases of the $r$ and $\theta$ motions. To represent this, we use the $r$ phase at the $\theta$ turning point $\psi_{\theta_-} = \psi(\chi = 0)$. Varying $\psi_{\theta_-}$ across its full range allows every point in the range of motion to be reached. Hence averaging over all values of $\psi_{\theta_-}$ for resonant orbits is equivalent to averaging over the $\psi$--$\chi$ $2$-torus for non-resonant orbits.
 
 One might be concerned about the nature of resonances following the inclusion of the self-force: true geodesic motion only exists at zeroth order in $\eta$ and, while it is a good approximation over short time-scales, for small $\eta$ there is a small disparity. The conservative piece of the self-force induces extra precession which leads to a slight shift in the orbital frequencies~\cite{Warburton2012}.\footnote{The Kolmogorov--Arnold--Moser (KAM) theorem states that when an integrable Hamiltonian (i.e., the case for motion in Kerr) is subject to a small perturbation the form of the orbits is preserved albeit slightly deformed~\cite{Arnold1963,Moser1973}. % Chapter II, section 3.3 d)
 This should ensure that, in general, there are only small shifts in the orbital frequencies. However, the KAM theory only applies for sufficiently incommensurate orbits: close to resonance it does not apply~\cite{Moser1973}. % Chapter V section 1. c) 
@@ -203,13 +203,13 @@ However, there shall be a time span when the frequencies are consistently close 
 \subsection{Forced motion}
 \label{sec:forced-motion}
 
-For generic EMRIs, there are two timescales of interest: the \emph{fast} orbital motion, related to the fundamental frequencies $\sim1/\Omega$, and the \emph{slow} inspiral, related to the change of fundamental frequencies $\sim\Omega/\dot{\Omega}$. These, along with the resonance timescale, are discussed more in \secref{res-time}. The two-timescale nature of the problem makes it ideally suited to the method of osculating elements~\cite{Gair2011a}: on short timescales, we analyse the unperturbed system resulting in geodesic motion, and then the long-term evolution is described by a sequence of instantaneous geodesics.
+For generic EMRIs, there are two timescales of interest: the \emph{fast} orbital motion, related to the fundamental frequencies $\sim1/\Omega$, and the \emph{slow} inspiral, related to the change in fundamental frequencies $\sim\Omega/\dot{\Omega}$, where an overdot denotes a derivative with respect to coordinate time $t$. These, along with the resonance timescale, are discussed more in \secref{res-time}. The two-timescale nature of the problem makes it ideally suited to the method of osculating elements~\cite{Gair2011a}: on short timescales, we analyse the unperturbed system resulting in geodesic motion, and then the long-term evolution is described by a sequence of instantaneous geodesics.
 
 We require, at each instant in time, that the chosen geodesic matches the true position and velocity of the particle. This amounts to a specific choice of the orbital shape parameters (for example, the set $\{E,L_z,Q\}$ or the generalised action variables $J_\alpha$) and some initial phases at $t=t_0$ (for example, the set $\{\psi_0,\chi_0,\phi_0\}$). Collectively, these are referred to as \emph{osculating elements} and we denote them by $I^A(t)$, making explicit the variation with time.
 
-Given geodesic motion, forced by some external acceleration $a^\alpha$, so that
+Given geodesic motion in some background spacetime with Christoffel symbols $\Gamma^\alpha_{\beta\gamma}$, forced by some external acceleration $f^\alpha$, so that
 \begin{equation}
-\difftwo{x^\alpha}{\tau} + \Gamma^\alpha_{\beta\gamma}\diff{x^\beta}{\tau}\diff{x^\gamma}{\tau} = a^\alpha,
+\difftwo{x^\alpha}{\tau} + \Gamma^\alpha_{\beta\gamma}\diff{x^\beta}{\tau}\diff{x^\gamma}{\tau} = f^\alpha,
 \end{equation}
 we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair et al \cite{Gair2011a}.
 
@@ -223,18 +223,24 @@ The self-force model uses the first-order PN terms of the dissipative self-force
 
 \subsection{Adiabatic evolution}
 
-Beyond geodesic motion in the Kerr spacetime, a test particle will follow an accelerated trajectory determined by \ref{eq:Mino-E-o-M}. As mentioned previously, this may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and so signifies that flux is carried away from the system by gravitational waves.
+Beyond geodesic motion in the Kerr spacetime, a test particle follows an accelerated trajectory determined by \eqnref{Mino-E-o-M}. This may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and so signifies that flux is carried away from the system by GWs.
 
-In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform an appropriate average over the $2$-torus, given by
+In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we first transform to Mino time where the motion is biperiodic
 \begin{equation}
-\label{eq:2torus-average}
-\langle X\rangle_{\psi,\,\chi} = N \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\partialdiff{\psi}{t}\right)^{-1} \left(\partialdiff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} X }{\chi} }{\psi} .
+\langle \dot{X}\rangle_{\psi,\,\chi} \simeq \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right..
 \end{equation}
-This form of averaging is successful at describing the leading order secular evolution of the trajectory, as is illustrated in \figref{good-traj}.
+It is then possible to calculate
+\begin{widetext}\begin{equation}
+\label{eq:2torus-average}
+\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi},
+\end{equation}\end{widetext}
+in terms of precomputed quantities. This form of averaging is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
-The effect of resonances must be completely contained within the pieces of the self-force left over after subtraction of the $2$-torus averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{\psi,\,\chi}$ for some quantity $X$ related to the self-force. The adiabatic evolution, which contains only a single averaged forcing term, will therefore not demonstrate any resonance behaviours\footnote{Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.}. One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply, however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as these are both explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
+The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{\psi,\,\chi}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
-To be specific, we write \ref{eq:Mino-E-o-M} as
+One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply; however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as both are explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
+
+To be specific, we write \eqnref{Mino-E-o-M} as
 \begin{subequations}
 \begin{align}
 \label{eq:Mino-E-o-M2}
@@ -242,7 +248,7 @@ To be specific, we write \ref{eq:Mino-E-o-M} as
 \diff{J_\alpha}{\lambda} = {} & \eta \langle G_\alpha\rangle_{\psi,\,\chi}(\boldsymbol{J}) + \eta \hat{G}_\alpha(q_r,q_\theta,\boldsymbol{J}),
 \end{align}
 \end{subequations}
-where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms proportional to $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an "adiabatic evolution" in fact refer to a "quasi-adiabatic evolution".
+where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms containing $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an ``adiabatic evolution'' in fact refer to a ``quasi-adiabatic evolution''.
 
 
 \section{Properties of Transient Resonances}
@@ -520,14 +526,14 @@ The absolute size of the resonance jump is often not particularly useful, especi
 \frac{\Delta \mathcal{I}_\mathrm{jump}}{\mathcal{I}_\mathrm{ad}(t>t_\mathrm{res})-\mathcal{I}_\mathrm{ad}(t<t_\mathrm{res})} = \frac{\Delta \mathcal{I}_\mathrm{jump}}{\dot{\mathcal{I}}_\mathrm{ad}(t_\mathrm{res})\tau_\mathrm{res}}.
 \end{equation}
 
-The resonance jump depends sensitively on the relative phase of radial and poloidal motions. It is therefore instructive to study the resonance problem using an ensemble of systems differing only in the initial value of the radial phase $\psi$, which we do for our illustrative system parameters. Choosing random values for $\psi$ corresponds to random values of the orbital phase on resonance $\widehat{\kappa}_0$, which should map out the full range of resonance jumps for these particular orbital shape parameters, according to \eqref{eq:delta-I-a}.
+The resonance jump depends sensitively on the relative phase of radial and poloidal motions. It is therefore instructive to study the resonance problem using an ensemble of systems differing only in the initial value of the radial phase $\psi$, which we do for our illustrative system parameters. Choosing random values for $\psi$ corresponds to random values of the orbital phase on resonance $\widehat{\kappa}_0$, which should map out the full range of resonance jumps for these particular orbital shape parameters, according to \eqnref{delta-I-a}.
 
-Given our computed resonance jumps for all of the orbital parameters, we extract a single phase parameter $q$ for each system that specifies the magnitude of each jump. We expect such a phase parameter to be linearly offset from $\widehat{\kappa}_0$. The resonance jumps are sinusoidal with respect to $q$, as shown by the fits in \figref{resjump-vs-q}, lending support to \eqref{eq:delta-I-a} and giving us confidence in our numerical jump calculations. We can also compute the jumps in the fundamental frequencies for each system (shown as dashed lines in \figref{resjump-vs-q}); they are highly correlated to the magnitude of the jump in $E$, due to the dependence on $u_t$.
+Given our computed resonance jumps for all of the orbital parameters, we extract a single phase parameter $q$ for each system that specifies the magnitude of each jump. We expect such a phase parameter to be linearly offset from $\widehat{\kappa}_0$. The resonance jumps are sinusoidal with respect to $q$, as shown by the fits in \figref{resjump-vs-q}, lending support to \eqnref{delta-I-a} and giving us confidence in our numerical jump calculations. We can also compute the jumps in the fundamental frequencies for each system (shown as dashed lines in \figref{resjump-vs-q}); they are highly correlated to the magnitude of the jump in $E$, due to the dependence on $u_t$.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.46\textwidth]{Fig_jump_vs_q}
-\caption{\label{fig:resjump-vs-q}The magnitude of the resonance jump for our illustrative system as a function of the extracted phase parameter $q$. The jump is expressed as a percentage of the adiabatic change in each parameter, given by \eqref{eq:res-jump-ratio}. The individual jumps as well as a sinusoidal fit are plotted for the three orbital shape parameters (solid lines) and the three orbital frequencies (dotted).}
+\caption{\label{fig:resjump-vs-q}The magnitude of the resonance jump for our illustrative system as a function of the extracted phase parameter $q$. The jump is expressed as a percentage of the adiabatic change in each parameter, given by \eqnref{res-jump-ratio}. The individual jumps as well as a sinusoidal fit are plotted for the three orbital shape parameters (solid lines) and the three orbital frequencies (dotted).}
 \end{figure}
 
 For each system, we compute the overlap between the full evolution and the family of adiabatics given by our set of match times $t_\mathrm{match}$ described in the previous section. The largest overlap in each case is plotted in \figref{overlap-vs-resjump-ill}, as a function of the percentage resonance jumps in the orbital parameters. We observe no strong trend with the size of the jump, although systems with small jumps in $E$ (less than $1\%$) have higher than average overlaps. These systems also have small jumps in the fundamental frequencies and so the adiabatic waveform dephases more slowly from the full waveform, leading to a larger overlap.
@@ -535,7 +541,7 @@ For each system, we compute the overlap between the full evolution and the famil
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{Fig_overlap_vs_resjump_ill}
-\caption{\label{fig:overlap-vs-resjump-ill}The overlap \eqref{eq:overlap} between the full and adiabatic evolutions, maximised over the family of generated adiabatics, as a function of the resonance jumps in $E$ (left), $L_z$ (middle), and $Q$ (right). Each dot represents a system with our illustrative parameters and a random choice of the initial radial phase. The red line indicates the expected overlap assuming that the waveforms match exactly post-resonance, but have zero overlap pre-resonance.}
+\caption{\label{fig:overlap-vs-resjump-ill}The overlap \eqnref{overlap} between the full and adiabatic evolutions, maximised over the family of generated adiabatics, as a function of the resonance jumps in $E$ (left), $L_z$ (middle), and $Q$ (right). Each dot represents a system with our illustrative parameters and a random choice of the initial radial phase. The red line indicates the expected overlap assuming that the waveforms match exactly post-resonance, but have zero overlap pre-resonance.}
 \end{figure*}
 
 The best performing adiabatic for the majority of our systems matched at the end of the inspiral. We can interpret the low overlaps by assuming that these adiabatic waveforms recover the entire SNR in the region post-resonance, but none pre-resonance. As a result, we would expect the overlap to roughly equal the fraction of time spent post-resonance, which in this case is $0.7$, demonstrated by the red line in \figref{overlap-vs-resjump-ill}. There is not an exact equivalence because of the frequency-dependent noise of eLISA; cycles near the end of the inspiral accumulate proportionally more SNR at a frequency closer to the base of the eLISA noise curve.
@@ -613,7 +619,7 @@ Even within the low eccentricity systems considered here, it is possible for som
 
 Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral. However, due to the low eccentricity of detectable sources, the overall effect on SNR recovery is small; it is therefore likely to be sufficient to use adiabatic models to detect EMRIs. An unresolved question here is how these adiabatic models affect parameter estimation: systematic biases may be introduced if we neglect the presence of important resonances.
 
-High eccentricity EMRIs may also be possible, in which case transient resonances will play an important role in their detectability; systems that undergo a jump of a few percent dephase very rapidly from the adiabatic approximation. In such scenarios, adiabatic models can still be used, but there must be sufficient SNR in each non-resonant region that they can be identified as individual sources and then joined together as one long inspiral. Otherwise, if the phase difference on resonance can be predicted, \eqref{eq:delta-I-a} can be used to join together different adiabatic models.
+High eccentricity EMRIs may also be possible, in which case transient resonances will play an important role in their detectability; systems that undergo a jump of a few percent dephase very rapidly from the adiabatic approximation. In such scenarios, adiabatic models can still be used, but there must be sufficient SNR in each non-resonant region that they can be identified as individual sources and then joined together as one long inspiral. Otherwise, if the phase difference on resonance can be predicted, \eqnref{delta-I-a} can be used to join together different adiabatic models.
 
 This work is highly dependent on the chosen self-force model, and so the results should be taken as qualitative estimates, given the unsuitability of a PN self-force to the problem of fast motion near to highly-spinning BHs. In the future, with a more accurate self-force model, more quantitative results can be derived.
 
