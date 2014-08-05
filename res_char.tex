@@ -227,12 +227,15 @@ Beyond geodesic motion in the Kerr spacetime, a test particle follows an acceler
 
 In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we first transform to Mino time where the motion is biperiodic
 \begin{equation}
-\langle \dot{X}\rangle_{\psi,\,\chi} \simeq \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right..
+\left\langle \dot{X}\right\rangle_{\psi,\,\chi} \simeq \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right..
 \end{equation}
 It is then possible to calculate
 \begin{widetext}\begin{equation}
 \label{eq:2torus-average}
 \left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi},
+\end{equation}
+\begin{equation}
+\left\langle \dot{X}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-2} \dot{X} }{\chi} }{\psi},
 \end{equation}\end{widetext}
 in terms of precomputed quantities. This form of averaging is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
