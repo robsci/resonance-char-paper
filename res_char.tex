@@ -222,6 +222,7 @@ To follow the evolution of the inspiral we must have a means of prescribing the 
 The self-force model uses the first-order PN terms of the dissipative self-force formulated in Flanagan and Hinderer~\cite{Flanagan2007} and the conservative force formulated in Iyer and Will~\cite{Iyer1993}, and Kidder~\cite{Kidder1995}. Since only the first PN terms are used, this prescription can only be of limited validity in strong fields. Both pieces of the self-force are computed assuming that the spin is small: the dissipative piece contains terms to $\order{a_\ast^2}$ and the conservative piece to $\order{a_\ast}$. This is less than ideal for high spins. While this approximate self-force is not perfect, it should serve as a guide for the behaviour of the full self-force, allowing us to assess the qualitative impact of resonances on EMRI detection.
 
 \subsection{Adiabatic evolution}
+\label{sec:adiabatic}
 
 Beyond geodesic motion in the Kerr spacetime, a test particle follows an accelerated trajectory determined by \eqnref{Mino-E-o-M}. This may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and so signifies that flux is carried away from the system by GWs.
 
@@ -237,7 +238,7 @@ It is then possible to calculate
 \begin{equation}
 \left\langle \dot{X}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-2} \dot{X} }{\chi} }{\psi},
 \end{equation}\end{widetext}
-in terms of precomputed quantities. This form of averaging is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
+in terms of precomputed quantities \cite{Drasco2005}. This form of averaging is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
 The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{\psi,\,\chi}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
@@ -265,10 +266,10 @@ The first step in studying the effect of transient resonance is to locate orbita
 \caption{\label{fig:res-plane-2-5-95}Location of the $2/5$ resonance surface for an $a_\ast = 0.95$ BH in terms of orbital semilatus rectum $p$, eccentricity $e$ and inclination $\iota$.}
 \end{figure}
 The resonances occur at relatively small periapses, corresponding to regions of strong-field gravity.
-Similar resonance surfaces can be found for other spin values and for other resonances. When considering the full parameter set of $\{p,e,\iota,a_\ast,\nu\}$ it is apparent that the search for resonances becomes expensive as a consequence of the dimensionality. It is therefore useful to have a guide of where to look. We shall attempt to build a model for the resonance plane.
+Similar resonance surfaces can be found for other spin values and for other resonances. When considering the full parameter set of $\{p,e,\iota,a_\ast,\nu\}$, it is apparent that the search for resonances becomes expensive as a consequence of the dimensionality. It is therefore useful to have a guide of where to look. We shall attempt to build a model for the resonance plane.
 
-Brink, Geyer and Hinderer~\cite{Brink2013} provide series expansions for the location of resonances in the limit of equatorial orbits for small spin and eccentricity. We do not follow this approach of trying to find analytic expressions for the resonance surface. The expressions become complicated when venturing away from limiting cases. Instead, we build an approximate phenomenological model and fit this to the resonance plane.%\footnote{A stopped clock is precisely correct twice a day, while a clock that is five minutes slow is never right but will often be close enough. Within this metaphor, our approximation would be a clock that varies between telling the correct time and being fifteen minutes off throughout the day: it is generally going to be good enough to give you a sense of the time but if you have an important event you should check with something better.}
-This should be useful for designating the region in which resonance could be expected. To locate them precisely it is necessary to solve $\Omega = 0$ numerically; the approximate model should give a suitable starting point.
+Brink, Geyer and Hinderer~\cite{Brink2013} provide series expansions for the location of resonances in the limit of equatorial orbits for small spin and eccentricity. We do not follow this approach of trying to find analytic expressions for the resonance surface. The expressions become complicated when venturing away from limiting cases. Instead, we build an approximate phenomenological model and fit this to the resonance plane. %\footnote{A stopped clock is precisely correct twice a day, while a clock that is five minutes slow is never right but will often be close enough. Within this metaphor, our approximation would be a clock that varies between telling the correct time and being fifteen minutes off throughout the day: it is generally going to be good enough to give you a sense of the time but if you have an important event you should check with something better.}
+This should be useful for designating the region in which resonance could be expected. To locate them precisely, it is necessary to solve $\Omega = 0$ numerically; the approximate model should give a suitable starting point.
 
 The resonant semilatus rectum for any particular spin and resonance ratio can be well approximated as
 \begin{equation}
@@ -322,34 +323,34 @@ with $\Omega(t) = n_r \Omega_r(t) - n_\theta \Omega_\theta(t)$, where the freque
 
 We also use the resonance time-scale
 \begin{equation}
-\tau\sub{res} = \left[\frac{2\pi}{\left|\langle\dot{\Omega}(0)\rangle_{q'}\right|}\right]^{1/2}.
+\tau\sub{res} = \left[\frac{2\pi}{\left|\left\langle\dot{\Omega}(0)\right\rangle_{q'}\right|}\right]^{1/2}.
 \label{eq:t-res}
 \end{equation}
 Here $\dot{\Omega}(0)$ is the rate of change of $\Omega$ at resonance, which we take to be at $t = 0$. The instantaneous $\dot{\Omega}$ depends upon the orbital phase and oscillates about its mean trend over an orbit. We are interested in the averaged behaviour, not the periodic modulations about this, which is why we use the time-average $\langle\dot{\Omega}\rangle_{q'}$; here we use $q'$ to represent a phase that varies over an orbit with period of order $T$. Close to resonance, $\Omega(t)$ is well approximated by a first-order Taylor expansion, decreasing linearly with time; hence we make the approximation
 \begin{equation}
-\left|\langle\dot{\Omega}\rangle_{q'}\right| \simeq \left|\frac{\Omega(t)}{t}\right|.
+\left|\left\langle\dot{\Omega}\right\rangle_{q'}\right| \simeq \left|\frac{\Omega(t)}{t}\right|.
 \end{equation}
 The resonant time-scale should give an indication of the time over which we expect the effects of the resonance to be felt~\cite{Bosley1992}. Consider the phase of the Mino time Fourier expansion on resonance; neglecting the constant, the resonant Fourier component has form
 \begin{equation}
-\varphi_{n_r,\,-n_\theta} \simeq \left(n_r\Upsilon_r - n_\theta\Upsilon_\theta\right)\lambda + \left(n_r\dot{\Upsilon_r} - n_\theta\dot{\Upsilon}_\theta\right)\lambda^2 + \ldots
+\varphi_{n_r,\,-n_\theta} \simeq \left(n_r\Upsilon_r - n_\theta\Upsilon_\theta\right)\lambda + \left(n_r\dot{\Upsilon}_r - n_\theta\dot{\Upsilon}_\theta\right)\lambda^2 + \ldots
 \end{equation}
 Typically, the first term is non-zero and this gives the familiar oscillation. On resonance, it is zero, leaving the next order term to govern the behaviour~\cite{Flanagan2012}. Only once we have moved far enough away from resonance for the first term to dominate the second do we recapture the non-resonant behaviour. The first term (translating from Mino time to coordinate time) sets $\tau\sub{pres}$, the second sets $\tau\sub{res}$.
 
 Since we have argued that the effect of resonance can be thought of as a consequence of not densely covering the $\psi$--$\chi$ $2$-torus, we might expect that $\tau\sub{pres}$, as well as $\tau\sub{res}$, could be used for setting the resonance duration: the resonance ends once sufficient time has elapsed that the $2$-torus could be filled. This is indeed the case. Let $t\sub{pres}$ be the time taken to fill the torus, then
 \begin{align}
 t\sub{pres} = {} & \tau\sub{pres}(t\sub{pres}) \\
- \simeq {} & \dfrac{2\pi}{\left|\langle\dot{\Omega}(0)\rangle_{q'} t\sub{pres}\right|}, \nonumber 
+ \simeq {} & \dfrac{2\pi}{\left|\left\langle\dot{\Omega}(0)\right\rangle_{q'} t\sub{pres}\right|}, \nonumber 
 \end{align}
 using \eqnref{t-pres} and substituting $\Omega(t\sub{pres}) \simeq \langle\dot{\Omega}\rangle_{q'} t\sub{pres}$. Rearranging and using \eqnref{t-res} gives
 \begin{equation}
 t\sub{pres} \simeq \tau\sub{res}.
 \end{equation}
-The two time-scales are equivalent. We preferentially use $\tau\sub{res}$ to denote the resonance width. It is shorter than the inspiral time-scale, but longer than an orbital period, $\tau\sub{res} \sim \order{\eta^{1/2}\tau\sub{ev}} \sim \order{\eta^{-1/2}T}$~\cite{Flanagan2012,Gair2011a}; it therefore acts as a bridge between the two time-scales~\cite{Hinderer2008}.
+The two time-scales are equivalent: we preferentially use $\tau\sub{res}$ to denote the resonance width. It is shorter than the inspiral time-scale, but longer than an orbital period, $\tau\sub{res} \sim \order{\eta^{1/2}\tau\sub{ev}} \sim \order{\eta^{-1/2}T}$~\cite{Flanagan2012,Gair2011a}; it therefore acts as a bridge between the two time-scales~\cite{Hinderer2008}.
 
 Since we shall be considering Fourier decompositions, in anticipation of future results, we also define a time-scale for the $s$-th resonant frequency harmonic
 \begin{align}
 %\tau_{\mathrm{pres},\,s} = {} & \frac{2\pi}{|s\Omega(t)|};\\
-\tau_{\mathrm{res},\,s} = {} & \left[\frac{2\pi}{\left|s\langle \dot{\Omega}(0)\rangle_{q'}\right|}\right]^{1/2}.
+\tau_{\mathrm{res},\,s} = {} & \left[\frac{2\pi}{\left|s\left\langle \dot{\Omega}(0)\right\rangle_{q'}\right|}\right]^{1/2}.
 \label{eq:T-res-s}
 \end{align}
 This assumes that $s$ is a non-zero integer.
@@ -358,7 +359,7 @@ This assumes that $s$ is a non-zero integer.
 
 Evolving through a resonance can lead to an enhancement (or decrement) of fluxes relative to the adiabatic prescription. After crossing the resonance region, the orbital parameters are different from those calculated from an adiabatic evolution. Flanagan and Hinderer~\cite{Flanagan2012} gave an expression for this deviation. If we denote the orbital parameters by $\mathcal{I}_a = \{E,L_z,Q\}$, then the change across resonance is
 \begin{equation}
-\Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\sqrt{\dfrac{2\pi}{\left|s \langle\dot{\Omega}\rangle_{q'}\right|}}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
+\Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\sqrt{\dfrac{2\pi}{\left|s \left\langle\dot{\Omega}\right\rangle_{q'}\right|}}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
 \end{equation}
 Here $\widehat{\kappa}_0$ is the orbital phase on resonance and $F_{a,\,s}^{(1)}$ is the $s$-th harmonic of the first-order self-force on resonance, defined such that\footnote{Since the geodesic equations decouple in Mino time rather than coordinate time, this is true only in an average sense.}
 \begin{equation}
@@ -383,70 +384,43 @@ exactly as expected.
 
 To investigate how resonances would impact real-world observations of EMRIs using GWs, we need to generate a realistic astrophysical population of EMRIs\footnote{The actual distribution in parameter space of observable EMRI systems is unknown, but we can make reasonable estimates.} and then evolve these systems in time, including a mechanism to generate the GWs at infinity, which can then be analysed.
 
-We shall now discuss our chosen waveform generation scheme, giving demonstrations of its accuracy for our purposes. We will then detail our procedure for generating a realistic distribution of detectable EMRIs, before turning to the statistical effect of resonances on the population at the end of the section.
+We discuss our chosen waveform generation scheme, giving demonstrations of its accuracy for our purposes. We then detail our procedure for generating a realistic distribution of detectable EMRIs, before turning to the statistical effect of resonances on the population at the end of the section.
 
 \subsection{Waveform model}
 
-To generate gravitational waveforms, we choose to employ the 'Numerical Kludge' (NK) method of Babak \emph{et al}~\cite{Babak2007}. The principle behind the class of so-called kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives very similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher~\cite{Babak2007}.
+To generate gravitational waveforms, we choose to employ the numerical kludge (NK) method of Babak \emph{et al}~\cite{Babak2007}. The principle behind the class of kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
 
-Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the post-Newtonian self-force from \secref{self-force}. We then interpret the Boyer-Lindquist coordinates as spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique. Specifically, we apply the standard quadrupole formula~\cite{Misner1973}.
+Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the post-Newtonian self-force from \secref{self-force}. We then interpret the Boyer--Lindquist coordinates as spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique; specifically, we apply the standard quadrupole formula~\cite{Misner1973}.
 
 We expect these waveforms to be sufficiently accurate for our purposes, given the inaccuracy of the self-force model being employed. It would, however, be straight-forward to adopt a different waveform generation scheme, for example by including higher order multipole moments, should advances be made in determining the self-force.
 
-Once we have established a waveform generation procedure, we can define a natural inner product between two waveforms, $s_A(t)$ and $h_A(t)$, according to
+Once we have established a waveform generation procedure, we can define a natural inner product between two waveforms, $s(t)$ and $h(t)$, according to
 \begin{equation}
 \label{eq:innerprod}
-\overlap{s}{h} = 2 \sum_{A=+,\times}\intd{0}{\infty}{\frac{\tilde{s}_A(f)\tilde{h}_A^*(f)+\tilde{s}_A^*(f)\tilde{h}_A(f)}{S_n(f)}}{f},
+\overlap{s}{h} = 2 \intd{0}{\infty}{\frac{\tilde{s}(f)\tilde{h}^*(f)+\tilde{s}^*(f)\tilde{h}(f)}{S_n(f)}}{f},
 \end{equation}
-where $\tilde{s}_A(f)$ represents the Fourier transform of $s_A(t)$ and similarly for $\tilde{h}_A(f)$, $A = \{+,\times\}$ denotes the plus- or cross-polarisation state of the GW and $S_n(f)$ is the one-sided noise power spectral density (PSD). We are interested in the detectability of EMRIs using future space-based GW detectors and so we use a PSD appropriate for describing the eLISA mission concept. The analytic approximation we use is~\cite{Amaro-Seoane2012a}
-\begin{widetext}\begin{equation}
-S_n(f) = \frac{20}{3}\frac{4 S_{acc}(f)/(2\pi f)^4 + S_{sn}(f) + S_{omn}(f)}{L^2} \left(1+\left(\frac{f}{0.41 c/2L}\right)\right)^2,
-\end{equation}\end{widetext}
-where $L = 1\;\mathrm{Mkm}$ is the length of the interferometer arms, $c$ is the speed of light and the components of noise separate into: the noise due to residual test mass acceleration $S_{acc}(f) = 2.13\times10^{-29}(1+10^{-4}\mathrm{Hz}/f)\;\mathrm{m^2\,s^{-4}\,Hz^{-1}}$; the shot noise $S_{sn} = 5.25\times10^{-23}\;\mathrm{m^2\,Hz^{-1}}$; and all other measurement noises $S_{omn} = 6.28\times10^{-23}\;\mathrm{m^2\,Hz^{-1}}$. We show a plot of this PSD against frequency in \figref{noise-curves}, along with the corresponding curve for the LISA detector for comparison. The effect of white dwarf (WD) confusion noise, which is important for LISA (as shown in the figure), doesn't significantly impact the eLISA mission and so we neglect it.
+where $\tilde{s}(f)$ represents the Fourier transform of $s(t)$ and similarly for $\tilde{h}(f)$, and $S_n(f)$ is the one-sided noise power spectral density (PSD). We are interested in the detectability of EMRIs using future space-based GW detectors and so we use a PSD appropriate for describing the eLISA mission concept. We use the analytic approximation of Amaro-Seoane \emph{et al}~\cite{Amaro-Seoane2012a}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.46\textwidth]{Fig_noise_curves}
-\caption{\label{fig:noise-curves}One-sided noise power spectral densities for space-based GW detectors, eLISA and LISA. The effect of WD confusion noise is shown for the LISA curve.}
-\end{figure}
-
-In practice, the functions $s_A(t)$ and $h_A(t)$ will not be available, instead replaced by the time series $s_A(t_i)$ and $h_A(t_j)$ where $\{t_i\}$ and $\{t_j\}$ are equally-spaced sets of time values but which do not necessarily have the same length or spacing. To take this into account, when evaluating overlaps, we first project the $h_A(t_j)$ onto $\{t_i\}$ using a cubic interpolation scheme, setting any values outside the domain of $\{t_j\}$ to zero. A Planck-taper window function~\cite{McKechan2010} is applied to the resulting time series. This can be defined in a continuous form by
-\begin{equation}
-w(t) = \left\{
-\begin{array}{ll}
-	0 & t\leq t_1 \\
-	1\big/\left(1+\exp\left(\frac{t_2-t_1}{t-t_1}+\frac{t_2-t_1}{t-t_2}\right)\right) & t_1 < t < t_2 \\
-	1 & t_2\leq t\leq t_3 \\
-	1\big/\left(1+\exp\left(\frac{t_3-t_4}{t-t_3}+\frac{t_3-t_4}{t-t_4}\right)\right) & t_3 < t < t_4 \\
-	0 & t_4\leq t,
-\end{array}\right.
-\end{equation}
-where $t_1$ and $t_4$ are chosen to encompass the whole waveform and $t_2$ and $t_3$ are the times of the second closest stationary points to each end. We demonstrate the application of this window function to a simple sinusoid in \figref{window-func}, with a comparison to the uniform window, which is unity for $t_1\leq t\leq t_4$ and zero elsewhere. The use of the second stationary points from each end in the Planck-taper ensures that the transition is not too sharp; the smoothness of the waveform at each end reduces unwanted spectral leakage in the Fourier transforms.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.46\textwidth]{Fig_window_func}
-\caption{\label{fig:window-func}Two window functions applied to a simple sinusoid: the uniform (dashed) and the Planck-taper (solid). The Planck-tapered sinusoid has no discontinuities at the endpoints.}
-\end{figure}
+In practice, the continuous functions $s(t)$ and $h(t)$ are not available, instead replaced by the time series $s(t_i)$ and $h(t_j)$ where $\{t_i\}$ and $\{t_j\}$ are equally-spaced sets of time values, but which do not necessarily have the same length or spacing. To take this into account, when evaluating overlaps, we first project the $h(t_j)$ onto $\{t_i\}$ using a cubic interpolation scheme, setting any values outside the domain of $\{t_j\}$ to zero. A Planck-taper window function~\cite{McKechan2010} is applied to the resulting time series to reduce unwanted spectral leakage in the Fourier transforms.
 
 After tapering the projected waveforms, we then calculate overlaps using \eqnref{innerprod} but with discrete Fourier transforms and the integral over frequency replaced with an appropriate sum over Fourier modes. In addition, we maximise every overlap calculation with respect to some time-offset between the models by computing the correlation between the waveforms. This can be performed cheaply using Fourier transforms and can provide a significant increase to the overlap, even though typical offset times are shorter than the orbital timescale.
 
 %This whole procedure gives more accurate results than interpolating in the Fourier domain since the waveforms are smoother in the time domain.
 
-One of the targets of pre-eLISA research is to generate a bank of waveform templates, $h_A(t;\lambda^a)$ described by some set of parameters $\lambda^a$. Once real-world data, $s_A(t)$, has been collected, we can then search over the template bank to find the model that most closely matches the data. At the current time, with a lack of experimental data, we are interested in ensuring that the waveform templates accurately reproduce what we expect to observe in nature, without being too computationally expensive.
+One of the targets of pre-eLISA research is to generate a bank of waveform templates, $h(t;\Theta^a)$ described by some set of parameters $\Theta^a$. Once real-world data, $s(t)$, has been collected, we can then search over the template bank to find the model that most closely matches the data. At the current time, with a lack of experimental data, we are interested in ensuring that the waveform templates accurately reproduce what we expect to observe in nature, without being too computationally expensive.
 
-Ideally, we would like to use waveform templates from EMRI systems that are evolved under the entire self-force model, but these are too expensive. In practice, we are therefore forced to use cheaper adiabatic waveforms, but these do not include the effect of resonances. To assess the impact of this, we compare data $s_A(t;\bar{\lambda}^a)$ generated using the full self-force model to templates $h_A(t;\lambda^a)$ generated using the expensive 2-torus averaged self-force model. As discussed before, this eliminates any other effects and allows us to focus on the resonance problem.
+Ideally, we would like to use waveform templates from EMRI systems that are evolved under the entire self-force model, but these are too expensive. In practice, we are forced to use cheaper adiabatic waveforms, but these do not include the effect of resonances. To assess the impact of this, we compare data $s(t;\bar{\Theta}^a)$ generated using the full self-force model to templates $h(t;\Theta^a)$ generated using the expensive 2-torus averaged self-force model (see \secref{adiabatic}).
 
-We wish to test whether there exists some set of parameters $\lambda^a$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the signal-to-noise ratio (SNR) for each waveform template, defined by
+We wish to test whether there exists some set of parameters $\Theta^a$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the signal-to-noise ratio (SNR) for each waveform template, defined by
 \begin{equation}
-\frac{S}{N}\left[h\right] = \frac{\langle\overlap{s}{h}\rangle_n}{\sqrt{\left\langle\overlap{n}{h}^2\right\rangle_n}} = \frac{\overlap{s}{h}}{\sqrt{\overlap{h}{h}}},
+\rho\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{h}{h}}}.
 \end{equation}
-where $\langle\rangle_n$ represents an average over all possible noise realisations. If a template were to exactly match the data, it would produce an SNR of $\sqrt{\overlap{s}{s}}$ and so the overlap
+If a template were to exactly match the data, it would produce an SNR of $\sqrt{\overlap{s}{s}}$ and so the overlap
 \begin{equation}
 \label{eq:overlap}
 \mathcal{O}\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{s}{s}}\sqrt{\overlap{h}{h}}}
 \end{equation}
-provides an indication of how well-matched the template is to the data. We leave an investigation into parameter estimation biases (where the parameters of the best-matching adiabatic, $\lambda^a$, do not agree with the parameters of the system, $\bar{\lambda}^a$) to future work.
+provides an indication of how well-matched the template is to the data. We leave an investigation into parameter estimation biases (where the parameters of the best-matching adiabatic $\Theta^a$ do not agree with the parameters of the system $\bar{\Theta}^a$) to future work.
 
 To demonstrate the approach, we calculate the full evolution and the 2-torus averaged adiabatic evolution over $2$ years for a set of initial parameters chosen to avoid any significant resonances. Specifically, we choose: the mass of the CO $\mu = 10 M_{\odot}$; the mass ratio $\mu / M = 3\times 10^{-6}$ where $M$ is the mass of the central BH; the spin of the central BH $a=0.95$; the initial dimensionless semi-latus rectum $p=7.5$; the initial eccentricity $e=0.7$; the initial inclination angle $\cos \iota = 0.5$; and the redshift of the source $z=0.204$. The remaining intrinsic (the initial phases $\psi$ and $\chi$) and extrinsic (the position of the source on the sky, the direction of the spin of the central BH and the azimuthal angle) parameters are set to arbitrary values. The resulting evolutions of the orbital parameters $E$, $L_z$ and $Q$ are shown in \figref{good-traj}, where it can be seen that the adiabatic evolution closely matches the full evolution on longer inspiral timescales. The inset plots show the start of the evolution, on a timescale associated with the orbital motion of the CO; the 2-torus averaging explicitly smoothes out the visible structure on this scale.
 
