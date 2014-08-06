@@ -1,4 +1,4 @@
-\documentclass[aps,prd,amsfonts,amssymb,amsmath,nofootinbib,reprint,showpacs,superscriptaddress,twocolumn]{revtex4}
+\documentclass[aps,prd,amsfonts,amssymb,amsmath,nofootinbib,showpacs,superscriptaddress,twocolumn]{revtex4}
 \usepackage{graphicx}
 \usepackage{color}
 %\usepackage{psfrag}
@@ -49,6 +49,7 @@
 \affiliation{Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom}
 \author{Christopher P.L. Berry}
 \email[]{cplb@star.sr.bham.ac.uk}
+\affiliation{Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom}
 \affiliation{School of Physics and Astronomy, University of Birmingham, Edgbaston, Birmingham B15 2TT, United Kingdom}
 \author{Priscilla Ca\~{n}izares}
 \email[]{pcm@ast.cam.ac.uk}
@@ -359,7 +360,7 @@ This assumes that $s$ is a non-zero integer.
 
 Evolving through a resonance can lead to an enhancement (or decrement) of fluxes relative to the adiabatic prescription. After crossing the resonance region, the orbital parameters are different from those calculated from an adiabatic evolution. Flanagan and Hinderer~\cite{Flanagan2012} gave an expression for this deviation. If we denote the orbital parameters by $\mathcal{I}_a = \{E,L_z,Q\}$, then the change across resonance is
 \begin{equation}
-\Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\sqrt{\dfrac{2\pi}{\left|s \left\langle\dot{\Omega}\right\rangle_{q'}\right|}}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
+\Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\left[\dfrac{2\pi}{\left|s \left\langle\dot{\Omega}\right\rangle_{q'}\right|}\right]^{1/2}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
 \end{equation}
 Here $\widehat{\kappa}_0$ is the orbital phase on resonance and $F_{a,\,s}^{(1)}$ is the $s$-th harmonic of the first-order self-force on resonance, defined such that\footnote{Since the geodesic equations decouple in Mino time rather than coordinate time, this is true only in an average sense.}
 \begin{equation}
