@@ -1,9 +1,9 @@
 
 The impact of passing through resonance on the evolution can be modelled analytically using asymptotic expansions~\cite{Gair2012}. Solutions for the motion are constructed far away from resonance and these are matched to a transition region in the vicinity of resonance~\cite{Kevorkian1971,Bosley1992}. By comparing the matched solution, which incorporates the effects of resonance, with the results of an adiabatic evolution, it is possible to estimate the discrepancy in the orbital parameters. This determines the difference in the orbital phase between the two approaches. If this error is sufficiently small, then it is safe to ignore the effects of the resonance; however, only a small difference is needed to impact the subsequent waveform, since the error accumulates over the subsequent observation of $\sim \order{\eta^{-1}}$ cycles~\cite{Flanagan2012}. We derive formulae which can be used to calculate the discrepancy in the orbital parameters.
 
-The following derivation is based upon the analysis of Kevorkian~\cite{Kevorkian1987}.\footnote{The same two time-scale theory underpins the analysis of Hinderer and Flanagan~\cite{Hinderer2008}, but this explicitly ignores resonances.} Small adjustments have been made to adapt to the specific problem of GW inspiral, but the general argument is unchanged.
+The following derivation is reproduced from Berry~\cite{BerryThesis2013} and is based upon the analysis of Kevorkian~\cite{Kevorkian1987}.\footnote{The same two time-scale theory underpins the analysis of Hinderer and Flanagan~\cite{Hinderer2008}, but this explicitly ignores resonances.} Small adjustments have been made to adapt to the specific problem of GW inspiral, but the general argument is unchanged. A similar derivation can be found by van de Meent~\cite{VanDeMeent2014}.
 
-We model the system using action--angle variables. We are only concerned with the $r$ and $\theta$ motions, so we have a $2$-dimensional system. We perform a canonical transformation  to isolate the resonant combination $q = n_r q_r - n_\theta q_\theta$~\cite{Bosley1992}. This becomes one of the new angle variables, the other variable $q'$ can be either $q_r$ or $q_\theta$ (as, on resonance, varying one necessarily changes the other). We use $J$ as the conjugate action variable to $q$ and $\omega = n_r \omega_r - n_\theta \omega_\theta$ as its frequency. Similarly, we use $J'$ as the action variable conjugate to $q'$. The system evolves through resonance slowly, on an evolution time-scale, so we parameterize it in terms of a slow time parameter
+We model the system using action--angle variables. We are only concerned with the $r$ and $\theta$ motions, so we have a $2$-dimensional system. We perform a canonical transformation  to isolate the resonant combination $q = n_r q_r - n_\theta q_\theta$~\cite{Bosley1992,VanDeMeent2014}. This becomes one of the new angle variables, the other variable $q'$ can be either $q_r$ or $q_\theta$ (as, on resonance, varying one necessarily changes the other). We use $J$ as the conjugate action variable to $q$ and $\omega = n_r \omega_r - n_\theta \omega_\theta$ as its frequency. Similarly, we use $J'$ as the action variable conjugate to $q'$. The system evolves through resonance slowly, on an evolution time-scale, so we parameterize it in terms of a slow time parameter
 \begin{equation}
 \widetilde{\lambda} = \eta\lambda.
 \end{equation}
@@ -48,7 +48,7 @@ We can also write a series expansion for the frequency, since it is affected by 
 \begin{equation}
 \omega(\lambda;\,\eta) = \omega_0\left(\widetilde{\lambda}\right) + \eta \omega_1\left(\widetilde{\lambda}\right) + \order{\eta^2}.
 \end{equation}
-In the limit of $\eta \rightarrow 0$ we are left with a constant frequency $\omega_0(0)$. The higher order terms are identified below by matching terms in the series expansions of the equations of motion. Taking the two time-scales as independent, we may write the time derivative to $\order{\eta}$ as
+In the limit of $\eta \rightarrow 0$ we are left with a constant frequency $\omega_0(0)$. The higher-order terms are identified below by matching terms in the series expansions of the equations of motion. Taking the two time-scales as independent, we may write the time derivative to $\order{\eta}$ as
 \begin{equation}
 \diffop{\lambda} = \omega_0\partialdiffop{\Psi} + \eta\omega_1\partialdiffop{\Psi} + \eta\partialdiffop{\widetilde{\lambda}}.
 \end{equation}
@@ -69,7 +69,7 @@ Averaging \eqnref{J-1} over $\Psi$ gives\footnote{The ansatz is constructed such
 \partialdiff{J_0}{\widetilde{\lambda}} = G_0^{(1)}(J_0).
 \label{eq:J-ad}
 \end{equation}
-This describes the adiabatic evolution, hence we can identify $J_0\left(\widetilde{\lambda}\right)$ with (the lowest order piece of) the adiabatic solution~\cite{Hinderer2008}. If we similarly average \eqnref{q-1} we find
+This describes the adiabatic evolution, hence we can identify $J_0\left(\widetilde{\lambda}\right)$ with (the lowest order piece of) the adiabatic solution~\cite{Hinderer2008}. If we similarly average \eqnref{q-1}, we find
 \begin{equation}
 \omega_0 + \eta\omega_1 +\eta\partialdiff{q_0}{\widetilde{\lambda}} = \omega(J_0) + \eta\partialdiff{\omega}{J}\langle J_1\rangle_\Psi + \eta g_0^{(1)}(J_0).
 \end{equation}
