@@ -252,12 +252,14 @@ To be specific, we write \eqnref{Mino-E-o-M} as
 \end{subequations}
 where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms containing $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an ``adiabatic evolution'' in fact refer to a ``quasi-adiabatic evolution''.
 
+The combination of a full instantaneous evolution and an adiabatic evolution allows us to systematically study the effect of transient resonances on EMRIs over the course of an inspiral. Before approaching this problem, we first investigate the properties of the resonances themselves.
+
 
 \section{Properties of Transient Resonances}
 \label{sec:properties}
 \subsection{Location}
 
-The first step in studying the effect of transient resonance is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. \Figref{res-plane-2-5-95} shows the semilatus rectum, eccentricity and (cosine of the) inclination angle of the $\nu = 2/5$ resonance surface for a BH of spin $a_\ast = 0.95$. 
+The first step in studying the effect of transient resonances is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. \Figref{res-plane-2-5-95} shows the semilatus rectum, eccentricity and (cosine of the) inclination angle of the $\nu = 2/5$ resonance surface for a BH of spin $a_\ast = 0.95$. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.46\textwidth]{Fig_res-2-5-95-plane}
@@ -375,6 +377,8 @@ Schematically, this can be understood as the magnitude of the forcing function o
 \left\langle \Delta \mathcal{I}_a \right\rangle_{\hat{\kappa}_0} = 0,
 \end{equation}
 exactly as expected.
+
+Knowing where resonances are found in parameter space, how long they last, and how big an effect they are likely to have, enables us to study and interpret the observable effects of resonances on a population of inspirals.
 
 
 \section{Astrophysical implications}
@@ -592,11 +596,13 @@ Even within the low eccentricity systems considered here, it is possible for som
 \section{Concluding remarks}
 \label{sec:conclusion}
 
-Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral. However, due to the low eccentricity of detectable sources, the overall effect on SNR recovery is small; it is therefore likely to be sufficient to use adiabatic models to detect EMRIs. An unresolved question here is how these adiabatic models affect parameter estimation: systematic biases may be introduced if we neglect the presence of important resonances.
+Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral. We have presented an evolution scheme appropriate for studying the effects of resonances on inspirals, which has been applied to an astrophysically realistic population. The location and duration of resonances, as well as their effect on orbital parameters, can all be calculated.
 
-High eccentricity EMRIs may also be possible, in which case transient resonances will play an important role in their detectability; systems that undergo a jump of a few percent dephase very rapidly from the adiabatic approximation. In such scenarios, adiabatic models can still be used, but there must be sufficient SNR in each non-resonant region that they can be identified as individual sources and then joined together as one long inspiral. Otherwise, if the phase difference on resonance can be predicted, \eqnref{delta-I-a} can be used to join together different adiabatic models.
+Amongst a population of sources, unmodelled resonances could diminish detection prospects. However, due to the low eccentricity of detectable sources, the overall effect on SNR recovery is small; it is therefore likely to be sufficient to use adiabatic models to detect EMRIs. An unresolved question here is how using these adiabatic models would affect parameter estimation: systematic biases may be introduced if we neglect the presence of important resonances. One method of providing an answer to this problem is to perform an MCMC parameter estimation study using our adiabatic waveforms as templates; we leave this to future work.
 
-This work is highly dependent on the chosen self-force model, and so the results should be taken as qualitative estimates, given the unsuitability of a PN self-force to the problem of fast motion near to highly-spinning BHs. In the future, with a more accurate self-force model, more quantitative results can be derived.
+High eccentricity EMRIs may be possible, in which case transient resonances will play an important role in their detectability; systems that undergo a jump of a few percent dephase very rapidly from the adiabatic approximation. In such scenarios, adiabatic models can still be used, but there must be sufficient SNR in each non-resonant region that they can be detected as individual sources and then identified as arising from the same inspiral. If this is not possible, \eqnref{delta-I-a} can be used to join together different adiabatic models, if the phase on resonance and the magnitude of the self-force can be predicted sufficiently accurately. Alternatively, the jump $\Delta\mathcal{I}_\mathrm{jump}$ for each orbital parameter could be included as a free parameter in the template space, and then searched over. Such hybrid models merit further study as relatively simple ways of incorporating resonance effects into adiabatic models.
+
+This work is highly dependent on the chosen self-force model, and so the results should be taken as qualitative estimates, given the unsuitability of a PN self-force to the problem of fast motion near to highly-spinning BHs. In the future, with a more accurate self-force model, more exact quantitative results can be derived.
 
 \begin{acknowledgments}
 The authors extend our sincere gratitude to \'{E}anna Flanagan and Tanja Hinderer for providing their PN self-force code, without which this work would not be possible. We also wish to thank Tanja Hinderer, Jeandrew Brink, Maarten van de Meent and Leor Barack for useful conversations. RHC is supported by STFC; CPLB was supported by STFC and the Cambridge Philosophical Society; PC is supported by a Marie Curie Fellowship, and JRG is supported by the Royal Society.
