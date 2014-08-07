@@ -227,19 +227,16 @@ The self-force model uses the first-order PN terms of the dissipative self-force
 
 Beyond geodesic motion in the Kerr spacetime, a test particle follows an accelerated trajectory determined by \eqnref{Mino-E-o-M}. This may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and so signifies that flux is carried away from the system by GWs.
 
-In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we first transform to Mino time where the motion is biperiodic
-\begin{equation}
-\left\langle \dot{X}\right\rangle_{\psi,\,\chi} \simeq \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right..
-\end{equation}
-It is then possible to calculate
+In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
 \begin{widetext}\begin{equation}
 \label{eq:2torus-average}
-\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi},
-\end{equation}
-\begin{equation}
-\left\langle \dot{X}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-2} \dot{X} }{\chi} }{\psi},
+\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi}.
 \end{equation}\end{widetext}
-in terms of precomputed quantities \cite{Drasco2005}. This form of averaging is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
+We then obtain a coordinate time derivative
+\begin{equation}
+\dot{\left\langle X\right\rangle}_{\psi,\,\chi} = \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right.,
+\end{equation}
+which is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
 The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{\psi,\,\chi}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
