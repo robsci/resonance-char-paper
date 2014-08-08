@@ -42,7 +42,7 @@
 
 %\preprint{}
 
-\title{Characterisation of transient resonances in extreme-mass-ratio-inspirals}
+\title{Characterisation of transient resonances in extreme-mass-ratio inspirals}
 
 \author{Robert H. Cole}
 \email[]{rhc26@ast.cam.ac.uk}
@@ -60,7 +60,7 @@
 \date{\today}
 
 \begin{abstract}
-The inspiral of stellar-mass compact objects into supermassive black holes provides a wealth of information about the strong gravitational-field regime via the emission of gravitational waves. In order to detect such signals and extract the desired information, it is necessary to possess a bank of accurate waveform templates. For computational efficiency, adiabatic templates are often used, which accurately reproduce orbit-averaged trajectories arising from the first order dissipative gravitational self-force. Other effects are however neglected, in particular that of transient resonances, where the radial and poloidal fundamental frequencies become commensurate. During such resonances, the flux of gravitational waves can be diminished or enhanced, leading to a shift in the compact-object trajectory and, ultimately, the phase of the emitted radiation. In this work, an astrophysical population of detectable extreme-mass-ratio-inspirals is studied and it is found that a large proportion shall encounter a low-order resonance in the later stages of inspiral. The resulting effect on signal-to-noise recovery is small due to the low eccentricity of the studied population, but nevertheless at least one fifth of the systems may become undetectable if transient resonances aren't accounted for.
+The inspiral of stellar-mass compact objects into supermassive black holes provides a wealth of information about the strong gravitational-field regime via the emission of gravitational waves. In order to detect such signals and extract the desired information, it is necessary to possess a bank of accurate waveform templates. For computational efficiency, adiabatic templates are often used, which accurately reproduce orbit-averaged trajectories arising from the first order dissipative gravitational self-force. Other effects are however neglected, in particular that of transient resonances, where the radial and poloidal fundamental frequencies become commensurate. During such resonances, the flux of gravitational waves can be diminished or enhanced, leading to a shift in the compact-object trajectory and, ultimately, the phase of the emitted radiation. In this work, an astrophysical population of detectable extreme-mass-ratio inspirals is studied and it is found that a large proportion shall encounter a low-order resonance in the later stages of inspiral. The resulting effect on signal-to-noise recovery is small due to the low eccentricity of the studied population, but nevertheless at least one fifth of the systems may become undetectable if transient resonances aren't accounted for.
 \end{abstract}
 
 % 04.25.Nx 	Post-Newtonian approximation; perturbation theory; related approximations
@@ -87,7 +87,7 @@ In the weak-field limit, these all tend towards the Keplerian frequency; in the 
 where $n_r$ and $n_\theta$ are integers (with no common factors). During resonance, terms in the self-force that usually average to zero can combine coherently, significantly impacting the orbital motion~\cite{Flanagan2012a}. Resonances involving the azimuthal motion do not produce a comparable effect because of the axisymmetry of the background spacetime.
 
 Geodesic motion in Kerr spacetime can be described by use of the action--angle formalism~\cite{Goldstein2002}. % Chapter 10
-We shall consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.}, and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$ \citep{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
+We consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.}, and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$ \citep{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
 \begin{subequations}
 \label{eq:Mino-E-o-M}
 \begin{align}
@@ -129,7 +129,7 @@ V_r = {} & \mathcal{T}^2 - \Delta\left[r^2 + \left(L_z -aE\right)^2 + Q\right],\
 V_\theta = {} & Q - \cos^2 \theta\left[a^2\left(1 - E^2\right) + {\displaystyle \frac{L_z^2}{\sin^2\theta}}\right].
 \end{align}
 \end{subequations}
-As an affine parameter we have used Mino time which is related to the proper time $\tau$ by~\cite{Mino2003}
+As an affine parameter, we have used Mino time which is related to the proper time $\tau$ by~\cite{Mino2003}
 \begin{equation}
 \tau = \intd{}{}{r^2 + a^2 \cos^2\theta}{\lambda}.
 \end{equation}
@@ -212,7 +212,7 @@ Given geodesic motion in some background spacetime with Christoffel symbols $\Ga
 \begin{equation}
 \difftwo{x^\alpha}{\tau} + \Gamma^\alpha_{\beta\gamma}\diff{x^\beta}{\tau}\diff{x^\gamma}{\tau} = f^\alpha,
 \end{equation}
-we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair et al \cite{Gair2011a}.
+we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair {\it{et al}}.~\cite{Gair2011a}.
 
 
 \subsection{Self-force model}
@@ -389,7 +389,7 @@ We discuss our chosen waveform generation scheme, giving demonstrations of its a
 
 \subsection{Waveform model}
 
-To generate gravitational waveforms, we choose to employ the numerical kludge (NK) method of Babak \emph{et al}~\cite{Babak2007}. The principle behind the class of kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
+To generate gravitational waveforms, we choose to employ the numerical kludge (NK) method of Babak {\it{et al}}.~\cite{Babak2007}. The principle behind the class of kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
 
 Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the post-Newtonian self-force from \secref{self-force}. We then interpret the Boyer--Lindquist coordinates as spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique; specifically, we apply the standard quadrupole formula~\cite{Misner1973}.
 
@@ -400,7 +400,7 @@ Once we have established a waveform generation procedure, we can define a natura
 \label{eq:innerprod}
 \overlap{s}{h} = 2 \intd{0}{\infty}{\frac{\tilde{s}(f)\tilde{h}^*(f)+\tilde{s}^*(f)\tilde{h}(f)}{S_n(f)}}{f},
 \end{equation}
-where $\tilde{s}(f)$ represents the Fourier transform of $s(t)$ and similarly for $\tilde{h}(f)$, and $S_n(f)$ is the one-sided noise power spectral density (PSD). We are interested in the detectability of EMRIs using future space-based GW detectors and so we use a PSD appropriate for describing the eLISA mission concept. We use the analytic approximation of Amaro-Seoane \emph{et al}~\cite{Amaro-Seoane2012a}
+where $\tilde{s}(f)$ represents the Fourier transform of $s(t)$ and similarly for $\tilde{h}(f)$, and $S_n(f)$ is the one-sided noise power spectral density (PSD). We are interested in the detectability of EMRIs using future space-based GW detectors and so we use a PSD appropriate for describing the eLISA mission concept. We use the analytic approximation of Amaro-Seoane {\it{et al}}.~\cite{Amaro-Seoane2012a}
 
 In practice, the continuous functions $s(t)$ and $h(t)$ are not available, instead replaced by the time series $s(t_i)$ and $h(t_j)$ where $\{t_i\}$ and $\{t_j\}$ are equally-spaced sets of time values, but which do not necessarily have the same length or spacing. To take this into account, when evaluating overlaps, we first project the $h(t_j)$ onto $\{t_i\}$ using a cubic interpolation scheme, setting any values outside the domain of $\{t_j\}$ to zero. A Planck-taper window function~\cite{McKechan2010} is applied to the resulting time series to reduce unwanted spectral leakage in the Fourier transforms.
 
