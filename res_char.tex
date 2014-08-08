@@ -87,7 +87,7 @@ In the weak-field limit, these all tend towards the Keplerian frequency; in the 
 where $n_r$ and $n_\theta$ are integers (with no common factors). During resonance, terms in the self-force that usually average to zero can combine coherently, significantly impacting the orbital motion~\cite{Flanagan2012a}. Resonances involving the azimuthal motion do not produce a comparable effect because of the axisymmetry of the background spacetime.
 
 Geodesic motion in Kerr spacetime can be described by use of the action--angle formalism~\cite{Goldstein2002}. % Chapter 10
-We consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.}, and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$ \citep{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
+We consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$,\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.} and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$ \citep{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
 \begin{subequations}
 \label{eq:Mino-E-o-M}
 \begin{align}
@@ -225,20 +225,40 @@ The self-force model uses the first-order PN terms of the dissipative self-force
 \subsection{Adiabatic evolution}
 \label{sec:adiabatic}
 
-Beyond geodesic motion in the Kerr spacetime, a test particle follows an accelerated trajectory determined by \eqnref{Mino-E-o-M}. This may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and so signifies that flux is carried away from the system by GWs.
+Beyond geodesic motion in the Kerr spacetime, a test particle follows an accelerated trajectory determined by \eqnref{Mino-E-o-M}. This may be approximated by the adiabatic prescription~\cite{Hinderer2008} by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\cite{Drasco2005}. This piece is purely dissipative and determines how the inspiral evolves due to the radiation of GWs.
 
-In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
-\begin{widetext}\begin{equation}
-\label{eq:2torus-average}
-\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi}.
-\end{equation}\end{widetext}
-We then obtain a coordinate time derivative
+To construct an adiabatic trajectory we need the $2$-torus-averaged fluxes of our osculating elements. Computing an average of a quantity over the $\{q_r, q_\theta\}$ is trivial if it is parametrized in terms of these variables,
 \begin{equation}
-\dot{\left\langle X\right\rangle}_{\psi,\,\chi} = \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right.,
+\left\langle \diff{X}{\lambda}\right\rangle_{q_r,\,q_\theta} = \frac{1}{(2\pi)^2}\intd{0}{2\pi}{\intd{0}{2\pi}{\diff{X}{\lambda}}{q_r}}{q_\theta}.
 \end{equation}
-which is successful at describing the leading order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
+However, we are using $\psi$ and $\chi$, as these are simpler to evolve; furthermore, we compute instantaneous co-ordinate time fluxes $\dot{X}$, not Mino-time fluxes. Changing variables gives an average of \cite{Drasco2005}
+\begin{widetext}\begin{align}
+\left\langle \diff{X}{\lambda}\right\rangle_{q_r,\,q_\theta} = {} & \frac{1}{\Lambda_r \Lambda_\theta}\intd{0}{2\pi}{\intd{0}{2\pi}{\left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-2} \diff{X}{\lambda}}{\psi}}{\chi} \\
+ = {} & \frac{1}{\Lambda_r \Lambda_\theta}\intd{0}{2\pi}{\intd{0}{2\pi}{\left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X}}{\psi}}{\chi}.
+\label{eq:2torus-average}
+\end{align}\end{widetext}
+This average describes the Mino-time rate of change of the quantity $X$ over an orbit. To convert to a co-ordinate flux of the averaged quantity, we simply divide by the period $\Gamma$, defining
+\begin{equation}
+\dot{\left\langle X\right\rangle}_{q_r,\,q_\theta} = \frac{1}{\Gamma}\left\langle \diff{X}{\lambda}\right\rangle_{q_r,\,q_\theta}.
+\end{equation}
+Is in convenient to calculate $\Gamma$ as
+\begin{equation}
+\Gamma = \left\langle \diff{t}{\lambda}\right\rangle_{q_r,\,q_\theta},
+\end{equation}
+using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\Lambda_\theta$ from the calculation. The averaged fluxes successfully describe the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
-The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{\psi,\,\chi}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
+%In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
+%\begin{widetext}\begin{equation}
+%\label{eq:2torus-average}
+%\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi}.
+%\end{equation}\end{widetext}
+%We then obtain a coordinate time derivative
+%\begin{equation}
+%\dot{\left\langle X\right\rangle}_{\psi,\,\chi} = \left.\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi}\middle/\left\langle \diff{t}{\lambda}\right\rangle_{\psi,\,\chi}\right.,
+%\end{equation}
+%which is successful at describing the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
+
+The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{q_r,\,q_\theta}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
 One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply; however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as both are explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
 
@@ -246,8 +266,8 @@ To be specific, we write \eqnref{Mino-E-o-M} as
 \begin{subequations}
 \begin{align}
 \label{eq:Mino-E-o-M2}
-\diff{q_\alpha}{\lambda} = {} & \omega_\alpha(\boldsymbol{J}) + \eta \langle g_\alpha\rangle_{\psi,\,\chi}(\boldsymbol{J}) + \eta \hat{g}_\alpha(q_r,q_\theta,\boldsymbol{J}), \\
-\diff{J_\alpha}{\lambda} = {} & \eta \langle G_\alpha\rangle_{\psi,\,\chi}(\boldsymbol{J}) + \eta \hat{G}_\alpha(q_r,q_\theta,\boldsymbol{J}),
+\diff{q_\alpha}{\lambda} = {} & \omega_\alpha(\boldsymbol{J}) + \eta \langle g_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{g}_\alpha(q_r,q_\theta,\boldsymbol{J}), \\
+\diff{J_\alpha}{\lambda} = {} & \eta \langle G_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{G}_\alpha(q_r,q_\theta,\boldsymbol{J}),
 \end{align}
 \end{subequations}
 where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms containing $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an ``adiabatic evolution'' in fact refer to a ``quasi-adiabatic evolution''.
@@ -341,7 +361,7 @@ Since we have argued that the effect of resonance can be thought of as a consequ
 t\sub{pres} = {} & \tau\sub{pres}(t\sub{pres}) \\
  \simeq {} & \dfrac{2\pi}{\left|\left\langle\dot{\Omega}(0)\right\rangle_{q'} t\sub{pres}\right|}, \nonumber 
 \end{align}
-using \eqnref{t-pres} and substituting $\Omega(t\sub{pres}) \simeq \langle\dot{\Omega}\rangle_{q'} t\sub{pres}$. Rearranging and using \eqnref{t-res} gives
+using \eqnref{t-pres} and substituting $\Omega(t\sub{pres}) \simeq \left\langle\dot{\Omega}\right\rangle_{q'} t\sub{pres}$. Rearranging and using \eqnref{t-res} gives
 \begin{equation}
 t\sub{pres} \simeq \tau\sub{res}.
 \end{equation}
@@ -358,9 +378,10 @@ This assumes that $s$ is a non-zero integer.
 \subsection{Resonant flux enhancement}
 
 Evolving through a resonance can lead to an enhancement (or decrement) of fluxes relative to the adiabatic prescription. After crossing the resonance region, the orbital parameters are different from those calculated from an adiabatic evolution. Flanagan and Hinderer~\cite{Flanagan2012} gave an expression for this deviation. If we denote the orbital parameters by $\mathcal{I}_a = \{E,L_z,Q\}$, then the change across resonance is
-\begin{equation}
-\Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\left[\dfrac{2\pi}{\left|s \left\langle\dot{\Omega}\right\rangle_{q'}\right|}\right]^{1/2}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
-\end{equation}
+\begin{align}
+\Delta \mathcal{I}_a = {} & \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\left[\dfrac{2\pi}{\left|s \left\langle\dot{\Omega}\right\rangle_{q'}\right|}\right]^{1/2} \nonumber \\*
+ {} & \times {} \exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
+\end{align}
 Here $\widehat{\kappa}_0$ is the orbital phase on resonance and $F_{a,\,s}^{(1)}$ is the $s$-th harmonic of the first-order self-force on resonance, defined such that\footnote{Since the geodesic equations decouple in Mino time rather than coordinate time, this is true only in an average sense.}
 \begin{equation}
 \diff{\mathcal{I}_a}{t} = \eta\sum_s F_{a,\,s}^{(1)}(\boldsymbol{\mathcal{I}})\exp(is q) + \order{\eta^2}.
