@@ -1,0 +1,376 @@
+\chapter[Extreme-mass-ratio inspirals (EMRIs)]{Extreme-mass-ratio inspirals}\label{ch:EMRIs}
+
+Extreme-mass-ratio inspirals (EMRIs) are one of the main sources of GWs for space-based interferometric detectors \citep{amaro-seoane_intermediate_2007}. They are formed from binary systems where one component is significantly more massive than the other; typically this occurs at the centre of galaxies where SMBHs with masses in the range $10^4 - 10^7 M_\odot$ capture compact objects with masses of $1-10 M_\odot$ from the surrounding galactic nucleus. Due to the effects of mass segregation, heavier objects sink to lower values of the galactic potential closer to the SMBH and so are more likely to be captured \citep{freitag_stellar_2006}. This tends to favour EMRIs involving heavier stellar mass BHs, although it is possible for EMRIs to also form from NSs and WDs. Non-compact objects are tidally disrupted by the SMBH early in their evolution and so do not generate detectable emission, other than from the centre of our own galaxy \citep{freitag_gravitational_2003}.
+
+The extreme mass ratio between the two components in the binary and the compact nature of the smaller object allow for EMRIs to be accurately modelled as a point particle moving in the Kerr spacetime, which we now discuss.
+
+\section{Kerr spacetime}
+The Kerr solution, given by \eqnref{kerr-metric}, is extensively used to describe the spacetime around astrophysical BHs, which are generically expected to possess angular momentum due to accretion from their surroundings.
+
+\subsection{Geodesic motion}
+\label{sec:kerr-geodesic}
+It is well-known that test particles move along geodesics of the background spacetime. As a zeroth-order attempt at describing the behaviour of an EMRI, it is instructive to consider solutions to the geodesic equations
+\begin{equation}
+\label{eq:geodesic-equation}
+\difftwo{x^\alpha}{\tau} + \Gamma^\alpha_{\beta\gamma}\diff{x^\beta}{\tau}\diff{x^\gamma}{\tau} = 0,
+\end{equation}
+where $x^\alpha$ denotes the worldline of a particle, $\tau$ is its proper time, and $\Gamma^\alpha_{\beta\gamma}$ are the connection coefficients, given in terms of the metric by \eqnref{christoffel-symbols}.
+
+It is desirable to find first integrals of \eqnref{geodesic-equation} to obtain expressions for the components of the 4-velocity $u^\alpha$ in terms of conserved quantities. For the Kerr metric, there exist a complete set of constants of the motion: the mass of the test particle, which we henceforth take to be unity; the energy $E = -u_t$ and angular momentum $L_z = u_\phi$, which are conserved due to the isometries of the metric in the coordinates $t$ and $\phi$; and the Carter constant $Q$, which is related to the separability of the motion in $r$ and $\theta$. The geodesic equations can then be written in Boyer--Lindquist coordinates as \citep{schmidt_celestial_2002}
+\begin{subequations}\label{eq:kerr-geodesics}\begin{align}
+\label{eq:kerr-geodesics-t}
+\Sigma \diff{t}{\tau} &= \frac{r^2 + a^2}{\Delta}\mathcal{T} - a\left(aE\sin^2\theta-L_z\right),\\
+\left(\Sigma \diff{r}{\tau}\right)^2 &= R(r),\\
+\left(\Sigma \diff{\theta}{\tau}\right)^2 &= \Theta(\theta),\\
+\Sigma \diff{\phi}{\tau} &= \frac{a}{\Delta}\mathcal{T} - aE + \frac{L_z}{\sin^2\theta},
+\end{align}\end{subequations}
+where the coordinates have been appropriately normalised by the mass of the BH,\footnote{For example, we can define a dimensionless radial Boyer--Lindquist coordinate $\tilde{r}=r/M$ where $M$ is the mass of the BH, and then relabel $\tilde{r} \rightarrow r$. Following this process, the equations are found to be independent of $M$.} $\Delta = r^2 - 2 r + a^2$, $\Sigma = r^2 + a^2 \cos^2\theta$, and we have introduced the potentials
+\begin{align}
+\mathcal{T} &= E(r^2+a^2)-aL_z,\\
+R(r) &= \mathcal{T}^2 - \Delta\left(r^2+(L_z-aE)^2+Q\right),\\
+\Theta(\theta) &= Q - \left((1-E^2)a^2 + \frac{L_z^2}{\sin^2\theta}\right)\cos^2\theta.
+\end{align}
+
+Bound orbits in the Kerr spacetime occur between the two largest roots of $R(r)$, the periapsis $r_p$ and apoapsis $r_a$, such that $r_p \leq r \leq r_a$. By analogy with Keplerian orbits, it is useful to parameterise the radial motion using
+\begin{equation}
+r = \frac{p}{1+e \cos\psi},
+\end{equation}
+where $p$ is the (dimensionless) semi-latus rectum, $e$ is the eccentricity and $\psi$ is the relativistic anomaly, which increases secularly by $2\pi$ as $r$ goes through a complete cycle. Similarly, the polar coordinate oscillates about the equatorial plane, in the range $\theta_\mathrm{inc} \leq \theta \leq \pi - \theta_\mathrm{inc}$, where the inclination angle $\theta_\mathrm{inc}$ is the smallest real root of $\Theta(\theta)$. We parameterise this using
+\begin{equation}
+\cos\theta = \cos\theta_\mathrm{inc} \cos\chi,
+\end{equation}
+where $\chi$ is an auxilliary phase variable. By considering the roots of $R(r)$ and $\Theta(\theta)$, it is possible to convert between the two parameterisations $\{E,\,L_z,\,Q\}$ and $\{p,\,e,\,\theta_\mathrm{inc}\}$, which can both be used to describe the shape of the geodesic orbit; it is easiest to calculate the transformations numerically. We shall also make use of an alternative parameterisation, introducing the inclination $\iota$ to replace $\theta_\mathrm{inc}$. It is defined according to
+\begin{equation}
+\tan \iota = \frac{\sqrt{Q}}{L_z}.
+\end{equation}
+Prograde (retrograde) equatorial orbits have $\cos\iota = (-)1$, while polar orbits have $\cos\iota = 0$.
+
+%Discussion of last stable orbit here? Perhaps show a plot demonstrating the separatrix in Kerr?
+
+The form of the geodesic equations (\ref{eq:kerr-geodesics}), as a function of proper time, couples the radial and polar motions through $\Sigma$. However, there exists a time coordinate $\lambda$, named after \citet{mino_perturbative_2003}, such that
+\begin{equation}
+\dd \lambda = \frac1{\Sigma} \dd \tau,
+\end{equation}
+and which decouples the motions. It is straightforward to calculate the Mino-time periods of the motion
+\begin{subequations}\begin{align}
+\Lambda_r &= 2 \intd{r_p}{r_a}{\frac1{\sqrt{R}}}{r} = \intd{-\pi}{\pi}{\diff{\lambda}{\psi}}{\psi},\\
+\Lambda_\theta &= 4 \intd{\theta_\mathrm{inc}}{\pi/2}{\frac1{\sqrt{\Theta}}}{\theta} = \intd{-\pi}{\pi}{\diff{\lambda}{\chi}}{\chi},
+\end{align}\end{subequations}
+with corresponding frequencies
+\begin{equation}
+\Upsilon_{r,\theta} = \frac{2\pi}{\Lambda_{r,\theta}}.
+\end{equation}
+Any dynamical quantity $q$ that depends only on the values of $r$ and $\theta$ along the worldline may be expanded as a Fourier series
+\begin{equation}
+q[r(\lambda),\theta(\lambda)] = \sum_{n,m} q_{nm} \exp[-\iu(n\Upsilon_r+m\Upsilon_\theta)\lambda].
+\end{equation}
+In particular, the worldline coordinates $t$ and $\phi$ are such quantities, and so we may write down expansions for their Mino-time rates of change $\dd t/\dd\lambda$ and $\dd \phi / \dd\lambda$. Their average secular rates of increase, which we shall denote by $\Gamma$ and $\Upsilon_\phi$ respectively, may then be computed by taking the $n=m=0$ component of these expansions \citep{drasco_rotating_2004}.
+
+It is not immediately obvious how to calculate coordinate-time frequencies,\footnote{These are desirable quantities to compute because they correspond to the frequencies as measured by an observer at infinity.} $\Omega_k$ ($k=\{r,\,\theta,\,\phi\}$), in an analagous manner to $\Upsilon_k$. This is because the elapsed coordinate time is different for different cycles of the radial or polar motion. However, with the notion of the average rate of coordinate time increase $\Gamma$, it is possible to define suitable quantities according to
+\begin{equation}
+\Omega_k = \frac{\Upsilon_k}{\Gamma}.
+\end{equation}
+These are consistent with results derived by \citet{schmidt_celestial_2002}, who showed that it is possible to calculate the fundamental\footnote{The term fundamental refers to the fact that these quantities demonstrate properties of the orbital motion that are independent of the coordinate representation.} proper-time frequencies, $\omega_k$, of the system using action-angle variables \citep{goldstein_classical_2001}. These are a particular set of generalised angle coordinates $q_\alpha = \{q_t,\,q_r,\,q_\theta,\,q_\phi\}$ and corresponding actions $J_\alpha$ such that the Hamiltonian of the system $H(q,J) = H(J)$ does not depend on the angle variables. According to Hamilton's equations, the system then evolves following
+\begin{equation}
+\label{eq:EMRI-AAgeo}
+\diff{q_\alpha}{\tau} = \omega_\alpha(\boldsymbol{J}), \quad \diff{J_\alpha}{\tau} = 0.
+\end{equation}
+We can obtain suitable coordinate-time frequencies using $\omega_t$ according to
+\begin{equation}
+\Omega_k = \frac{\omega_k}{\omega_t}.
+\end{equation}
+In both formulations of the problem, it should be noted that ratios of frequencies are independent of the time coordinate that is used.
+
+
+\subsection{Beyond geodesic motion}
+\label{sec:EMRI-beyond-geodesics}
+Realistic compact objects do not follow geodesics as, by virtue of their own mass, they generate additional spacetime curvature that interacts with the background geometry. We previously introduced the concept of the gravitational self-force in \secref{intro-self-force}, but we now seek to establish its mathematical foundation.
+
+We denote the physical, retarded metric perturbation by $h_{\alpha\beta}^{\mathrm{ret}}$, which is obtained by solving the Einstein field equations subject to causal boundary conditions, and sourced by a suitable energy-momentum tensor representing the motion of a compact object along a geodesic of some background spacetime $g_{\alpha\beta}$. This quantity is singular along the worldline of the particle and so it is physically meaningless to consider the particle motion as a geodesic in the ``full" spacetime $g + h^\mathrm{ret}$. Instead, the motion is better described by a trajectory in $g$, perturbed by the action of the gravitational self-force $F^\alpha_\mathrm{self}$.
+
+Considering a particle of mass $\mu$, the self-force can be calculated at first order in the mass ratio $\eta\equiv\mu/M\ll 1$, by splitting the retarded field into two components at each spacetime point (P),
+\begin{equation}
+h_{\alpha\beta}^{\mathrm{ret}} = h_{\alpha\beta}^{\mathrm{dir}} + h_{\alpha\beta}^{\mathrm{tail}},
+\end{equation}
+corresponding to a direct contribution from the intersection of the past lightcone of P with the worldline, and a tail contribution from the worldline \textit{within} the past lightcone of P. The MiSaTaQuWa formula \citep{mino_gravitational_1997, quinn_axiomatic_1997} then states that in the Lorenz gauge, the self-force is given by
+\begin{equation}
+F^\alpha_\mathrm{self} = \mu \bar{\nabla}^{\alpha\beta\gamma} \bar{h}_{\beta\gamma}^{\mathrm{tail}},
+\end{equation}
+where an overbar represents trace-reversal using \eqnref{GW-trace-reversal}, and $\bar{\nabla}^{\alpha\beta\gamma}$ is the GR operator that computes forces from metric perturbations \citep{barack_gravitational_2009}.
+
+The tail field is not smooth along the worldline. However, an alternative formulation by \citet{detweiler_self-force_2003} splits the retarded field instead into a singular (S) piece and a regular (R) piece according to
+\begin{equation}
+h_{\alpha\beta}^{\mathrm{ret}} = h_{\alpha\beta}^{\mathrm{S}} + h_{\alpha\beta}^{\mathrm{R}},
+\end{equation}
+with a corresponding force $F^\alpha_\mathrm{self} = \mu \bar{\nabla}^{\alpha\beta\gamma} \bar{h}_{\beta\gamma}^{\mathrm{R}}$. In this case, the R field is smooth everywhere and so the particle can be said to travel along geodesics in the effective metric $g+h^\mathrm{R}$.
+
+It is conceptually useful to split the retarded field into yet another two components: the conservative and dissipative pieces are defined via
+\begin{subequations}\begin{align}
+F^\alpha_\mathrm{cons} = \frac1{2}\left(F^\alpha_\mathrm{self} + F^\alpha_\mathrm{self(adv)}\right),\\
+F^\alpha_\mathrm{diss} = \frac1{2}\left(F^\alpha_\mathrm{self} - F^\alpha_\mathrm{self(adv)}\right),
+\end{align}\end{subequations}
+where $F^\alpha_\mathrm{self(adv)} = \mu \bar{\nabla}^{\alpha\beta\gamma}( \bar{h}_{\beta\gamma}^{\mathrm{adv}} - \bar{h}_{\beta\gamma}^{\mathrm{S}})$ is the (unphysical) equivalent self-force arising from the advanced metric perturbation. The dissipative part is responsible for secular changes in the orbital shape parameters (for example, the set $\{E,L_z,Q\}$), and so drives the inspiral of a particle via GW emission. The effects of the conservative part are more subtle, changing how the particle traverses an orbit rather than the orbit itself; it causes a shift in the fundamental frequencies along with secular changes to the positional elements (for example, the initial phases at $t=t_0$, given by the set $\{\psi_0,\chi_0,\phi_0\}$).
+
+We can incorporate the self-force into the equations of motion using the action-angle formalism; employing an expansion in the mass ratio $\eta$, \eqnref{EMRI-AAgeo} becomes
+\begin{subequations}
+\label{eq:EMRI-AAsf}
+\begin{align}
+\diff{q_\alpha}{\tau} &= \omega_\alpha(\boldsymbol{J}) + \eta g_\alpha^{(1)}(q_r,q_\theta,\boldsymbol{J}) + \mathcal{O}(\eta^2),\\
+\diff{J_\alpha}{\tau} &= \eta G_\alpha^{(1)}(q_r,q_\theta,\boldsymbol{J}) + \mathcal{O}(\eta^2),
+\end{align}
+\end{subequations}
+where the forcing functions $g_\alpha^{(1)}$ and $G_\alpha^{(1)}$, which are $2\pi$-periodic in $q_r$ and $q_\theta$, arise from the first order self-force discussed above. The dissipative part is represented by the piece of $G_\alpha^{(1)}$ that is even under the transformation $q_{r,\,\theta}\rightarrow 2\pi-q_{r,\,\theta}$ and the piece of $g_\alpha^{(1)}$ that is odd under the same transformation \citep{hinderer_two-timescale_2008}. The remaining pieces constitute the conservative part.
+
+Since the inspiral proceeds much slower than the orbital motion, these equations may be approximated by the adiabatic prescription by dropping the forcing term $g_\alpha^{(1)}$ (and all higher-order terms) and replacing $G_\alpha^{(1)}$ with its average over the $2$-torus parametrized by $q_r$ and $q_\theta$, $\langle G_\alpha^{(1)}\rangle_{q_r,\,q_\theta}$~\citep{drasco_computing_2005}. This piece is then purely dissipative and determines how the inspiral evolves due to the leading order radiation of GWs.
+
+\subsubsection{The adiabatic approximation}
+%To follow the evolution of the inspiral we must have a means of prescribing the forcing acceleration; a calculation of the full self-force at this stage is not feasible and so various approximation schemes have to be adopted. An initial simplification arises from considering only the dissipative part of the first-order self-force, i.e. the part that predominantly drives the inspiral, and neglecting behaviour on the orbital timescale.
+
+The adiabatic prescription allows us to bypass many of the complexities of the full problem by using balance arguments \citep{hughes_gravitational_2005}. \Citet{teukolsky_perturbations_1973} derived a now eponymous equation for the Weyl scalar, $\psi_4$, that takes the form of a linearised wave equation for the perturbation due to a source. Solving this for a mass moving along a Kerr geodesic, the GWs at infinity can be extracted using the result that
+\begin{equation}
+\label{eq:teukolsky-waveform}
+\psi_4 (r\rightarrow\infty) = \frac1{2}\left(\ddot{h}_+ - \iu \ddot{h}_\times\right).
+\end{equation}
+It is then possible to compute the orbital-averaged fluxes of energy and angular momentum that escape to infinity, $\langle\dot{E}^\mathrm{GW}\rangle_{\infty}$ and $\langle\dot{L}_z^\mathrm{GW}\rangle_{\infty}$. A similar procedure can be followed to calculate the fluxes lost to the central BH, $\langle\dot{E}^\mathrm{GW}\rangle_{\mathrm{H}}$ and $\langle\dot{L}_z^\mathrm{GW}\rangle_{\mathrm{H}}$. Taking these together, flux-balance implies that the orbital-averaged evolution of the energy must be given by
+\begin{equation}
+\left\langle\dot{E}\right\rangle = - \left\langle\dot{E}^\mathrm{GW}\right\rangle_{\infty} - \left\langle\dot{E}^\mathrm{GW}\right\rangle_{\mathrm{H}},
+\end{equation}
+and similarly for $\langle\dot{L_z}\rangle$. With these results, it is possible to construct adiabatic trajectories through phase space. For certain special cases, this is sufficient to fully describe the orbit; adiabatic evolutions have been generated for non-spinning systems \citep{cutler_gravitational_1994}, equatorial orbits \citep{glampedakis_zoom_2002}, which remain in the plane and so can be described using only $E$ and $L_z$, and circular inclined orbits \citep{hughes_evolution_2000}, which remain circular \citep{ryan_effect_1996} and so again can be represented by just two constants.
+
+Generic orbits also depend on the value of the Carter constant $Q$, which must be evolved in a similar manner. The same balance argument cannot be used for $Q$ since there is no associated flux carried by the GWs. However, an equivalent orbital-averaged quantity can be derived, due to an argument by \citet{mino_perturbative_2003}, by replacing a long-time average with an average over the $2$-torus describing bound motion in $r$ and $\theta$
+\begin{equation}
+\label{eq:emri-longtime-av}
+\lim_{T\rightarrow\infty} \frac1{2T}\intd{-T}{T}{}{\lambda} \rightarrow \frac1{(2\pi)^2} \intd{0}{2\pi}{}{q_r} \intd{0}{2\pi}{}{q_\theta},
+\end{equation}
+where $q_r$ and $q_\theta$ are the generalised angle variables for the $r$ and $\theta$ oscillations \citep{sago_adiabatic_2006}. This is valid for generic orbits as there is no strict phase relation between the radial and polar motions, and so all possible combinations of $\{q_r,\,q_\theta\}$ (modulo $2\pi$) occur over an infinite timespan; this is not true for resonant orbits, see \chapref{resonances}. Making use of this result, adiabatic trajectories and waveforms can be computed for generic orbits in Kerr \citep{drasco_gravitational_2006,sundararajan_towards_2008}, although this is limited by the ability to solve the Teukolsky equation efficiently. Approximate adiabatic inspirals can be generated more cheaply using PN expansions for the fluxes, augmented to give better agreement with Teukolsky results \citep{gair_improved_2006}.
+
+These adiabatic approximations are simple to work with, but the neglected conservative piece of the self-force, which shifts the fundamental frequencies and produces a secular change in the positional elements, is important \citep{pound_limitations_2005} and may lead to observable consequences for parameter estimation \citep{huerta_influence_2009}.
+
+
+\subsection{Gravitational waveforms}
+\label{sec:EMRI-GWs}
+An intrinsic part of the evolution of a two-body system in GR is the emission of GWs; a fully self-consistent solution to the problem must specify the metric coefficients at all points in spacetime, and thus completely encode information about both the motion of the bodies and the radiative fields at infinity. In practice, we also wish to calculate the GWs as they provide a handle on methods of observing the systems in question. However, in general this is a difficult task due to the nonlinear interaction between matter and spacetime curvature.
+
+Ignoring any conservative corrections, Teukolsky-based waveforms, i.e. those obtained through \eqnref{teukolsky-waveform}, are the most accurate, but rely on solving the Teukolsky equation, which is computationally intensive. For data analysis purposes, it is useful to have EMRI waveforms that are cheap to compute but still contain many of the same features. `Kludge' waveforms provide for this possibility by separating the trajectory calculation from the waveform generation; there are two main approaches to this technique, the analytic kludge (AK) and the numerical kludge (NK).
+
+AK waveforms, introduced by \citet{barack_lisa_2004}, are based on Keplerian orbits, and are parameterised by the quantities listed in \tabref{AK-parameters}. The trajectory is instantaneously described by an ellipse, but this is evolved in time using PN expressions to account for inspiral as well as relativistic perihelion and Lense-Thirring precessions. Notably, the inclination of the orbit is assumed to be constant. Once the trajectory has been determined, a corresponding waveform is generated using the Peters--Matthews formalism \citep{peters_gravitational_1963, peters_gravitational_1964}. This is the lowest-order consideration leading to GWs using just the quadrupole moment, but provides analytic expressions for the waveforms, which make them very quick to generate.
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{symbol}    & \textbf{description}                                 & \textbf{distribution in EMRI population}                      \\ \midrule
+$\mu$              & mass of compact object                               & $10 M_\odot$                                                  \\
+$M$                & mass of SMBH                                         & described in text, $10^4 \leq M/M_\odot \leq 10^7$            \\
+$a$                & dimensionless spin of SMBH                           & uniform in $[0,0.95]$                                       \\
+$\nu_0$            & orbital frequency at some fiducial time $t_0$        & described in text                                             \\
+$e_0$              & eccentricity at $t_0$                                & described in text                                             \\
+$\cos\iota$        & cosine of inclination angle                          & uniform in $[-1,1]$                                         \\
+$\cos\theta_S$     & cosine of polar angle of direction to source         & uniform in $[-1,1]$                                         \\
+$\phi_S$           & azimuthal angle of direction to source               & uniform in $[0,2\pi)$                                        \\
+$\cos\theta_k$     & cosine of polar angle of SMBH spin direction         & uniform in $[-1,1]$                                         \\
+$\phi_k$           & azimuthal angle of SMBH spin direction               & uniform in $[0,2\pi)$                                        \\
+$\alpha_0$         & direction of orbital plane around SMBH spin at $t_0$ & uniform in $[0,2\pi)$                                        \\
+$\tilde{\gamma}_0$ & direction of pericenter in orbital plane at $t_0$    & uniform in $[0,2\pi)$                                        \\
+$\Phi_0$           & orbital mean anomaly at $t_0$                        & uniform in $[0,2\pi)$                                        \\
+$z$                & redshift of source                                   & uniform in comoving volume, $z \leq z_\mathrm{max} = 1.5$ \\ \bottomrule
+\end{tabular}
+}
+\caption{Parameters of the analytic kludge GW model of \citet{barack_lisa_2004}. Also given are the parameter distributions chosen for the sample EMRI population discussed in \secref{EMRI-detectability}.}
+\label{tab:AK-parameters}
+\end{table}
+
+NK waveforms seek to improve upon the AK approach by using instantaneous Kerr geodesics instead of Keplerian ellipses. Trajectories are calculated by evolving the Kerr geodesic orbital parameters according to some forcing scheme; originally, PN fluxes supplemented with Teukolsky-based fits were used, but this is not a requirement. With a realistic trajectory in hand, the Boyer--Lindquist coordinates are then identified with flat-space polar coordinates and the gravitational waveform is computed using a flat-space emission formula. It is found that, even in the strong-field, NK waveforms have high overlaps (over $95\%$ in many cases) with Teukolsky-based waveforms, but are considerably quicker to produce \citep{babak_kludge_2007}.
+
+
+\section{Astrophysics of extreme-mass-ratio inspirals}
+The evolution of EMRIs has been studied extensively as a mathematical application for perturbation theory within GR. The resulting theoretical understanding of the gravitational self-force may also be of interest astrophysically if detectable systems occur regularly in the local Universe. Despite many areas of significant uncertainty, it is believed that a space-based GW detector should detect at least a handful of EMRI events. We now discuss the considerations that go into event rate estimates, before computing specific predictions.
+
+\subsection{Formation of EMRIs}
+The standard EMRI formation scenario considers the effect of two-body relaxation in the galactic nucleus, where the stellar population is dense enough for the process to be efficient. Components interact with each other via gravitational forces or direct contact collisions \citep{freitag_dynamics_2007}, causing deflections in their motion. The relaxation time $t_\mathrm{rlx}$ is the timescale on which an object's velocity is changed by an amount of order itself. Low values of $t_\mathrm{rlx}$ make it more likely for objects to be deflected into the loss cone, which is the volume of phase space such that the orbit passes close to the SMBH. Loss cone trajectories that cross the tidal disruption radius or the event horizon result in the prompt destruction of the compact object, but if this does not occur then it is possible for an inspiral to start \citep{alexander_orbital_2003}. It has recently been argued by \citet{amaro-seoane_role_2013} that the plunging orbits, which vastly outnumber traditional inspirals, are in fact indistinguishable as they can undergo hundreds of thousands of GW cycles before actually merging. This would enhance the EMRI event rate, producing a population of systems with very high eccentricities.
+
+For non-plunging orbits, the system emits a burst of GWs with each periapse passage. These GW bursts are potentially detectable by space-based GW detectors, which might see $\mathcal{O}(1)$ per year \citep{berry_expectations_2013}. The compact object therefore loses energy and angular momentum, causing the orbit to shrink.  If the energy loss due to GWs occurs rapidly enough such that the radiation timescale $t_\mathrm{GW}$ is sufficiently shorter than the periapse relaxation timescale $(1-e)t_\mathrm{rlx}$, the compact object becomes decoupled from the stellar population and thus slowly spirals in towards the SMBH, producing an EMRI \citep{merritt_stellar_2011}.
+
+This simple model of EMRI formation relies on two-body relaxation being the dominant mechanism through which a compact object can change its angular momentum. In fact, it is found that resonant relaxation \citep{rauch_resonant_1996} plays an important role \citep{hopman_resonant_2006}. On timescales longer than the orbital timescale, but shorter than the precessional timescale, the stellar trajectories around the SMBH can be modelled as massive wires with a local mass density proportional to the time that the compact object spends at each point. These wires exert mutual torques on each other that are roughly constant on the orbital timescale, leading to enhanced relaxation of the angular momenta. Objects that are scattered onto high eccentricity orbits come close to the SMBH, where GR precessional effects are significant, negating the effect of resonant relaxation and ensuring the object does not get scattered back. This process enhances the EMRI formation rate by a factor of a few \citep{hopman_resonant_2006}.
+
+In addition to two-body capture, as described above, it is possible to form an EMRI through other channels. If a binary system approaches the SMBH it can be tidally separated, ejecting one component at high velocity while capturing the other \citep{miller_binary_2005}. This process occurs at much larger radii than the two-body capture events, vastly increasing the cross-section for interaction, although the event rate is restricted by the limited abundance of systems in binary configurations. These EMRIs are expected to have very low eccentricities, since they evolve under GW emission (and hence circularise) from large radii without interacting significantly with other objects. Alternatively, EMRIs may be formed from accretion discs that are unstable to star formation \citep{levin_starbursts_2007}. This would lead to a population of systems in the equatorial plane of the SMBH in contrast to other formation channels, which lead to spherically symmetric distributions.
+
+
+\subsection{EMRI event rate}
+\label{sec:EMRI-event-rate}
+Estimates for the event rate of EMRIs are split into separate parts to help illuminate the different approximations that have to be made, and apply any available observational constraints. Perhaps the most uncertain component is that of the ``intrinsic" event rate $\mathcal{R}$, i.e. the number of inspiral events per unit time for any given galaxy. We are interested in galaxies that possess a SMBH with a mass in the range $(10^{4} - 10^7) M_\odot$, as these give rise to EMRIs in the frequency band of space-based GW detectors. In principle, $\mathcal{R}$ will depend on the exact composition of the population of compact objects around each SMBH, the stellar density profile for each component, and the mass and spin of each SMBH. All of these properties are highly uncertain, even for our own galaxy.% In addition, there is no \emph{a priori} reason to expect that different galaxies have similar predictable properties very close to the SMBH.
+
+Despite the difficulties, simple estimates of $\mathcal{R}$ have been carried out using Monte Carlo methods to count the number of stars from isothermal distributions that spiral in to a SMBH without plunging. The result is a scaling law for each species of compact object of the form
+\begin{equation}
+\label{eq:EMRI-intrinsic-rate}
+\mathcal{R}(M) = \mathcal{R}_0 \left(\frac{M}{M_0}\right)^\alpha,
+\end{equation}
+where $M$ is the mass of the SMBH and $M_0 = 3\times 10^6 M_\odot$ is some fiducial mass. \Citet{hopman_extreme_2009} finds that $\alpha = \{-0.15,\,-0.25,\,-0.25\}$ for BHs, NSs and WDs, with respective event rates $\mathcal{R}_0 = \{400,\, 7,\, 20\}\; \mathrm{Gyr}^{-1}$ for each component. This neglects the effects of resonant relaxation, ignores the spin of the SMBH, and assumes that the $M$--$\sigma$ relation holds for all SMBH masses. Each of these is likely to significantly impact the event rate, but \eqnref{EMRI-intrinsic-rate} can still be used as a rough guide to the expected number of events.
+
+The different compact objects emit GWs with different amplitudes, scaling with mass $\mu$ and distance $D$ as $\mu/D$. Assuming that a detector is sensitive to GWs above a certain amplitude, we can then observe heavier systems at much greater distances. The observational volume is a factor of $\mathcal{O}(10^3)$ larger for stellar mass BHs of typical mass $10 M_\odot$, in comparison to that for WDs and NSs. The total event rate will therefore be dominated by BHs \citep{gair_event_2004}. Henceforth, we neglect the contribution from NSs and WDs and set the mass of the compact object to be $10 M_\odot$.
+
+%Henceforth, we neglect the contribution from NSs and WDs as their rates are significantly lower than that of BHs.\footnote{The different compact objects emit GWs with different amplitudes and frequency evolutions. Despite the lower intrinsic rates, it is therefore possible for NSs and WDs to contribute more significantly to \emph{detectable} systems, if they emit more strongly at the most sensitive frequencies of a detector. However, this is found not to be the case \citep{gair_event_2004}.} We therefore set the mass of the compact object to be $10 M_\odot$, a typical size for stellar mass BHs.
+
+\Citet{amaro-seoane_impact_2011} studied the effects of mass segregation on the intrinsic EMRI event rate, using direct-summation $N$-body simulations to calibrate a Fokker-Planck description for the bulk properties of the stellar distribution. They found a better fit for the power law spectral index for BHs of $\alpha = -0.19$.
+
+Once the intrinsic EMRI rate has been established, it is necessary to consider the comoving number density of SMBHs in the Universe, which is the same as that of galaxies if we assume all galaxies host a single SMBH. This is challenging to estimate because the number of SMBHs will depend on many parameters, including local structure in the Universe, the evolution of that structure, and properties of the SMBHs themselves. We simplify the problem by assuming a homogeneous distribution that does not evolve with redshift, which is reasonable for the typical scales considered by GW detectors. We also neglect correlations between the SMBH mass and spin, and impose a power law scaling relation for the comoving number density
+\begin{equation}
+\diff{n}{\ln M}(M) = n_0 \left(\frac{M}{M_0}\right)^\beta.
+\end{equation}
+There is significant uncertainty in the SMBH mass function, but this simple functional form is found to be in good agreement with observations from the Sloan Digital Sky Survey for the mass range of interest; it is sufficient to set $\beta = 0$ and $n_0 = 0.002 \; \mathrm{Mpc}^{-3}$ for SMBHs with $M < \mathcal{O}(10^7 M_\odot)$ \citep{greene_mass_2007, gair_lisa_2010}. \Citet{gair_lisa_2010} show that it is possible to reverse this calculation and constrain the slope $\beta$ using the observed number of EMRI events.
+
+%A further complication arises from the fact that EMRIs are long-lived sources of GWs. Each potential source can be characterised by the remaining time before plunge, $t_\mathrm{plunge}$, when a GW detector starts observing. If the mission lifetime $T$ is longer than $t_\mathrm{plunge}$ then the entire remainder of the evolution can be seen, and the SNR increases with increasing $t_\mathrm{plunge}$. However, for $T < t_\mathrm{plunge}$, only a fraction of the remaining inspiral can be observed and this leads to a decreasing SNR with $t_\mathrm{plunge}$ as the GW emission moves out of band. We can define an observable lifetime for EMRIs, $\tau$, as the range of $t_\mathrm{plunge}$ such that the SNR is above some threshold level; the number of events seen from a particular galaxy is then $\tau \mathcal{R}$. Making the approximation that all of the SNR is accumulated at plunge and that this is sufficient for detection, we can set $\tau = T$ for all systems.
+
+\subsection{Detectability of EMRIs}
+\label{sec:EMRI-detectability}
+To evaluate the number of \emph{observable} EMRIs for a given detector configuration requires a sample population of potentially observable systems to be generated. A complication arises from the fact that EMRIs are long-lived sources of GWs, and their detectability depends on the part of their evolution history that overlaps with the observation window. A typical source may be undetectable if it plunges close to the start of an observation, become detectable once the plunge occurs closer to the end of the observation, remain detectable even if it plunges after the observation, before becoming undetectable again if it plunges much later. It is not possible to model this behaviour in a detector-independent manner. We therefore consider only those systems that plunge within some time $T$, producing a population with $\mathcal{R}T$ potentially observable events from each galaxy.
+
+A given EMRI is classified as observable if its SNR exceeds some threshold value $\mathrm{SNR}_\mathrm{thres}$. The size of the required population can be estimated by combining the different components discussed in the previous section, to give an integral of the form \citep{gair_probing_2009}
+\begin{align}
+\label{eq:EMRI-number}
+N_\mathrm{EMRI} &= \intd{z=0}{z_\mathrm{max}}{ \intd{M=M_\mathrm{min}}{M_\mathrm{max}}{   \mathcal{R}T\diff{n}{\ln M} \diff{V_\mathrm{c}}{z}   }{\ln M}  }{z},\\
+&= \mathcal{R}_0 T n_0 V_\mathrm{c}(z_\mathrm{max}) \intd{M=M_\mathrm{min}}{M_\mathrm{max}}{   \left(\frac{M}{M_0}\right)^{\alpha+\beta}   }{\ln M}, \label{eq:EMRI-num-Mdist}
+\end{align}
+where $V_\mathrm{c}(z)$ is the comoving volume at redshift $z$. For a mission lifetime of 2 years and a maximum redshift of $1.5$, along with values of the constants quoted in \secref{EMRI-event-rate}, the integral in \eqnref{EMRI-number} gives a total of $6333$ EMRI events.\footnote{We use a $\Lambda$CDM cosmology to compute the comoving volume, with $\Omega_m = 0.3$, $\Omega_\Lambda = 0.7$ and $H_0 = 70\;\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$.} This is a lower bound for $N_\mathrm{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
+
+We generate a representative EMRI population of this size, using the AK parameters to describe each system. The mass of the SMBH is sampled from the power-law distribution indicated by \eqnref{EMRI-num-Mdist}, i.e. with a probability distribution function (pdf) $f(M) \propto M^{\alpha+\beta-1}$. Most of the other parameters are sampled from uniform distributions, detailed in \tabref{AK-parameters}, but the eccentricity distribution is more complicated.
+
+Eccentricities for EMRIs are uncertain, and depend strongly on the formation scenario being considered. Here, we adopt a fit to a distribution computed using Monte Carlo simulations by \citet{hopman_orbital_2005}, who model the scattering process of compact objects onto inspiral orbits around a $3 \times 10^6 M_\odot$ Schwarzschild BH. We assume this can be extended to provide a rough estimate of the distribution around BHs of other masses and spins. At the point in the inspiral when the orbital period takes a fiducial value $\nu_0 = 10^4\,\mathrm{s}$, we find that the Monte Carlo eccentricity pdf is well-described by a power-law with an exponential cutoff
+\begin{equation}
+\label{eq:EMRI-e-distribution}
+f(e;\,e_\mathrm{m},\,e_\mathrm{p},\,b) = 
+	\begin{cases}
+		\displaystyle\frac{b^{1+b(e_\mathrm{m}-e_\mathrm{p})} \left(e_\mathrm{m}-e\right)^{b(e_\mathrm{m}-e_\mathrm{p})} \exp\left\{b(e-e_\mathrm{m})\right\} }{\Gamma\left(1+b(e_\mathrm{m}-e_\mathrm{p})\right) - \Gamma\left(1+b(e_\mathrm{m}-e_\mathrm{p}), b e_\mathrm{m}\right)}, &\quad 0 \leq e \leq e_\mathrm{m}\\
+		0, &\quad\text{otherwise}
+	\end{cases}
+\end{equation}
+where $\Gamma(z)$ is the Euler gamma function, $\Gamma(z,a)$ is the incomplete gamma function, $e_\mathrm{m} = 0.81$ is the maximum observed eccentricity, $e_\mathrm{p} = 0.69$ is the peak of the distribution, and $b=11$ is the exponential index. This distribution, as shown in \figref{EMRI-e-distribution}, is peaked at higher eccentricities.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{e_distribution}
+\caption{\label{fig:EMRI-e-distribution}Probability distribution function (pdf) for the eccentricity of an inspiral when the orbital period is $10^4\,\mathrm{s}$ (black line), fit to data by \citet{hopman_orbital_2005}. Also shown are histograms of the eccentricites of the EMRI population as originally sampled (blue), and at the last stable orbit (red).}
+\end{figure}
+
+We are interested in EMRI systems close to plunge, as it is here where the GW amplitude is largest. To create our EMRI population, we therefore sample the eccentricity from the distribution given by \eqnref{EMRI-e-distribution}, set the orbital period equal to the fiducial value of $10^4\,\mathrm{s}$, and evolve the system using the AK prescription up until the last stable orbit (LSO).\footnote{The LSO is determined numerically by calculating the roots of $R(r)=0$, which we denote in ascending order by $r_4 \leq r_3 \leq r_p \leq r_a$, and stopping the evolution when $r_3 = r_p$, which designates the orbit as marginally stable.} The resulting eccentricity distribution at plunge is shown in red in \figref{EMRI-e-distribution}, which demonstrates the circularising effect of GW emission. The corresponding orbital frequency distribution is shown in \figref{EMRI-nu-distribution}; the turn-off at low frequencies is an unphysical artifact due to the sharp cut-off in our mass distribution.
+
+Each of these systems is then evolved backwards for some time $t_\mathrm{insp}$, chosen uniformly from the range $[0,2]$ years, and the expected gravitational waveforms $h_{+,\times}$ are calculated using the AK formalism. The evolution is carried out using the Euler method, including an additional approximation for the second time derivative.\footnote{To integrate the differential equation $\dd y/\dd x = f(y)$ from an initial value $y_0$, we set $y_{i+1} = y_i + h f(y_i) + h(f(y_i) - f(y_{i-1}))/2$, where $y_i = y(x_i)$, $h$ is the step size, and we compute $y_1$ using only the first two terms.} This is a crude evolution scheme but should be sufficiently accurate if we choose a step size on the orbital timescale, which is small with respect to the evolution timescale; we use $\dd t = \mathrm{min}(10\,\mathrm{s}, 1/(8\nu_\mathrm{LSO}))$ to ensure a minimum number of eight evaluation points within any GW period.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{nu_distribution}
+\caption{\label{fig:EMRI-nu-distribution}Probability distribution function of the orbital frequencies of the EMRI population at the last stable orbit.}
+\end{figure}
+
+In order to assess whether or not EMRIs are observable, we must specify the noise properties of the detector being used. If we assume stationary, Gaussian noise in the detector, it is sufficient to specify the (one-sided) noise PSD $S_n(f)$, defined by \eqnref{noise-PSD}. We consider seven different PSDs corresponding to different detector configurations: a standard fit used to represent the eLISA detector \citep{amaro-seoane_elisa:_2013}; and six similar detectors, labelled A--F, formed by varying the arm lengths (using either $1$, $2$ or $5\times 10^9\;\mathrm{m}$) and the acceleration noise model (taken to match either the expected LISA Pathfinder performance or the requirements of the LISA mission). The different detectors are detailed in \tabref{EMRI-numEMRIs} and the corresponding PSDs are plotted in \figref{EMRI-detector-PSDs}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{GOAT_detectors}
+\caption{\label{fig:EMRI-detector-PSDs}The (one-sided) noise power spectral densities for the detectors used to evaluate the number of observable EMRIs.}
+\end{figure}
+
+Each detector configuration consists of three satellites with six laser links between them, from which it is possible to construct two independent GW responses $h_{I,II}$, which are linear combinations of $h_{+,\times}$. Descoped missions often remove two of the laser links meaning that only a single response $h_I$ can be constructed. Combining equations \eqref{eq:noise-overlap} and \eqref{eq:general-SNR}, we compute the SNR in the frequency domain for each of our EMRI systems according to
+\begin{equation}
+\label{eq:EMRI-SNR}
+\mathrm{SNR}^2 = 4\sum_{\alpha}\intd{0}{\infty}{\frac{\tilde{h}^*_\alpha(f) \tilde{h}_\alpha(f)}{S_n(f)}}{f},
+\end{equation}
+where the sum is over $\alpha = \{I\}$ for four laser link systems, and $\alpha = \{I,\,II\}$ for six laser links. The resulting survival distribution functions for four and six laser links are shown in \figref{EMRI-SNRs}, that is for each value of SNR, we plot the probability of an observation exceeding that SNR. The inclusion of six laser links instead of four only marginally improves the detection prospects for EMRIs,\footnote{The main scientific advantage of additional laser links is that the degeneracy between sky position and polarisation can be broken for monochromatic sources \citep{vallisneri_sensitivity_2008}.} increasing the SNR by a factor of $\sqrt{2}$. The numbers of EMRIs with SNRs above threshold values of $15$, $20$ and $25$ are listed in \tabref{EMRI-numEMRIs}. Given the many uncertainties involved, particularly in regards to the astrophysical event rate, these numbers should be treated as a rough guide to the number of observable events for a two year mission lifetime.
+
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}cclc>{\centering}p{3cm}<{\centering}>{\centering}p{3cm}<{\centering}>{\centering}p{3cm}<{\centering}@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{detector specification}}                                                                                                          & \multicolumn{3}{c}{\textbf{number of observable events in 2 years}} \\
+\multirow{2}{*}{\textit{label}} & \multirow{2}{*}{\textit{arm length}}                 & \multicolumn{1}{c}{\multirow{2}{*}{\textit{acceleration noise}}} & \multirow{2}{*}{\textit{laser links}} & \multicolumn{3}{c}{\textit{SNR threshold}}                                   \\
+                       &                                             & \multicolumn{1}{c}{}                                    &                              & 15                    & 20                    & 25                   \tabularnewline \midrule
+\multirow{2}{*}{A}     & \multirow{2}{*}{$1\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA Pathfinder}                        & 4                            & 95                    & 45                    & 25                   \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 215                   & 110                   & 70                   \tabularnewline \midrule%\cmidrule{4-7} 
+\multirow{2}{*}{B}     & \multirow{2}{*}{$1\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA}                                   & 4                            & 675                   & 355                   & 200                  \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 1355                  & 760                   & 460                  \tabularnewline \midrule
+\multirow{2}{*}{C}     & \multirow{2}{*}{$2\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA Pathfinder}                        & 4                            & 375                   & 205                   & 115                  \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 840                   & 445                   & 250                  \tabularnewline \midrule%\cmidrule{4-7} 
+\multirow{2}{*}{D}     & \multirow{2}{*}{$2\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA}                                   & 4                            & 2245                  & 1430                  & 915                  \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 3405                  & 2445                  & 1790                 \tabularnewline \midrule
+\multirow{2}{*}{E}     & \multirow{2}{*}{$5\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA Pathfinder}                        & 4                            & 1285                  & 735                   & 440                  \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 2280                  & 1450                  & 930                  \tabularnewline \midrule%\cmidrule{4-7} 
+\multirow{2}{*}{F}     & \multirow{2}{*}{$5\times 10^9\;\mathrm{m}$} & \multirow{2}{*}{LISA}                                   & 4                            & 4375                  & 3550                  & 2860                 \tabularnewline %\cmidrule{4-7} 
+                       &                                             &                                                         & 6                            & 5180                  & 4570                  & 3940                 \tabularnewline \midrule
+\multicolumn{3}{c}{\multirow{2}{*}{eLISA}}                                                                                     & 4                            & 215                   & 110                   & 60                   \tabularnewline %\cmidrule{4-7} 
+\multicolumn{3}{c}{}                                                                                                           & 6                            & 515                   & 255                   & 145                  \tabularnewline \bottomrule
+\end{tabular}
+}
+\caption{Detector configurations used to study the number of EMRIs that will be observable over a two year mission lifetime. The numbers for varying threshold SNRs are shown rounded to the nearest $5$ to the right-hand side of the table. The total number of possible EMRI events in the population was 6333. Detector F corresponds to the original LISA mission design.}
+\label{tab:EMRI-numEMRIs}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\subfloat{\includegraphics[width=0.8\textwidth]{GOAT_SNRs_4links}}\\
+\subfloat{\includegraphics[width=0.8\textwidth]{GOAT_SNRs_6links}}
+\caption{\label{fig:EMRI-SNRs}The survival function for the SNR distributions of our EMRI population, using the given detector configurations with four (upper figure) and six (lower) laser links.}
+\end{figure}
+
+As well as the raw number of observable events, it is useful to consider the full distribution of SNRs as a function of the population parameters. For a given parameter, we bin the population data and then count the number of events $\mathcal{N}_s$ in each bin that exceed a certain threshold SNR. Given these successes and the size of the bin $\mathcal{N}$, the probability of a new observation within the bin exceeding the threshold follows the beta distribution, $p \sim \mathrm{Beta}\left(\mathcal{N}_s + 1/2, \, \mathcal{N} - \mathcal{N}_s + 1/2\right)$.\footnote{We use the uninformative Jeffreys prior for the probability, $p \sim \mathrm{Beta}\left(1/2,\,1/2\right)$. This results in the expected value after $\mathcal{N}$ trials given by \eqnref{EMRI-beta-mean} rather than the obvious alternative $\mu = \mathcal{N}_s/\mathcal{N}$, which is the result of taking the Haldane prior, $p \sim \mathrm{Beta}\left(0,\,0\right)$.} This has an expected value
+\begin{equation}
+\label{eq:EMRI-beta-mean}
+\mu = \frac{\mathcal{N}_s + 1/2}{\mathcal{N} + 1},
+\end{equation}
+and variance
+\begin{equation}
+\sigma^2 = \frac{\mu\left(1-\mu\right)}{\mathcal{N} + 2}.
+\end{equation}
+Using the eLISA detector configuration with $6$ links, we plot the probability of detection in \figref{EMRI-detrate}, as a function of $a$, $\cos\iota$ and $z$. We find mild selection biases in spin and inclination; it is easier to detect prograde equatorial EMRIs around highly spinning BHs. This makes sense intuitively as these orbits penetrate to much lower values of $r$ before becoming unstable. The detection probability decreases with $z$, as the source gets further away from the detector. The maximum redshift that eLISA could observe an EMRI with an SNR greater than $25$ is approximately $0.7$, with most detections occuring below $0.2$.
+
+\begin{figure}[htbp]
+\centering
+\subfloat{\includegraphics[width=0.7\textwidth]{eLISA_detrate_a}}\\
+\subfloat{\includegraphics[width=0.7\textwidth]{eLISA_detrate_cosi}}\\
+\subfloat{\includegraphics[width=0.7\textwidth]{eLISA_detrate_z}}
+\caption{\label{fig:EMRI-detrate}The probability of an EMRI signal observed with the eLISA $6$-link detector configuration having an SNR greater than some threshold, as a function of the spin of the SMBH (upper figure), the cosine of the orbital inclination (middle), and the redshift (lower). Three different thresholds are considered, $15$ (blue), $20$ (green), and $25$ (red), with larger values being represented by thicker lines.}
+\end{figure}
+
+The noise properties of the detectors are frequency dependent, and so we expect sources with characteristic frequencies in the most sensitive region to have higher SNRs; this fact motivates the restricted mass range for the SMBH in our sample population to those systems that produce EMRIs of the ``correct" frequency. The calculation of a characteristic frequency is, however, rather arbitrary. Here, we follow \citet{barack_lisa_2004} and define
+\begin{equation}
+f_\mathrm{GW} = n \nu + \frac{\dot{\tilde{\gamma}}}{\pi},
+\end{equation}
+as a combination of the radial orbital frequency $\nu$ and the azimuthal orbital frequency $\nu + \dot{\tilde{\gamma}}/(2\pi)$, and where $n$ is an integer specifying different harmonics. In \figref{EMRI-eLISA-SNRs}, we plot the SNR of each EMRI system as a function of $f_\mathrm{GW}$ evaluated at the LSO, along with an overlay of the eLISA PSD. As expected, the SNRs peak near the minimum of the PSD, with scatter due to the specific combination of other parameters. We can estimate the SNR using a simple prescription, as follows. We assume a constant noise PSD across the inspiral, so that \eqnref{EMRI-SNR} becomes
+\begin{equation}
+\mathrm{SNR}^2 = 4\sum_{\alpha}\intd{0}{\infty}{\frac{\tilde{h}_{\alpha}^*(f) \tilde{h}_{\alpha}(f)}{S_n(f)}}{f} = \frac{4}{S_n(f_\star)}\sum_{\alpha}\intd{0}{\infty}{\tilde{h}_{\alpha}^*(f) \tilde{h}_{\alpha}(f)}{f},
+\end{equation}
+which should be taken as a definition of $f_\star$ for any given system. We can evaluate the integral using Plancherel's theorem, according to
+\begin{align}
+\intd{0}{\infty}{\tilde{h}_{\alpha}^*(f) \tilde{h}_{\alpha}(f)}{f} &= \frac1{2} \intd{-\infty}{\infty}{\tilde{h}_{\alpha}^*(f) \tilde{h}_{\alpha}(f)}{f},\nonumber\\
+&= \frac1{2}\intd{-\infty}{\infty}{\!}{f} \intd{-\infty}{\infty}{\!}{t} \intd{-\infty}{\infty}{\!}{t'} h_{\alpha}^*(t') h_{\alpha}(t) \exp\left(2\pi\iu f(t-t')\right),\nonumber\\
+&= \frac1{2}\intd{-\infty}{\infty}{\!}{t} \intd{-\infty}{\infty}{\!}{t'} h_{\alpha}^*(t') h_{\alpha}(t) \delta\left(t-t'\right),\nonumber\\
+&= \frac1{2}\intd{-\infty}{\infty}{h_{\alpha}^*(t) h_{\alpha}(t)}{t},\nonumber\\
+&\approx \frac{|h_{\alpha}|^2 T}{2},
+\end{align}
+where we have used the definition of the Fourier transform, evaluated the time integral over the finite length $T$, and approximated that the signal amplitude remains roughly constant in time $|h_{\alpha}(t)| \approx |h_{\alpha}|$. The SNR can then be estimated using
+\begin{equation}
+\label{eq:EMRI-SNR-estimate}
+\mathrm{SNR}^2 \approx \frac{2T}{S_n(f_\star)} \sum_{\alpha}|h_\alpha|^2.
+\end{equation}
+This is only useful if we have a practical means of estimating $f_\star$. For a given system, if the frequency at plunge, $f_\mathrm{GW}$, is lower than the location of the minimum of the detector PSD at $f_\mathrm{min}$, then the dominant contribution to the SNR will occur at plunge; we might therefore estimate $f_\star \approx f_\mathrm{GW}$. In contrast, if the frequency is greater than $f_\mathrm{min}$, a significant part of the SNR will be generated at $f_\mathrm{min}$ and so a reasonable estimate might be $f_\star \approx f_\mathrm{min}$. Smoothly transitioning between these regimes, we take
+\begin{equation}
+\frac1{f_\star} = \frac1{2} \left( \frac1{f_\mathrm{GW}} + \frac1{f_\mathrm{min}} \right).
+\end{equation}
+The resulting estimate of the SNR well-approximates the data across a wide range of frequencies close to where the detector is most sensitive. It is shown for eLISA in \figref{EMRI-eLISA-SNRs} alongside the raw data points.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{eLISA_SNRs}
+\caption{\label{fig:EMRI-eLISA-SNRs}The SNRs for the sample EMRI population, computed using the eLISA detector configuration with 6 laser links. Each SNR is plotted against the characteristic GW frequency at plunge. An estimate of the SNR, as computed using \eqnref{EMRI-SNR-estimate}, is shown by the solid golden line; the amplitude of this estimate is chosen to match the data. Also shown, for comparison, is the eLISA noise PSD (black, dashed line), although this is on a different scale (not given).}
+\end{figure}
+
+\section{Summary}
+It should be possible to observe extreme-mass-ratio inspirals using a future space-based GW detector, currently in the early stages of planning, and due for launch in the 2030s. A typical mission design may be able to see hundreds of events over a two-year lifetime, although any estimates are highly uncertain due to the complicated astrophysics within galactic nuclei. The number of observations, along with the physical parameter distributions, will be able to inform us about different EMRI formation mechanisms, as well as processes such as mass segregation and resonant relaxation, and even provide information on cosmological scales, constraining the SMBH mass function.
+
+We have considered a variety of potential detector configurations, as part of an investigation into the design of mission concepts to address the European Space Agency's L3 science theme, \inlinequote{The Gravitational Universe} \citep{the_elisa_consortium_gravitational_2013}. We find that all of the proposed detectors are capable of observing some EMRI events, although this is not guaranteed due to the uncertain intrinsic event rates. The expected number of observable events increases by a factor of roughly $2$ if we use six laser links instead of four, and by a factor of around $7$--$8$ if we implement the more stringent LISA acceleration noise requirements rather than those for LISA Pathfinder. Increased arm lengths also result in larger numbers of observable events, which increase by a factor of roughly $4$ going from $1$ to $2\times  10^9\;\mathrm{m}$, and approximately $10$ if we use $5\times  10^9\;\mathrm{m}$. However, these improvements are all diminished for the more sensitive configurations, as we begin to become limited by the source abundance.
+
+GW signals from EMRIs contain a wealth of scientific information, not just from population statistics but on an individual level as well. The modelling process depends on details of the Kerr metric in GR and so any deviations from this can influence the emitted GWs. This is aided by the fact that the compact object can spend hundreds of thousands of cycles in the strong field regime close to the SMBH, where deviations are likely to be strongest. In order to extract such information from the signals, we need accurate waveform models, which can be approximated using the adiabatic prescription. However, this neglects certain effects, one of which is the presence of transient resonances, which we discuss further in the following chapter.
+
+
+
