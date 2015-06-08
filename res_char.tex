@@ -409,7 +409,7 @@ We wish to test whether there exists some set of parameters $\Theta^a$ such that
 If a template were to exactly match the data, it would produce an SNR of $\sqrt{\overlap{s}{s}}$ and so the overlap
 \begin{equation}
 \label{eq:overlap}
-\mathcal{O}\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{s}{s}}\sqrt{\overlap{h}{h}}}
+\mathbb{O}\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{s}{s}}\sqrt{\overlap{h}{h}}}
 \end{equation}
 provides an indication of how well-matched the template is to the data. We leave an investigation into parameter estimation biases (where the parameters of the best-matching adiabatic $\Theta^a$ do not agree with the parameters of the system $\bar{\Theta}^a$) to future work.
 
@@ -423,7 +423,7 @@ To demonstrate the approach, we calculate the full evolution and the 2-torus ave
 
 \emph{Update this to reflect thesis.}
 
-Once the trajectories have been computed using both methods of evolution, we can calculate the corresponding waveforms. The plus-polarised GW at the start and end of the evolution is shown in \figref{good-waveform}. The adiabatic waveform shows good agreement with the full waveform in both amplitude and phase. Calculating the SNR for each of the models, we find an overlap $\mathcal{O} = 0.984$, illustrating that adiabatic models can be used in place of the full evolution in cases where resonances are not encountered.
+Once the trajectories have been computed using both methods of evolution, we can calculate the corresponding waveforms. The plus-polarised GW at the start and end of the evolution is shown in \figref{good-waveform}. The adiabatic waveform shows good agreement with the full waveform in both amplitude and phase. Calculating the SNR for each of the models, we find an overlap $\mathbb{O} = 0.984$, illustrating that adiabatic models can be used in place of the full evolution in cases where resonances are not encountered.
 
 \begin{figure*}[htbp]
 \centering
@@ -476,7 +476,7 @@ For the illustrative EMRI system detailed in the previous section, we have compu
 \caption{\label{fig:res-diff-traj}The differences in orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) between each evolution scheme and the adiabatic model that matches at the start. The solid line shows the full evolution and the dashed lines show the different adiabatic evolutions, which match the full evolution at different times throughout the inspiral (numbers in parentheses give the overlap with the full evolution): at the start (0.202), at the 2:3 resonance (0.458), after the 2:3 resonance (0.259) and at the end (0.677).}
 \end{figure*}
 
-None of the adiabatic models presented here give a particularly high overlap with the full evolution, because of the effects of the resonance. The best-performing adiabatic model was that which matched at the end, giving $\mathcal{O} = 0.677$, while the model that matches at the start gives only $\mathcal{O} = 0.202$. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. 
+None of the adiabatic models presented here give a particularly high overlap with the full evolution, because of the effects of the resonance. The best-performing adiabatic model was that which matched at the end, giving $\mathbb{O} = 0.677$, while the model that matches at the start gives only $\mathbb{O} = 0.202$. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. 
 
 \subsection{The effect of resonances: Jump sizes}
 
@@ -554,7 +554,7 @@ The circularising effect of GW emission can be observed in the eccentricity dist
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{Fig_EMRIpar_dists}
-\caption{\label{fig:EMRIpar-dists}The parameter distributions for our detectable EMRI systems, generated using $\mathcal{O}(10^4)$ realisations. The (darker) blue bars represent the final distribution, including an SNR cut of 10. The (lighter) pink bars stacked on top indicate the full distribution before the SNR cut.}
+\caption{\label{fig:EMRIpar-dists}The parameter distributions for our detectable EMRI systems, generated using $\order{10^4}$ realisations. The (darker) blue bars represent the final distribution, including an SNR cut of 10. The (lighter) pink bars stacked on top indicate the full distribution before the SNR cut.}
 \end{figure*}
 
 \subsection{Population results}
