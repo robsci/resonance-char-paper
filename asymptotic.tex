@@ -23,7 +23,7 @@ Using the slow time, the equations of motion (\ref{eq:Mino-E-o-M}) become
 \diff{J}{\widetilde{\lambda}} = {} & \sum_s G_s^{(1)}(J)\exp(is q) + \order{\eta},
 \end{align}
 \end{subequations}
-where we have rewritten the forcing terms as Fourier series and adapted the forcing functions to those appropriate for $q$ and $J$. We shall solve these before resonance and then match to solutions in the transition regime about resonance.
+where we have rewritten the forcing terms as Fourier series and adapted the forcing functions to those appropriate for $q$ and $J$. We solve these before resonance and then match to solutions in the transition regime about resonance.
 
 \subsection{Solution before resonance}\label{sec:before-res}
 
@@ -69,7 +69,7 @@ Averaging \eqnref{J-1} over $\Psi$ gives\footnote{The ansatz is constructed such
 \partialdiff{J_0}{\widetilde{\lambda}} = G_0^{(1)}(J_0).
 \label{eq:J-ad}
 \end{equation}
-This describes the adiabatic evolution, hence we can identify $J_0\left(\widetilde{\lambda}\right)$ with (the lowest order piece of) the adiabatic solution~\cite{Hinderer2008}. If we similarly average \eqnref{q-1}, we find
+This describes the adiabatic evolution, hence we can identify $J_0\left(\widetilde{\lambda}\right)$ with (the lowest-order piece of) the adiabatic solution~\cite{Hinderer2008}. If we similarly average \eqnref{q-1}, we find
 \begin{equation}
 \omega_0 + \eta\omega_1 +\eta\partialdiff{q_0}{\widetilde{\lambda}} = \omega(J_0) + \eta\partialdiff{\omega}{J}\langle J_1\rangle_\Psi + \eta g_0^{(1)}(J_0).
 \end{equation}
@@ -86,7 +86,7 @@ This leaves
 q_0 = {} & \kappa_0 + \intd{0}{\tilde{\lambda}}{g_0^{(1)}[J_0(\tau)]}{\tau}.
 \label{eq:q-0-sol}
 \end{align}
-We now have expressions for the lowest order terms in the expansions.
+We now have expressions for the lowest-order terms in the expansions.
 
 Subtracting the $s = 0$ components from \eqnref{J-1} leaves
 \begin{equation}
@@ -139,7 +139,7 @@ is constant, and
 \begin{equation}
 \widehat{q}_0 = \widehat{\kappa}_0 + \dfrac{\varpi_1\widehat{\lambda}^2}{2}.
 \end{equation}
-Using these, we can build the next order terms
+Using these, we can build the next-order terms
 \begin{align}
 \widehat{q}_{1/2} = {} & \widehat{\kappa}_{1/2} + \dfrac{\varpi_2\widehat{\lambda}^3}{3} + g_0^{(1)}(\widehat{\varrho}_0)\widehat{\lambda} \nonumber \\ 
  {} & + \sum_{s\,\neq\,0}g_s^{(1)}(\widehat{\varrho}_0)\exp(is \widehat{\kappa}_0)\intd{0}{\hat{\lambda}}{\exp\left(\dfrac{is \varpi_1\tau^2}{2}\right)}{\tau}, \\
@@ -163,7 +163,7 @@ where $\mathcal{C}(z)$ and $\mathcal{S}(z)$ are the cosine and sine Fresnel inte
 W\left(\widehat{\lambda}\right) = \sqrt{\dfrac{\pi}{s\varpi_1}}\mathcal{Y}\left(\sqrt{\dfrac{s\varpi_1}{\pi}}\widehat{\lambda}\right).
 \end{equation}
 
-We shall be interested in the asymptotic behaviour for $|\widehat{\lambda}| \rightarrow \infty$. The complex Fresnel integral has the limit~\cite{Olver2010} % [7.5.3, 7.5.4, 7.12.2, 7.12.3]
+We are interested in the asymptotic behaviour for $|\widehat{\lambda}| \rightarrow \infty$. The complex Fresnel integral has the limit~\cite{Olver2010} % [7.5.3, 7.5.4, 7.12.2, 7.12.3]
 \begin{equation}
 \lim_{|z|\,\rightarrow\,\infty} \mathcal{Y}(z) \sim \dfrac{\sgn z}{\sqrt{2}} \exp\left(\dfrac{i\pi}{4}\right) - \dfrac{i}{\pi z}\exp\left(-\dfrac{i\pi z^2}{2}\right),
 \end{equation}
@@ -183,7 +183,7 @@ Hence,
 
 \subsection{Matching solutions}
 
-To complete our solution we must match the pre-resonance solution of \secref{before-res} with the near resonance solution of \secref{interior-res}. This is achieved by rewriting the pre-resonance solution in terms of the rescaled time $\widehat{\lambda}$ and comparing this with the near resonance solution expanded in the limit of $\widehat{\lambda} \rightarrow -\infty$.
+To complete our solution we must match the pre-resonance solution of \secref{before-res} with the near-resonance solution of \secref{interior-res}. This is achieved by rewriting the pre-resonance solution in terms of the rescaled time $\widehat{\lambda}$ and comparing this with the near-resonance solution expanded in the limit of $\widehat{\lambda} \rightarrow -\infty$.
 
 To rewrite the pre-resonance solution, we begin with the fast phase parameter
 \begin{equation}
@@ -199,7 +199,7 @@ where we have defined $J_\star \equiv J_0\left(\widetilde{\lambda}_\star\right)$
 J\left(\widehat{\lambda};\,\eta\right) = {} & J_\star + \eta^{1/2}G_0^{(1)}(J_\star)\widehat{\lambda} + \dfrac{\eta^{1/2}}{\varpi_1\widehat{\lambda}}\sum_{s\,\neq\,0}\recip{is}G_s^{(1)}(J_\star)\exp\left[is\left(\dfrac{\Psi_\star}{\eta} + \dfrac{\varpi_1\widehat{\lambda}^2}{2} + \kappa_\star\right)\right] + \order{\eta}.
 \end{align}
 \end{widetext}
-We can now compare this to the near resonance expansion with the integral replaced by the limiting form given in \eqnref{Fres-limit}.
+We can now compare this to the near-resonance expansion with the integral replaced by the limiting form given in \eqnref{Fres-limit}.
 
 At zeroth order, we immediately obtain
 \begin{align}
@@ -218,7 +218,7 @@ Similarly, for the action variables
 \end{equation}
 We now have a matched solution through resonance.
 
-Having constructed the solution, we see that the lowest order evolution corresponds to the adiabatic solution; the deviations come in at the following order. When we switch from the pre-resonance solution to the post-resonance solution, there is a change in the sign of $\widehat{\lambda}$. Therefore, when matching the post-resonance solution $\widehat{\varrho}_{1/2}$ and $\widehat{\kappa}_{1/2}$ also change sign: there is a change of
+Having constructed the solution, we see that the lowest-order evolution corresponds to the adiabatic solution; the deviations come in at the following order. When we switch from the pre-resonance solution to the post-resonance solution, there is a change in the sign of $\widehat{\lambda}$. Therefore, when matching the post-resonance solution $\widehat{\varrho}_{1/2}$ and $\widehat{\kappa}_{1/2}$ also change sign: there is a change of
 \begin{align}
 \Delta q = {} & 2 \eta^{1/2}\widehat{\kappa}_{1/2}, \\
 \Delta J = {} & 2 \eta^{1/2}\widehat{\varrho}_{1/2}
