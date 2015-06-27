@@ -5,6 +5,7 @@
 \usepackage{mathrsfs}
 \usepackage{dcolumn}
 \usepackage{hyperref}
+\usepackage{textcomp}
 
 \newcommand{\eqnref}[1]{(\ref{eq:#1})}
 \newcommand{\figref}[1]{Fig.\ \ref{fig:#1}}
@@ -221,7 +222,7 @@ we can calculate the evolution of the osculating elements $\dot{I}^A$. The speci
 
 To follow the evolution of the inspiral we must have a means of prescribing the forcing acceleration. In this work we choose to work directly with the gravitational self-force, using the same post-Newtonian (PN) approximation as Flanagan and Hinderer~\cite{Flanagan2012}. For comparison, Flanagan, Hughes and Ruangeri~\cite{Flanagan2012a} use a Teukolsky equation calculation of GW fluxes to account for the inspiral due to radiation reaction.
 
-The self-force model uses the first-order PN terms of the dissipative self-force formulated in Flanagan and Hinderer~\cite{Flanagan2007} and the conservative force formulated in Iyer and Will~\cite{Iyer1993}, and Kidder~\cite{Kidder1995}. Since only the first PN terms are used, this prescription can only be of limited validity in strong fields. Both pieces of the self-force are computed assuming that the spin is small: the dissipative piece contains terms to $\order{a_\ast^2}$ and the conservative piece to $\order{a_\ast}$. This is less than ideal for high spins. While this approximate self-force is not perfect, it should serve as a guide for the behaviour of the full self-force, allowing us to assess the qualitative impact of resonances on EMRI detection.
+The self-force model uses the first-order PN terms of the dissipative self-force formulated in Flanagan and Hinderer~\cite{Flanagan2007} and the conservative force formulated in Iyer and Will~\cite{Iyer1993}, and Kidder~\cite{Kidder1995}. Since only the first PN terms are used, this prescription can only be of limited validity in strong fields. Both pieces of the self-force are computed assuming that the spin is small: the dissipative piece contains terms to $\order{a_\ast^2}$ and the conservative piece to $\order{a_\ast}$. This is less than ideal for high spins. We also find that this particular implementation of the self-force model marginally overestimates the adiabatic inspiral rate with respect to direct PN evolutions by a factor of $\mathcal{O}(1)$, even for systems in the weak field and with low values of the spin. While this approximate self-force is not perfect, it should serve as a guide for the behaviour of the full self-force, allowing us to assess the qualitative impact of resonances on EMRI detection.
 
 \emph{Add detail about why self-force model is rubbish. Comment on switching conservative piece off for population results.}
 
@@ -248,7 +249,7 @@ Is in convenient to calculate $\Gamma$ as
 \begin{equation}
 \Gamma = \left\langle \diff{t}{\lambda}\right\rangle_{q_r,\,q_\theta},
 \end{equation}
-using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\Lambda_\theta$ from the calculation. The averaged fluxes successfully describe the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
+using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\Lambda_\theta$ from the calculation. We compute these integrals using a $300\times 300$ grid of $\{\psi,\chi\}$ values and employing a Newton--Cotes approximation in each dimension. The procedure requires $\mathcal{O}(10^5)$ separate evaluations of the derivatives at each time-step of an evolution, and so is computationally expensive to perform. The adiabatic derivatives vary on much longer timescales than the orbital motion, and so in practice, we can make use of interpolation. We calculate the adiabatic derivatives, as above, at three points in the inspiral spaced by $\dd t/\eta$ where $\dd t$ is the orbital time-step. When the system is close to the central point, we use a quadratic fit to estimate the adiabatic derivatives. Once the system evolves close to one of the boundaries, we update the interpolation points, taking the closest boundary to be the new central point. The averaged fluxes successfully describe the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
 %In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
 %\begin{widetext}\begin{equation}
@@ -261,29 +262,25 @@ using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\
 %\end{equation}
 %which is successful at describing the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
-\emph{Remove from here ...}
-The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{q_r,\,q_\theta}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
+%The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{q_r,\,q_\theta}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
-One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply; however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as both are explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
+%One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply; however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as both are explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
 
-To be specific, we write \eqnref{Mino-E-o-M} as
-\begin{subequations}
-\begin{align}
-\label{eq:Mino-E-o-M2}
-\diff{q_\alpha}{\lambda} = {} & \omega_\alpha(\boldsymbol{J}) + \eta \langle g_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{g}_\alpha(q_r,q_\theta,\boldsymbol{J}), \\
-\diff{J_\alpha}{\lambda} = {} & \eta \langle G_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{G}_\alpha(q_r,q_\theta,\boldsymbol{J}),
-\end{align}
-\end{subequations}
-where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms containing $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an ``adiabatic evolution'' in fact refer to a ``quasi-adiabatic evolution''.
-\emph{... to here.}
+%To be specific, we write \eqnref{Mino-E-o-M} as
+%\begin{subequations}
+%\begin{align}
+%\label{eq:Mino-E-o-M2}
+%\diff{q_\alpha}{\lambda} = {} & \omega_\alpha(\boldsymbol{J}) + \eta \langle g_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{g}_\alpha(q_r,q_\theta,\boldsymbol{J}), \\
+%\diff{J_\alpha}{\lambda} = {} & \eta \langle G_\alpha\rangle_{q_r,\,q_\theta}(\boldsymbol{J}) + \eta \hat{G}_\alpha(q_r,q_\theta,\boldsymbol{J}),
+%\end{align}
+%\end{subequations}
+%where $g_\alpha$ and $G_\alpha$ encapsulate all our knowledge about the self-force and may contain contributions from sub-leading terms in the mass-ratio expansion. The quasi-adiabatic evolution is then obtained by dropping the terms containing $\hat{g}_\alpha$ and $\hat{G}_\alpha$. For ease of notation, we shall drop the \emph{quasi-} identifier; all subsequent references to an ``adiabatic evolution'' in fact refer to a ``quasi-adiabatic evolution''.
 
 The combination of a full instantaneous evolution and an adiabatic evolution allows us to systematically study the effect of transient resonances on EMRIs over the course of an inspiral. Before approaching this problem, we first investigate the properties of the resonances themselves.
 
 
 \section{Properties of Transient Resonances}
 \label{sec:properties}
-
-\emph{Move location stuff to appendix. Bits here have been tweaked.}
 
 The first step in studying the effect of transient resonances is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. When considering the full parameter set of $\{p,e,\iota,a_\ast,\nu\}$, it is apparent that the search for resonances becomes expensive as a consequence of the dimensionality. It is therefore useful to have a guide of where to look. In \apref{location} we build a simple approximate model as a starting point for the numerical search. The resonances occur at relatively small periapses, corresponding to regions of strong-field gravity. Having located where in an inspiral we can expect to encounter a transient resonance, we must now consider its impact. In \secref{res-time} we determine the characteristic time-scales describing resonance, and in \secref{flux-enhance} we look at the impact of passing through a resonance on the evolution of the orbit.
 
@@ -366,6 +363,36 @@ exactly as expected.
 
 \emph{Add in here some numerical results. Definitely plot showing resonant flux enhancement vs eccentricity. Probably not much else.}
 
+We can study the predicted orbital parameter jumps numerically by considering the long-time-averaged fluxes for particular (fixed) geodesics. For non-resonant geodesics, this will depend only on the orbital shape parameters, but for resonant orbits there will be an additional dependence on the initial phase difference. We consider a selection of different orbital shape parameters corresponding to low-order transient resonances and calculate the time-averaged fluxes for $50$ different initial phases. We evolve for an integer number of cycles of both the radial and polar motions. Specifically, when considering a $n_\theta$:$n_r$ resonance, we take $T = 2\pi N n_\theta/\Omega_r = 2\pi N n_r/\Omega_\theta$ for some integer $N$. We have found that taking $N=5$ gives sufficiently accurate results. We can then estimate the jumps by taking the difference between the maximum and minimum time-averaged fluxes.
+
+We expect nearly-circular orbits to show small flux enhancements due to the small volume of the $r\theta$ 2-torus; resonant orbits come close to every allowed point, thus approximating a non-resonant orbit. In \figref{res-flux-rms-p}, we show the root-mean-square (over $a$ and $\cos\iota$) relative flux enhancement for the semi-latus rectum as a function of eccentricity, for a selection of low-order resonances. As expected, it is found that larger eccentricities give rise to larger resonant flux enhancements in general.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.46\textwidth]{res_flux_rms_p}
+\caption{\label{fig:res-flux-rms-p}Relative flux enhancements of $p$, as a function of $e$, marginalised over $a$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use solid (short-dashed; long-dashed) lines. The 2:3 resonance has the largest relative flux enhancement.}
+\end{figure}
+
+\emph{Is this description clear, and is it actually correct? It seems reasonable ...}
+
+It is informative to consider the dependence on the resonance ratio $\nu$. Fixing the eccentricity at $e=0.95$ to emphasise the variation, we compute the flux enhancements for different resonance ratios, shown in \figref{fig:res-flux-rms-p-vsnu}, where we also highlight ratios arising from different values of $n_\theta$. We observe a clear relationship between the flux enhancement and $\nu$ for all resonances with $n_\theta = 1$ or $2$, independent of which of those is considered. However, negligibly small flux enhancements are observed for systems with $n_\theta = 3$ or higher. This can be explained by the quadrupolar nature of GWs. A resonant trajectory averaged over time (and consequently $\phi$) takes $n_\theta$ (possibly repeated) values of $\theta$ at each radial turning point. Considering rings of matter at these coordinates, the dominant spherical harmonic describing the resultant mass distribution has $l=n_\theta$ (and $m=0$). Since GWs are generated by the quadrupole moment at leading order, the most significant resonant enhancements will arise from systems with $n_\theta = 2$. Due to the presence of higher harmonics, $n_\theta = 1$ systems also contribute strongly; it is perhaps more appropriate to treat $1$:$x$ resonances as \emph{de facto} $2$:$2x$ resonances, explaining the linked behaviour of the flux enhancements for $n_\theta = 1$ and $2$ systems.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.46\textwidth]{res_flux_rms_p_e095}
+\caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements of $p$ marginalised over $a$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
+\end{figure}
+
+\emph{Is this bit really needed ...?}
+
+The resonant enhancements to the fluxes of $E$, $L_z$ and $Q$ have been calculated previously using Teukolsky-based methods for a handful of systems~\cite{Flanagan2012a}. They consider the 1:2, 1:3, 2:3 and 3:4 resonances for EMRIs with $a=0.9$, either $e=0.3$ or $0.7$, and $\theta_\mathrm{inc} = 20\text{\textdegree}$ or $70$\textdegree. We compare our results to their published values (in their tables I--IV) in \figref{res-flux-FHR}. There is some qualitative agreement between the two approaches: more eccentric orbits give rise to larger enhancements; and the 3:4 resonance has a negligibly small enhancement. However, for the most significant 2:3 resonance, we typically predict larger orbital parameter jumps. Our results in \secref{astrophysics}, regarding the impact of resonances on a population of EMRIs, are therefore conservative predictions, as our model over-estimates the resonance effects.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=\textwidth]{res_flux_FHR}
+\caption{\label{fig:res-flux-FHR}Relative flux enhancements of $E$ (left column), $L_z$ (middle) and $Q$ (right) for resonance ratios corresponding to the 1:3, 1:2, 2:3 and 3:4 resonances. We show results as computed here with a solid red line, and results from~\cite[FHR14]{Flanagan2012a} with a dashed blue line. Each row has a different eccentricity and inclination corresponding to tables I--IV in FHR14. All systems have $a=0.9$.}
+\end{figure*}
+
 Knowing where resonances are found in parameter space, how long they last, and how big an effect they are likely to have, enables us to study and interpret the observable effects of resonances on a population of inspirals.
 
 
@@ -379,9 +406,9 @@ We discuss our chosen waveform generation scheme, giving demonstrations of its a
 \subsection{Waveform model}
 \emph{Can probably shorten this section a bit.}
 
-To generate gravitational waveforms, we choose to employ the numerical kludge (NK) method of Babak {\it{et al}}.~\cite{Babak2007}. The principle behind the class of kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
+To generate gravitational waveforms, we choose to employ the numerical kludge (NK) method of Babak {\it{et al}}.~\cite{Babak2007}, augmented to include evolution of the positional elements. The principle behind the class of kludge methods is to first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This can be much quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically 95\% or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
 
-Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the post-Newtonian self-force from \secref{self-force}. We then interpret the Boyer--Lindquist coordinates as spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique; specifically, we apply the standard quadrupole formula~\cite{Misner1973}.
+Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the dissipative part of the post-Newtonian self-force from \secref{self-force}. We then interpret the Boyer--Lindquist coordinates as spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique; specifically, we apply the standard quadrupole formula~\cite{Misner1973}.
 
 We expect these waveforms to be sufficiently accurate for our purposes, given the inaccuracy of the self-force model being employed. It would, however, be straight-forward to adopt a different waveform generation scheme, for example by including higher order multipole moments, should advances be made in determining the self-force.
 
@@ -421,9 +448,7 @@ To demonstrate the approach, we calculate the full evolution and the 2-torus ave
 \caption{\label{fig:good-traj}The evolution of the orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) under the full (solid line) and adiabatic (dashed) models for an illustrative EMRI system that does not encounter any significant resonances. The inset plots show the behaviour on short timescales, where the fast orbital oscillations can be seen.}
 \end{figure*}
 
-\emph{Update this to reflect thesis.}
-
-Once the trajectories have been computed using both methods of evolution, we can calculate the corresponding waveforms. The plus-polarised GW at the start and end of the evolution is shown in \figref{good-waveform}. The adiabatic waveform shows good agreement with the full waveform in both amplitude and phase. Calculating the SNR for each of the models, we find an overlap $\mathbb{O} = 0.984$, illustrating that adiabatic models can be used in place of the full evolution in cases where resonances are not encountered.
+Once the trajectories have been computed using both methods of evolution, we can calculate the corresponding waveforms. The plus-polarised GW at the start and end of the evolution is shown in \figref{good-waveform}. The adiabatic waveform shows good agreement with the full waveform in both amplitude and phase. Calculating the SNR for each of the models, we find an overlap $\mathbb{O} = 0.993$, illustrating that adiabatic models can be used in place of the full evolution in cases where resonances are not encountered.
 
 \begin{figure*}[htbp]
 \centering
@@ -454,29 +479,27 @@ Also shown is the shortened overlap computed between the full evolution and a di
 \subsection{The effect of resonances: Loss of SNR}
 \label{sec:SNRloss}
 
-\emph{Update this to reflect thesis.}
-
 To be able to quantify the effect that the resonance has on an evolution, we turn to the SNR and the overlap between full and adiabatic models computed for the entire length of the observed inspiral. The dephasing means that an adiabatic evolution with the same initial conditions as a full evolution is likely to have a low overlap if a significant resonance is encountered. However, this does not necessarily mean that all adiabatic evolutions have low overlaps; we need to search for optimal adiabatic parameters, such that the overlap is maximal.
 
-The extremely large parameter space of adiabatic waveforms renders a brute-force approach computationally impossible; it is therefore necessary to restrict the search in some way. For this preliminary investigation into the importance of resonances, we do this by focussing on a small subset of parameters that we suspect will produce a large overlap. We make the assumption that a good adiabatic model will \emph{exactly} match the full model at some time $t_{\mathrm{match}}$. This reduces the search to a one parameter family of waveforms that can easily be computed concurrently with the full evolution.
+The extremely large parameter space of adiabatic waveforms, coupled with the expensive nature of our 2-torus averaging routine, renders a brute-force approach computationally impossible; it is therefore necessary to restrict the search in some way. For this preliminary investigation into the importance of resonances, we do this by focussing on a small subset of parameters that we suspect will produce a large overlap. We make the assumption that a good adiabatic model will \emph{exactly} match the full model at some time $t_{\mathrm{match}}$. This reduces the search to a one parameter family of waveforms that can easily be computed concurrently with the full evolution.
 
-The most restrictive aspect of this approach is that all extrinsic parameters and any intrinsic ones that remain constant throughout the evolution, such as the masses of the BHs and the central BH spin, do not get explored by our family of adiabatic models. It is possible that small deviations from these true parameters give rise to better matching adiabatic models, to partially correct for the (lack of) resonance effects. Indeed, systematic biases are expected when the model waveforms do not accurately reflect the data~\cite{Cutler2007}.
+The problem of searching over adiabatic templates now reduces to the task of choosing appropriate values of $t_{\mathrm{match}}$. Anticipating that resonances shall play a key role in determining the degree of waveform overlap, we choose matching times situated at $5\tau_\mathrm{res}$ after each resonance of interest, namely the low-order 2:3 and 1:2. These matching times lie in a portion of the evolution that is not affected by a resonance and so should result in a large overlap for that region of the inspiral. We also include templates that match at the start of the evolution, so that we have a model that should match the portion of the evolution before the first resonance, and at the end of the evolution, as this is often where most SNR is accumulated. In addition, we include models that match exactly on each of the resonances as these may achieve partial matching both before and after the resonance and hence perform well.
 
-The problem of searching over adiabatic templates now reduces to the task of choosing appropriate values of $t_{\mathrm{match}}$. Anticipating that resonances shall play a key role in determining the degree of waveform overlap, we choose matching times situated at $5\tau_\mathrm{res}$ after each resonance of interest, namely the low-order 2:3, 1:2, 2:5 and 1:3. These matching times lie in a portion of the evolution that is not affected by a resonance and so should result in a large overlap for that region of the inspiral. We also include templates that match at the start of the evolution, so that we have a model that should match the portion of the evolution before the first resonance, and at the end of the evolution, as this is often where most SNR is accumulated. In addition, we include models that match exactly on each of the resonances as these may achieve partial matching both before and after the resonance and hence perform well.
+In our experience, we found that these choices were not sufficient to produce a good family of adiabatic waveforms. In particular, if an adiabatic model happened to match the full model close to the edge of the envelope generated by the fast orbital evolution, then the two trajectories eventually diverged and the resulting waveform provided a poor match. We therefore adjust the values of $t_{\mathrm{match}}$ so that they correspond to times of apoapsis. This ensures that the adiabatic model intersects with the full model close to the centre of the envelope, as demonstrated by the inset plots in \figref{good-traj}. As a result, we obtain much higher overlaps in general.
 
 We have tried a more rigid system of choosing the values of $t_{\mathrm{match}}$, producing an adiabatic evolution regularly at fixed intervals, but these generally perform no better than our adaptive match points and require many more adiabatic evolutions to be calculated.
 
-In our experience, we found that these choices were not sufficient to produce a good family of adiabatic waveforms. In particular, if an adiabatic model happened to match the full model close to a turning point in the fast orbital evolution, then it eventually diverged from the full model and the resulting waveform provided a poor match. We therefore adjust the values of $t_{\mathrm{match}}$ so that they correspond to times in the inspiral when the time-derivative of a particular orbital parameter (we choose the semi-latus rectum $p$) is maximally different from the adiabatic time-derivative of that orbital parameter. This ensures that the adiabatic model intersects with the full model close to the centre of the envelope created by the fast oscillations, as demonstrated by the inset plots in \figref{good-traj}, and as a result gives much higher overlaps in general.
+This one-parameter family of adiabatic models does not explore the extrinsic parameter space nor does it consider different values of the constant intrinsic parameters (the masses of the BHs and the central BH spin). It is possible that small deviations from these true parameters give rise to better matching adiabatic models, to partially correct for the (lack of) resonance effects. Indeed, systematic biases in parameter estimation are expected when the model waveforms do not accurately reflect the data~\cite{Cutler2007}. The result of these restrictions is that the maximum overlap calculated using our family is a strict lower bound on the true maximum overlap.
 
 For the illustrative EMRI system detailed in the previous section, we have computed the family of adiabatic models set by $t_{\mathrm{match}}$ and the resulting trajectories are consistent for the length of the evolution. As they cannot be easily distinguished by eye, we plot the difference (in $E$, $L_z$ and $Q$) between the models and the adiabatic evolution that matches at the start, shown in \figref{res-diff-traj}. The jumps in the orbital parameters due to the 2:3 resonance can be clearly seen, as can the fast orbital oscillations present in the full evolution but absent in the adiabatics.
 
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{Fig_res_diff_traj}
-\caption{\label{fig:res-diff-traj}The differences in orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) between each evolution scheme and the adiabatic model that matches at the start. The solid line shows the full evolution and the dashed lines show the different adiabatic evolutions, which match the full evolution at different times throughout the inspiral (numbers in parentheses give the overlap with the full evolution): at the start (0.202), at the 2:3 resonance (0.458), after the 2:3 resonance (0.259) and at the end (0.677).}
+\caption{\label{fig:res-diff-traj}The differences in orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) between each evolution scheme and the adiabatic model that matches at the start. The solid line shows the full evolution and the dashed lines show the different adiabatic evolutions, which match the full evolution at different times throughout the inspiral (numbers in parentheses give the overlap with the full evolution): at the start (0.207), at the 2:3 resonance (0.432), after the 2:3 resonance (0.258) and at the end (0.677).}
 \end{figure*}
 
-None of the adiabatic models presented here give a particularly high overlap with the full evolution, because of the effects of the resonance. The best-performing adiabatic model was that which matched at the end, giving $\mathbb{O} = 0.677$, while the model that matches at the start gives only $\mathbb{O} = 0.202$. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. 
+None of the adiabatic models presented here give a particularly high overlap with the full evolution, because of the effects of the resonance. The best-performing adiabatic model was that which matched at the end, giving $\mathbb{O} = 0.677$, while the model that matches at the start gives only $\mathbb{O} = 0.207$. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. 
 
 \subsection{The effect of resonances: Jump sizes}
 
@@ -492,7 +515,9 @@ To achieve this, we isolate spans of data away from the resonance; specifically,
 \caption{\label{fig:res-jump-calc}The difference in energy between the instantaneous model and adiabatic model that matches at the 2:3 resonance, scaled by the magnitude of the 2:3 resonance jump. The dashed green (yellow) lines show the bounding fits to the data before (after) the resonance, used to numerically estimate the size of the jump. The dotted red line indicates the computed size of the jump. The time axis is centred on the 2:3 resonance and is scaled by the appropriate resonance timescale.}
 \end{figure}
 
-To estimate the size of the jump $\Delta \mathcal{I}_{\mathrm{jump}}$, we extrapolate the bounding lines to the resonance time and calculate the difference between the pre- and post-resonance values, quoting the final result as the average of that obtained using the upper and lower limits. This allows us to take into account any linear drift in $\Delta \mathcal{I}$ that can occur over the resonance timescale due to the inaccuracy of the adiabatic approximation. In addition, by using information from both the upper and lower limits, we can veto jump calculations that appear erroneous: if one jump is positive and the other negative, then we ignore that resonance; this often occurs very near to plunge, where the adiabatic approximation breaks down. For typical systems, this numerically computed jump appears to well describe the resonance, as shown by the red dotted line in \figref{res-jump-calc}.
+To estimate the size of the jump $\Delta \mathcal{I}_{\mathrm{jump}}$, we extrapolate the bounding lines to the resonance time and calculate the difference between the pre- and post-resonance values, quoting the final result as the average of that obtained using the upper and lower limits. This allows us to take into account any linear drift in $\Delta \mathcal{I}$ that can occur over the resonance timescale due to the inaccuracy of the adiabatic approximation.
+% In addition, by using information from both the upper and lower limits, we can veto jump calculations that appear erroneous: if one jump is positive and the other negative, then we ignore that resonance; this often occurs very near to plunge, where the adiabatic approximation breaks down. 
+For typical systems, this numerically computed jump appears to well describe the resonance, as shown by the red dotted line in \figref{res-jump-calc}.
 
 The absolute size of the resonance jump is often not particularly useful, especially when comparing different systems. Instead, we can express the resonance jump as a fraction of the adiabatic change expected across the resonance. For the orbital parameter $\mathcal{I}$,
 \begin{equation}
@@ -502,7 +527,7 @@ The absolute size of the resonance jump is often not particularly useful, especi
 
 The resonance jump depends sensitively on the relative phase of radial and poloidal motions. It is therefore instructive to study the resonance problem using an ensemble of systems differing only in the initial value of the radial phase $\psi$, which we do for our illustrative system parameters. Choosing random values for $\psi$ corresponds to random values of the orbital phase on resonance $\widehat{\kappa}_0$, which should map out the full range of resonance jumps for these particular orbital shape parameters, according to \eqnref{delta-I-a}.
 
-Given our computed resonance jumps for all of the orbital parameters, we extract a single phase parameter $q$ for each system that specifies the magnitude of each jump. We expect such a phase parameter to be linearly offset from $\widehat{\kappa}_0$. The resonance jumps are sinusoidal with respect to $q$, as shown by the fits in \figref{resjump-vs-q}, lending support to \eqnref{delta-I-a} and giving us confidence in our numerical jump calculations. We can also compute the jumps in the fundamental frequencies for each system (shown as dashed lines in \figref{resjump-vs-q}).
+Given our computed resonance jumps for all of the orbital parameters, we extract a single phase parameter $q$ for each system that specifies the magnitude of each jump. We expect such a phase parameter to be linearly offset from $\widehat{\kappa}_0$. The resonance jumps are sinusoidal with respect to $q$, as shown by the fits in \figref{resjump-vs-q}, lending support to \eqnref{delta-I-a} and giving us confidence in our numerical jump calculations. The jumps in $E$ and $L_z$ are approximately in phase, but those in $Q$ are found to be offset; this means that for every value of $q$, there is always a resonance jump in at least one parameter. We can also compute the jumps in the fundamental frequencies for each system (shown as dashed lines in \figref{resjump-vs-q}).
 
 \begin{figure}[htbp]
 \centering
@@ -510,88 +535,121 @@ Given our computed resonance jumps for all of the orbital parameters, we extract
 \caption{\label{fig:resjump-vs-q}The magnitude of the resonance jump for our illustrative system as a function of the extracted phase parameter $q$. The jump is expressed as a percentage of the adiabatic change in each parameter, given by \eqnref{res-jump-ratio}. The individual jumps as well as a sinusoidal fit are plotted for the three orbital shape parameters (solid lines) and the three orbital frequencies (dotted).}
 \end{figure}
 
-For each system, we compute the overlap between the full evolution and the family of adiabatics given by our set of match times $t_\mathrm{match}$ described in the previous section. The largest overlap in each case is plotted in \figref{overlap-vs-resjump-ill}, as a function of the percentage resonance jumps in the orbital parameters. We observe no strong trend with the size of the jump, although systems with small jumps in $E$ (less than $1\%$) have higher than average overlaps. These systems also have small jumps in the fundamental frequencies and so the adiabatic waveform dephases more slowly from the full waveform, leading to a larger overlap.
+For each system, we compute the overlap between the full evolution and the family of adiabatics given by our set of match times $t_\mathrm{match}$ described in the previous section. The largest overlap in each case, plotted in \figref{overlap-vs-q}, appears to be roughly independent of the value of $q$ and hence with the relative sizes of the orbital parameter jumps.
 
-\begin{figure*}[htbp]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{Fig_overlap_vs_resjump_ill}
-\caption{\label{fig:overlap-vs-resjump-ill}The overlap \eqnref{overlap} between the full and adiabatic evolutions, maximised over the family of generated adiabatics, as a function of the resonance jumps in $E$ (left), $L_z$ (middle), and $Q$ (right). Each dot represents a system with our illustrative parameters and a random choice of the initial radial phase. The red line indicates the expected overlap assuming that the waveforms match exactly post-resonance, but have zero overlap pre-resonance.}
-\end{figure*}
+\includegraphics[width=0.46\textwidth]{overlap_vs_q}
+\caption{\label{fig:overlap-vs-q}The overlap between the full and adiabatic evolutions, maximised over the family of generated adiabatics, as a function of the extracted phase parameter $q$. Each dot represents a system with our illustrative parameters and a random choice of the initial radial phase. The red line indicates the expected overlap assuming that the waveforms match exactly post-resonance, but have zero overlap pre-resonance.}
+\end{figure}
 
-The best performing adiabatic for the majority of our systems matched at the end of the inspiral. We can interpret the low overlaps by assuming that these adiabatic waveforms recover the entire SNR in the region post-resonance, but none pre-resonance. As a result, we would expect the overlap to roughly equal the fraction of time spent post-resonance, which in this case is $0.7$, demonstrated by the red line in \figref{overlap-vs-resjump-ill}. There is not an exact equivalence because of the frequency-dependent noise of eLISA; cycles near the end of the inspiral accumulate proportionally more SNR at a frequency closer to the base of the eLISA noise curve.
+The best performing adiabatic for the majority of our systems matched at the end of the inspiral. We can therefore estimate the value of the overlap by assuming that the adiabatic waveforms recover the entire SNR in the region post-resonance, but none at all in the region pre-resonance. We expect the overlap to scale with the fraction of time spent post-resonance, the value of which is demonstrated by the red line in \figref{overlap-vs-q}. There is not an exact equivalence because of the frequency-dependent noise of eLISA; cycles near the end of the inspiral accumulate proportionally more SNR at a frequency closer to the minimum of the eLISA noise curve.
 
-A small fraction of systems have a much lower overlap than expected, at around $0.5$. This is due to a sub-optimal choice of the matching times; making small adjustments to $t_\mathrm{match}$ can lead to higher overlaps around $0.7$, but the exact adjustments required are difficult to predict in advance.
+Systems with $|q| \approx \pi/2$ (corresponding to small jumps in $E$ and $L_z$) have higher than average overlaps due to additional accumulation in the pre-resonance region. The adiabatic models of these systems dephase more slowly, but still do not produce very high overlaps due to the jump in $Q$. A small fraction of systems have a lower overlap than expected, at around $0.5$. This is due to a sub-optimal choice of the matching times; making small adjustments to $t_\mathrm{match}$ can lead to higher overlaps, but the exact adjustments required are difficult to predict in advance.
 
 
 \subsection{Sample EMRI population}
 
-\emph{COMPLETELY REWRITE}
-
 \emph{Basically summarise the GOAT population. Maybe include event rate estimates in appendix??}
 
-Strong resonances can severely limit our ability to recover SNR from waveforms using adiabatic templates; they partition the inspiral, splitting up the total SNR into different adiabatic modes, which may be individually undetectable. To assess the impact of this on future GW missions, we need to create a sample population of detectable EMRIs.
+Strong resonances can limit our ability to recover SNR from waveforms using adiabatic templates; they partition the inspiral, splitting up the total SNR into different adiabatic regions, which may be individually undetectable. In order to assess the impact of this on future GW missions, we need to analyse the waveforms from a population of detectable EMRIs.
 
-We first identify 14 parameter distributions that describe an astrophysically typical EMRI\footnote{The actual distribution in parameter space of observable EMRI systems is unknown, but we can make reasonable estimates.}. We choose the mass of the compact object $\mu = 10 M_\odot$, corresponding to a typical mass for stellar BHs. We take the central object to be a typical supermassive BH at the centre of a galaxy, with mass $M$ uniformly distributed in log-space between $10^5 M_\odot$ and $10^7 M_\odot$, and dimensionless spin $a_\ast$ uniformly between its limiting values, $0$ and $1$. The direction of the spin of the central BH, the direction of the angular momentum of the orbit and the direction of the source on the sky are all chosen uniformly on the sphere. The angles specifying the location of pericenter and the compact object around the orbit are distributed uniformly between $0$ and $2\pi$.
+We generate a representative EMRI population by making reasonable assumptions about the distributions of the 14 parameters in the analytic kludge model of Barack and Cutler \cite{Barack2004}. The EMRI event rate is dominated by the inspiral of heavier BHs due to the larger observational volume in comparison to that for white dwarfs and neutron stars~\cite{gair_event_2004}. We therefore take the mass of the compact object to be $\mu = 10 M_\odot$, corresponding to a typical mass for stellar BHs.
 
-We assume a standard cosmology with $\Omega_\Lambda = 0.7$, $\Omega_m = 0.3$ and $H_0 = 70\,\mathrm{km s^{-1}\, Mpc^{-1}}$, and sample the redshift of the source uniformly from comoving volume, up to a maximum of $z_\mathrm{max} = 0.7$. We don't expect the exact details of the cosmology to significantly alter our results and our choice of $z_\mathrm{max}$ is justified \textit{post hoc}.
+We take the central object to be a typical supermassive BH at the centre of a galaxy; we construct an appropriate distribution by breaking the EMRI event rate into two pieces: the `intrinsic' event rate $\mathcal{R}$, i.e. the number of inspiral events per unit time for any given galaxy; and the comoving number density of SMBHs in the Universe, which is the same as that of galaxies if we assume all galaxies host a single SMBH. We are interested in galaxies that possess a SMBH with a mass in the range $(10^{4} - 10^7) M_\odot$, as these give rise to EMRIs in the frequency band of space-based GW detectors. In principle, $\mathcal{R}$ will depend on the exact composition of the population of compact objects around each SMBH, the stellar density profile for each component, and the mass and spin of each SMBH. All of these properties are highly uncertain, even for our own galaxy.
 
-The astrophysics in dense stellar clusters at the center of galaxies leading to EMRI production is highly uncertain. The currently favoured formation mechanism scatters compact objects onto highly eccentric orbits, which lose a burst of energy to GW emission with each periapse passage. This tends to circularise the orbit, as the compact object spirals inwards. Hopman and Alexander \cite{Hopman2005} model this scattering and give an eccentricity distribution for compact objects spiralling into a $3 \times 10^6 M_\odot$ Schwarzschild BH at the point when the orbital period enters the LISA band at $10^4\,\mathrm{s}$. The overall results of their work are still valid for spinning BHs and so assuming that this distribution holds for other BH masses, we can sample the orbit eccentricity and calculate the semi-latus rectum from the orbital period.
-
-These EMRIs are astrophysically motivated, but may not be detectable by eLISA. To assess this, we evolve the systems forward in time using the analytic kludge method of Barack and Cutler \cite{Barack2004} until they reach the last stable orbit. We then calculate the Peters-Matthews waveform \cite{Peters1963} for a time $t_\mathrm{insp}$ at the end of the inspiral, where $t_\mathrm{insp}$ is chosen uniformly between $0.5$ years and $2$ years. We focus on the late stages of inspiral as these are most likely to be detected by eLISA. Given the waveform, we can estimate the expected SNR by approximating the overlap with a time-domain integral
+Despite the difficulties, simple estimates of $\mathcal{R}$ have been carried out using Monte Carlo methods to count the number of stars from isothermal distributions that spiral in to a SMBH without plunging. The result is a scaling law for each species of compact object of the form
 \begin{equation}
-\overlap{s}{h} \approx 4 \intd{0}{t_\mathrm{insp}}{\frac{s(t)h(t)}{S_n(f(t))}}{t},
+\label{eq:EMRI-intrinsic-rate}
+\mathcal{R}(M) = \mathcal{R}_0 \left(\frac{M}{M_0}\right)^\alpha,
 \end{equation}
-where $f(t)$ is some characteristic frequency of the orbit at time $t$. We find that taking $f$ to be twice the (radial) orbital frequency gives a good approximation to the SNR.
+where $M$ is the mass of the SMBH and $M_0 = 3\times 10^6 M_\odot$ is some fiducial mass. \Citet{hopman_extreme_2009} finds that $\alpha = \{-0.15,\,-0.25,\,-0.25\}$ for BHs, NSs and WDs, with respective event rates $\mathcal{R}_0 = \{400,\, 7,\, 20\}\, \mathrm{Gyr}^{-1}$ for each component. This neglects the effects of resonant relaxation, ignores the spin of the SMBH, and assumes that the $M$--$\sigma$ relation holds for all SMBH masses. Each of these is likely to significantly impact the event rate, but \eqnref{EMRI-intrinsic-rate} can still be used as a rough guide to the expected number of events.
 
-To obtain our final distribution of detectable EMRIs, shown as dark blue in \figref{EMRIpar-dists}, we quote the parameter values $t_\mathrm{insp}$ before plunge. Only systems with $\rho > 10$ are treated as detectable. Also shown in the figure, in light pink, are the systems with an estimated SNR below 10, to illustrate which systems tend to have lower SNRs. The acceptance rate for generating a detectable EMRI from the entire distribution is $32\%$.
+\Citet{amaro-seoane_impact_2011} studied the effects of mass segregation on the intrinsic EMRI event rate, using direct-summation $N$-body simulations to calibrate a Fokker-Planck description for the bulk properties of the stellar distribution. They found a better fit for the power law spectral index for BHs of $\alpha = -0.19$.
 
-We note that prograde orbits (those with $\cos\iota > 0$) and systems with higher BH spins tend to be favoured; this is likely due to the fact that such systems can inspiral much closer before finally plunging, and so experience the strongest gravitational fields. This effect is amplified by the fact that the majority of the SNR is recovered from the final part of the inspiral, which also explains why larger values of $t_\mathrm{insp}$ are only marginally preferred over smaller values.
+The comoving number density of galaxies is challenging to estimate due to local structure in the Universe, the evolution of that structure, and properties of the SMBHs themselves. We simplify the problem by assuming a homogeneous distribution that does not evolve with redshift, which is reasonable for the typical scales considered by GW detectors. We also neglect correlations between the SMBH mass and spin, and impose a power law scaling relation for the comoving number density
+\begin{equation}
+\diff{n}{\ln M}(M) = n_0 \left(\frac{M}{M_0}\right)^\beta.
+\end{equation}
+There is significant uncertainty in the SMBH mass function, but this simple functional form is found to be in good agreement with observations from the Sloan Digital Sky Survey for the mass range of interest; it is sufficient to set $\beta = 0$ and $n_0 = 0.002 \, \mathrm{Mpc}^{-3}$ for SMBHs with $M < \mathcal{O}(10^7 M_\odot)$ \citep{greene_mass_2007, gair_lisa_2010}.
 
-Systems at higher redshifts start to become undetectable as the amplitude of the signal scales inversely proportional to the luminosity distance to the source. At $z=0.7$, the fraction of detectable systems drops to $5\%$; this is chosen as the upper limit in the redshift distribution to minimise unneccessary computations. We quote the masses in the system as redshifted masses, which accounts for the frequency shift due to the expansion of the Universe.
+The mass of the SMBH is then sampled from a power-law with a probability distribution function (pdf) $f(M) \propto M^{\alpha+\beta-1}$. We sample the dimensionless spin $a_\ast$ uniformly between its limiting values, $0$ and $1$. The direction of the spin of the central BH, the direction of the angular momentum of the orbit and the direction of the source on the sky are all chosen uniformly on the sphere. The angles specifying the location of pericenter and the compact object around the orbit are distributed uniformly between $0$ and $2\pi$.
 
-The circularising effect of GW emission can be observed in the eccentricity distribution: even though the input systems from Hopman and Alexander have high eccentricites, with a peak in the distribution at $e\sim0.7$, the final distribution contains only low eccentricity systems, peaked at $e\sim0.05$ with a maximum at $e=0.31$.
+We assume a standard cosmology with $\Omega_\Lambda = 0.7$, $\Omega_m = 0.3$ and $H_0 = 70\,\mathrm{km s^{-1}\, Mpc^{-1}}$, and sample the redshift of the source uniformly from comoving volume, up to a maximum of $z_\mathrm{max} = 1.5$. We don't expect the exact details of the cosmology to significantly alter our results and our choice of $z_\mathrm{max}$ is justified \textit{post hoc}.
+
+The eccentricity distribution is more complicated. Eccentricities for EMRIs are uncertain, and depend strongly on the formation scenario being considered. Here, we adopt a fit to a distribution computed using Monte Carlo simulations by \citet{Hopman2005}, who model the scattering process of compact objects onto inspiral orbits around a $3 \times 10^6 M_\odot$ Schwarzschild BH. We assume this can be extended to provide a rough estimate of the distribution around BHs of other masses and spins. At the point in the inspiral when the orbital period takes a fiducial value $\nu_0 = 10^4\,\mathrm{s}$, we find that the Monte Carlo eccentricity pdf is well-described by a power-law with an exponential cutoff
+\begin{widetext}\begin{equation}
+\label{eq:EMRI-e-distribution}
+f(e;\,e_\mathrm{m},\,e_\mathrm{p},\,b) \propto 
+	\begin{cases}
+		\left(e_\mathrm{m}-e\right)^{b(e_\mathrm{m}-e_\mathrm{p})} \exp\left\{b(e-e_\mathrm{m})\right\} , &\quad 0 \leq e \leq e_\mathrm{m}\\
+		0, &\quad\text{otherwise}
+	\end{cases}
+\end{equation}\end{widetext}
+where $e_\mathrm{m} = 0.81$ is the maximum observed eccentricity, $e_\mathrm{p} = 0.69$ is the peak of the distribution, and $b=11$ is the exponential index. 
+
+We are interested in EMRI systems close to plunge, as it is here where the GW amplitude is largest. To create our EMRI population, we therefore sample the eccentricity from the distribution given by \eqnref{EMRI-e-distribution}, set the orbital period equal to the fiducial value of $10^4\,\mathrm{s}$, and evolve the system using the AK prescription up until the last stable orbit (LSO).\footnote{The LSO is determined numerically by calculating the roots of $R(r)=0$, which we denote in ascending order by $r_4 \leq r_3 \leq r_p \leq r_a$, and stopping the evolution when $r_3 = r_p$, which designates the orbit as marginally stable.} Each of these systems is then evolved backwards for some time $t_\mathrm{insp}$, chosen uniformly from the range $[0,2]$ years, and the expected gravitational waveforms are calculated using the AK formalism.
+
+The size of the required population can be estimated by evaluating an integral of the form \citep{gair_probing_2009}
+\begin{equation}
+\label{eq:EMRI-number}
+N_\mathrm{EMRI} = \intd{z=0}{z_\mathrm{max}}{ \intd{M=M_\mathrm{min}}{M_\mathrm{max}}{   \mathcal{R}T\diff{n}{\ln M} \diff{V_\mathrm{c}}{z}   }{\ln M}  }{z},
+\end{equation}
+where $V_\mathrm{c}(z)$ is the comoving volume at redshift $z$. For a mission lifetime of 2 years, the integral gives a total of $6333$ EMRI events. This is a lower bound for $N_\mathrm{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
+
+A given EMRI is classified as observable if its SNR exceeds some threshold value $\mathrm{SNR}_\mathrm{thres}$. Calculating SNRs from the generated AK waveforms, assuming 6 laser links and using the eLISA noise PSD, we find $513$ detectable events, assuming an SNR threshold of $15$. The parameter distributions for the mass and spin of the SMBH, the orbital shape parameters, the redshift of the source, and the length of the observation $t_\mathrm{insp}$ are shown in \figref{EMRIpar-dists}, to be contrasted with the distributions of the $5820$ systems with an SNR less than 15, which are also shown.
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=\textwidth]{Fig_EMRIpar_dists}
-\caption{\label{fig:EMRIpar-dists}The parameter distributions for our detectable EMRI systems, generated using $\order{10^4}$ realisations. The (darker) blue bars represent the final distribution, including an SNR cut of 10. The (lighter) pink bars stacked on top indicate the full distribution before the SNR cut.}
+\includegraphics[width=\textwidth]{EMRIpar_dists}
+\caption{\label{fig:EMRIpar-dists}The parameter distributions at plunge for our detectable EMRI systems (dark blue), alongside those of the undetectable systems (light pink). In each case, the y-axis values are the probability of a system being found in a particular bin, given that they are either detectable or undetectable. The exception to this is in the final plot for the SNR, where we show the number of systems in each bin. The SNRs quoted here are calculated using the AK model.}
 \end{figure*}
 
-\subsection{Population results}
+We note that eccentric prograde orbits around SMBHs with larger spins tend to produce larger SNRs, due to the fact that the periapse in such systems can get much closer to the SMBH, and so the compact object experiences the strongest gravitational fields. This effect also causes the detectable EMRIs to have smaller values of $p$ at plunge, as observed in the distributions. Systems at higher redshifts start to become undetectable because the amplitude of the signal scales inversely proportional to the luminosity distance to the source, and by $z=1.5$, the distribution of detectable EMRIs with eLISA has essentially vanished. The mass distribution for detectable EMRIs is peaked such that the typical GW frequency occurs at the base of the eLISA noise PSD.
+
+EMRI systems within our population tend to have small eccentricities at plunge due to the circularising effect of GWs: $85\%$ of detectable systems have $e < 0.1$, with a mean value of $0.05$ and a maximum of $0.4$. In \secref{flux-enhance}, we found a strong eccentricity dependence on the magnitude of the resonant flux enhancements. We therefore expect typical resonant jumps in these astrophysical systems to be much less than $1\%$, and so the resultant dephasing may be relatively weak. We now analyse these $513$ systems using our full and adiabatic self-force models.
+
+\subsection{Loss of signal-to-noise ratio}
 \label{sec:population}
 
-\emph{THIS IS ALL GARBAGE (oh :()}
+After computing the SNRs of our NK waveforms for each of the $513$ systems, we can compare the values to those obtained using the AK formalism. The different approximation schemes are expected to produce different results, but they should be broadly similar. In \figref{pop-SNR-vs-eta}, we plot the ratio of the new SNR to the AK SNR, as a function of the mass ratio. We observe a clear trend, with systems closest to equal mass performing roughly as expected, but with the most extreme systems giving significantly lower SNRs.
 
-We take draws from the EMRI parameter distributions, using them as initial conditions for the full instantaneous evolution, from which we generate a family of adiabatic evolutions, as discussed in \secref{SNRloss}. There are broadly three categories of system regarding the effect of resonances on the evolution:
-
-\begin{enumerate}
-\item No significant resonance jumps are observed, and all the adiabatic models agree with the full evolution reasonably well: the overlaps are typically larger than $0.9$. The models have overlaps less than $1$ since the adiabatic approach breaks down near the end of the inspiral.
-
-\item At least one resonance jump can be observed (typically the 2:3 resonance), but the adiabatic models still produce large overlaps. Most of the SNR from a signal is accumulated near to the end of the inspiral, at which point there are few significant resonances.
-
-\item At least one resonance jump can be observed, and all of our chosen adiabatic models have low overlaps with the full evolution. This does not rule out the possibility of adiabatic models existing that would produce a high overlap, but it is difficult to predict the combination of parameters that would achieve this.
-\end{enumerate}
-
-To ensure that our chosen adiabatics are reasonable estimates to maximise the overlap, we computed many adiabatic waveforms with regular values of $t_\mathrm{match}$ for one particular system; there can be large fluctuations in the overlap, but our chosen parameters perform at least averagely well.
-
-Across the full population, of $140$ different realisations, we find that $77\%$ of systems pass through the 2:3 resonance within the later stages of inspiral. In addition, $99\%$ of the systems we studied encountered the 1:2 resonance. This suggests that transient resonances are an important consideration in the evolution of EMRIs.
-
-While resonance jumps may in principle be as large as a few percent (see the example in \figref{resjump-vs-q}), this tends to only occur in high eccentricity systems. The typical size of any resonance jump within our astrophysical population is less than $0.01\%$, with many systems showing no visible changes through resonance. \Figref{pop-SNR-vs-jump} shows the distribution of computed resonance jumps in $E$ for our population, along with the corresponding loss of overlap. There is no observed trend with the size of the resonance jump, although this is not surprising given the small size of the jumps. The large scatter on the plot is due to our choice of adiabatic family; in each case, the quoted fractional SNR is a lower bound for the actual fractional SNR across the entire adiabatic model space.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.92\textwidth]{Fig_pop_SNR_vs_jump}
-\caption{\label{fig:pop-SNR-vs-jump}The fraction of the full SNR recovered using our family of adiabatic models, as a function of the percentage resonance jump in $E$. The histograms show the marginalised distributions over each parameter.}
-\end{figure*}
-
-It is possible for EMRIs to form through alternative channels, which may result in a population of high eccentricity systems. As an example, compact objects can be scattered onto orbits that plunge directly into the central BH; these systems can be mistaken for slow inspirals since they still undergo many hundreds of thousands of cycles in the bandwidth of a detector like eLISA \cite{Amaro-Seoane2013}. This kind of event is expected to be orders of magnitude more common than classic EMRIs. It is expected that resonance behaviours would be much more important in this case.
-
-Even within the low eccentricity systems considered here, it is possible for some EMRIs to be undetectable using adiabatic models, given the resonances they encounter. These are any systems for which the full SNR is larger than some cutoff value, but the largest adiabatic SNR is smaller than the cutoff. The estimated fraction of systems that would be lost in this manner, as a function of cutoff SNR is shown in \figref{SNRcutoff}.
+This is a consequence of the PN self-force model we are using, which we have found overestimates the inspiral rate for EMRIs. Detectable systems with larger mass ratios (closer to equal mass) plunge at higher frequencies, and so during the 2 year observation window, they evolve within the bucket of the eLISA noise curve. Increasing the rate of evolution then does not significantly change the recovered SNR since we are still sensitive to all parts of the waveform. At smaller mass ratios, the systems evolve more slowly, from lower plunge frequencies. An increased evolution rate can shift the EMRI to outside the sensitive region of the detector, thus giving a much lower SNR.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.46\textwidth]{Fig_SNRcutoff}
-\caption{\label{fig:SNRcutoff}The fraction of EMRI systems that would be lost using adiabatic models to analyse data that contain the effects of transient resonances. The error bars are estimated using the beta distribution \cite{Cameron2011}.}
+\includegraphics[width=0.46\textwidth]{pop_SNR_vs_eta}
+\caption{\label{fig:pop-SNR-vs-eta}The ratio of SNRs as computed with waveforms generated using the NK (adopting our PN self-force model) and AK formalisms, as a function of (the base-10 logarithm of) the mass ratio. Each system has an AK SNR greater than 15, using the eLISA detector with 6 laser links.}
+\end{figure}
+
+Nevertheless, we may still study the effect of resonances, by comparing the maximum adiabatic SNR to the full SNR computed using the NK waveforms. The resulting overlap is still indicative of the effect of resonances on the population of systems.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.46\textwidth]{pop_adSNR_vs_Tad}
+\caption{\label{fig:pop-adSNR-vs-Tad}The maximum overlap for $513$ detectable EMRI systems obtained by comparing the instantaneous evolution with each of the adiabatic models in our one-parameter family. Each system encounters either $0$ (blue squares), $1$ (gold triangles) or $2$ (green circles) resonances during the observation window $t_\mathrm{insp}$. The overlap is plotted against the largest time spent by the inspiral without encountering any resonances $t_\mathrm{ad}$, normalised by $t_\mathrm{insp}$. The solid line corresponds to the expected value if the 1:2 and 2:3 resonances cause significant waveform dephasing.}
+\end{figure}
+
+We have calculated the longest period of time, $t_\mathrm{ad}$, during each inspiral, in which neither the 1:2 nor the 2:3 resonance occurs. From the results of \secref{effres-jumps}, we expect the recovered overlap to be approximately given by the proportion of time spent in a resonance-free region, that is $t_\mathrm{ad} / t_\mathrm{insp}$. In \figref{pop-adSNR-vs-Tad}, we plot the maximum overlap between the instantaneous and adiabatic models against this ratio, highlighting the number of resonances, $N_\mathrm{res}$, each system encounters. In the majority of cases, there is no significant impact on the recovered overlap using adiabatic models.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.46\textwidth]{pop_adSNR_vs_eta}
+\caption{\label{fig:pop-adSNR-vs-eta}The difference between the maximum overlap and the expected value $t_\mathrm{ad} / t_\mathrm{insp}$, as a function of (the base-10 logarithm of) the mass ratio.}
+\end{figure}
+
+We can better understand the overlap distribution from \figref{pop-adSNR-vs-Tad} by considering the behaviour with the mass ratio. We do this in \figref{pop-adSNR-vs-eta}, plotting the difference between the computed maximum overlap and the value expected should resonances be important. A small proportion of systems have overlaps below the expected value (approximately $4\%$ have values less than $-0.05$). This might be caused by higher-order resonances disrupting the evolution, in which case $t_\mathrm{ad}$ should be smaller and the systems would lie on the expectation line. Alternatively, the low-order resonances might be long-lived, explaining why the recovered overlap is smaller than expected. However, a more likely explanation is that larger adiabatic overlaps are possible with models that we have not considered here (either with different values of $t_\mathrm{match}$ or outside our one-parameter family altogether).
+
+Roughly $30\%$ of the systems lie within $0.05$ of the expected value. However, the vast majority of these are not significantly disrupted by resonances, and produce overlaps approaching unity. For the smallest mass ratios, the inspiral rate is slow, and so the systems do not encounter either the 1:2 or 2:3 resonances during their lifetime. Meanwhile for the largest mass ratios, the EMRIs encounter both resonances very close to plunge. In each case, there is a long resonance-free region, allowing a high overlap to be recovered.
+
+The remaining $66\%$ of systems have overlaps above the level expected if resonances were to play an important role. These occur at low and intermediate values of the mass ratio, where the inspiral rate is slow enough that the low-order resonances are encountered in the middle of the observation window, and the resulting value of $t_\mathrm{ad}$ is small. For these EMRIs, resonances are not as important as expected, which is likely due to the low eccentricities of our population leading to small (and in most cases, negligible) resonant flux enhancements.
+
+Even if we assume that all overlap reductions are due to resonances (instead of due to our adiabatic family not being extensive enough) the overall effect on the population is not significant. To illustrate this, we plot the AK SNRs in \figref{pop-SNR-dist}, multiplied by the maximum recovered overlap to take into account the resonance behaviour. The total number of detectable systems using a threshold SNR of $15$ decreases from $513$ to $492$. If we increase the threshold, the fractional reduction in the number of detectable systems gets even smaller. We therefore conclude that resonances do not cause sufficient waveform dephasing across a population of EMRIs for the detection rate to be appreciably diminished.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.46\textwidth]{pop_SNR_dist}
+\caption{\label{fig:pop-SNR-dist}Histogram showing the probability distribution function for the detectable EMRI SNRs, as calculated using the AK formalism (light pink) and modified by the maximum adiabatic overlap (dark blue).}
 \end{figure}
 
 \section{Concluding remarks}
