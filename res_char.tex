@@ -8,11 +8,11 @@
 \usepackage{textcomp}
 
 \newcommand{\eqnref}[1]{(\ref{eq:#1})}
-\newcommand{\figref}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\Figref}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\secref}[1]{Sec.\ \ref{sec:#1}}
-\newcommand{\apref}[1]{Appendix \ref{sec:#1}}
-\newcommand{\Tabref}[1]{Table \ref{tab:#1}}
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\Figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\secref}[1]{Sec.~\ref{sec:#1}}
+\newcommand{\apref}[1]{Appendix~\ref{sec:#1}}
+\newcommand{\Tabref}[1]{Table~\ref{tab:#1}}
 
 \newcommand{\units}[1]{\ensuremath{~\mathrm{#1}}}
 
@@ -30,7 +30,8 @@
 \newcommand{\diffnop}[2]{\ensuremath{\dfrac{\dd^{#2}}{\dd {#1}^{#2}}}}
 \newcommand{\partialdiff}[2]{\ensuremath{\dfrac{\partial {#1}}{\partial {#2}}}}
 \newcommand{\linepartialdiff}[2]{\ensuremath{\partial {#1}/\partial {#2}}}
-\newcommand{\partialdiffop}[1]{\ensuremath{\dfrac{\partial}{\partial {#1}}}}\newcommand{\recip}[1]{\ensuremath{\frac{1}{#1}}}
+\newcommand{\partialdiffop}[1]{\ensuremath{\dfrac{\partial}{\partial {#1}}}}
+\newcommand{\recip}[1]{\ensuremath{\frac{1}{#1}}}
 \newcommand{\grad}{\ensuremath{\boldsymbol{\nabla}}}
 \newcommand{\intd}[4]{\ensuremath{\int_{#1}^{#2}{#3}\,\dd{#4}}}
 \newcommand{\order}[1]{\ensuremath{\mathcal{O}({#1})}}
@@ -46,23 +47,21 @@
 \title{The importance of transient resonances in extreme-mass-ratio inspirals}
 
 \author{Robert H. Cole}
-%\email[]{rhc26@ast.cam.ac.uk}
 \affiliation{Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom}
 \author{Christopher P.L. Berry}
 \email[]{cplb@star.sr.bham.ac.uk}
 \affiliation{School of Physics and Astronomy, University of Birmingham, Edgbaston, Birmingham B15 2TT, United Kingdom}
 \affiliation{Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom}
 \author{Priscilla Ca\~{n}izares}
-%\email[]{pcm@ast.cam.ac.uk}
+\affiliation{Institute of Mathematics, Astrophysics and Particle Physics, Radboud University, Heyendaalseweg 135, 6525 AJ Nijmegen, The Netherlands}
 \author{Jonathan R. Gair}
-%\email[]{jgair@ast.cam.ac.uk}
-\affiliation{Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom}
+\affiliation{School of Mathematics, University of Edinburgh, Peter Guthrie Tait Road, Edinburgh EH9 3FD, UK}
 
 \date{\today}
 
 \begin{abstract}
 \emph{Update abstract}
-The inspiral of stellar-mass compact objects into supermassive black holes provides a wealth of information about the strong gravitational-field regime via the emission of gravitational waves. In order to detect such signals and extract the desired information, it is necessary to possess a bank of accurate waveform templates. For computational efficiency, adiabatic templates are often used, which accurately reproduce orbit-averaged trajectories arising from the first order dissipative gravitational self-force. Other effects are however neglected, in particular that of transient resonances, where the radial and poloidal fundamental frequencies become commensurate. During such resonances, the flux of gravitational waves can be diminished or enhanced, leading to a shift in the compact object's trajectory and, ultimately, the phase of the emitted radiation. In this work, an astrophysical population of detectable extreme-mass-ratio inspirals is studied. We find that a large proportion encounter a low-order resonance in the later stages of inspiral; however, the resulting effect on signal-to-noise recovery is small as a consequence the low eccentricity of the studied population. At least one fifth of the systems may become undetectable if transient resonances are not accounted for.
+The inspiral of stellar-mass compact objects into supermassive black holes provides a wealth of information about the strong gravitational-field regime via the emission of gravitational waves. In order to detect such signals and extract the desired information, it is necessary to possess a bank of accurate waveform templates. For computational efficiency, adiabatic templates are often used, which accurately reproduce orbit-averaged trajectories arising from the first-order dissipative gravitational self-force. Other effects are, however, neglected, in particular that of transient resonances, where the radial and poloidal fundamental frequencies become commensurate. During such resonances, the flux of gravitational waves can be diminished or enhanced, leading to a shift in the compact object's trajectory and, ultimately, the phase of the emitted radiation. In this work, an astrophysical population of detectable extreme-mass-ratio inspirals is studied. We find that a large proportion encounter a low-order resonance in the later stages of inspiral; however, the resulting effect on signal-to-noise recovery is small as a consequence the low eccentricity of the studied population. At least one fifth of the systems may become undetectable if transient resonances are not accounted for.
 \end{abstract}
 
 % 04.25.Nx 	Post-Newtonian approximation; perturbation theory; related approximations
@@ -77,12 +76,14 @@ The inspiral of stellar-mass compact objects into supermassive black holes provi
 
 In the prologue to his classic monograph, Chandrasekhar~\cite{Chandrasekhar1992} celebrates the simplicity of black holes (BHs). The Kerr solution is defined by just two parameters: mass and spin. Despite the baldness of the BH metrics, great intricacies manifest in their properties. This is made evident when a second body is introduced. The two-body problem in general relativity (GR) is well studied. It is of paramount importance for gravitational-wave (GW) astronomy, where binary systems are the dominant source of radiation. Correctly modelling the dynamics of these systems is necessary to interpret and extract information from gravitational waveforms.
 
-We have made progress in understanding the general relativistic two-body problem in recent years. Bodies of comparable mass can be studied using numerical relativity. Rapid advances in this field have been made following breakthroughs in 2005~\cite{Pretorius2005,Campanelli2006,Baker2006}; it is now possible to simulate hundreds of orbits~\cite{Szilagyi2015}. These simulations allow us to understand BH--BH mergers. Stellar-mass BH mergers are targets for ground-based GW detectors, such as the upcoming Advanced LIGO~\cite{Aasi2015} and Virgo~\cite{Acernese2015}, and the in-construction KAGRA~\cite{Kuroda2010}. Supermassive BH (SMBH) mergers, expected to be the result of galaxy mergers, are potential sources for a space-borne detector such as eLISA~\cite{Amaro-Seoane2012a}. Systems of unequal masses are more challenging to evolve numerically as they complete a larger number of orbits and it is necessary to resolve two different scales. Calculations can instead be performed perturbatively. The paradigm unequal-mass system has a stellar-mass BH orbiting an SMBH, such as those expected to be found at the centre of most galaxies. These extreme-mass-ratio inspirals (EMRIs) produce GWs that are a promising signal for space-borne detectors~\cite{Amaro-Seoane2007}. Despite being well-studied, there still remain open questions.
+We have made progress in understanding the general relativistic two-body problem in recent years. Bodies of comparable mass can be studied using numerical relativity. Rapid advances in this field have been made following breakthroughs in 2005~\cite{Pretorius2005,Campanelli2006,Baker2006}; it is now possible to simulate hundreds of orbits~\cite{Szilagyi2015}. These simulations allow us to understand binary BH coalescences. Stellar-mass BH mergers are targets for ground-based GW detectors, such as Advanced LIGO~\cite{Aasi2015} and Advanced Virgo~\cite{Acernese2015}, and the in-construction KAGRA~\cite{Aso2013}. The first direct observations of GWs came from the coalescences of two stellar-mass BHs~\cite{Abbott2016,Abbott2016e,Abbott2016d}, and analysis of their properties relied upon our understanding of binary BH waveforms~\cite{Abbott2016f,Abbott2016h,Abbott2016d}. %Supermassive BH (SMBH) coalescences, expected to be the result of galaxy mergers, are potential sources for a space-borne detector such as eLISA~\cite{Amaro-Seoane2012a}.
+
+Systems of unequal masses are more challenging to evolve numerically as they complete a larger number of orbits and it is necessary to resolve two different scales. Calculations can instead be performed perturbatively. The paradigm unequal-mass system has a stellar-mass BH orbiting a supermassive BH (SMBH), such as those expected to be found at the centres of galaxies. These extreme-mass-ratio inspirals (EMRIs) produce GWs that are a promising signal for space-borne detectors like the evolving Laser Interferometer Space Antenna (eLISA)~\cite{Amaro-Seoane2007,Amaro-Seoane2012a}. Despite being well-studied, there still remain open questions in modelling generic binaries.
 
 In the case of extreme-mass-ratio systems, efforts are concentrated on understanding the gravitational self-force~\cite{Barack2009,Poisson2004}. In the test particle limit, the smaller body follows an exact geodesic of the SMBH's spacetime. Including the effects of the smaller body's finite mass, the background spacetime is perturbed. The back-reaction from this deformation alters the small body's orbital trajectory, and can be modelled as a self-force that moves the body from its geodesic. The self-force is commonly divided into two pieces, dissipative and conservative. The former encapsulates the slow decay of the orbital energy and angular momentum, constants of the motion in the test particle limit, through radiation. The latter shifts the orbital phases inducing precession. The dissipative piece is time-asymmetric and has the larger effect on the evolution of the orbital phase; the conservative piece is time-symmetric and has a smaller influence on the phase, although this can accumulate over many orbits. Being able to accurately model the influence of the self-force allows us to create reliable waveform models.
 
 Flanagan and Hinderer~\cite{Flanagan2012} highlighted a previously overlooked phenomenon that occurs in the general relativistic two-body problem, that of transient resonances. Geodesic orbits in GR have three associated frequencies: the radial frequency $\Omega_r$, the polar frequency $\Omega_\theta$ and the azimuthal frequency $\Omega_\phi$. The first two describe libration and the third rotation (except in the case of polar orbits where $\Omega_\theta$ also describes rotation)~\cite{Goldstein2002}. % Section 10.6
-In the weak-field limit, these all tend towards the Keplerian frequency; in the strong-field, $\Omega_r < \Omega_\theta < \Omega_\phi$, and they may differ significantly. For extreme-mass-ratio systems, the evolution time-scale is much longer than the orbital period such that the motion of the smaller body is approximately geodesic over orbital time-scales. The evolution of the orbit can be approximated as a series of geodesics using the osculating element formalism~\cite{Pound2008,Gair2011a}. During this evolution, the frequencies may become commensurate. Resonances occur when the radial and polar frequencies are rational multiples of each other:
+In the weak-field limit, these all tend towards the Keplerian frequency; in the strong-field $\Omega_r < \Omega_\theta < \Omega_\phi$, and they may differ significantly. For extreme-mass-ratio systems, the evolution timescale is much longer than the orbital period such that the motion of the smaller body is approximately geodesic over orbital timescales. The evolution of the orbit can be approximated as a series of geodesics using the osculating element formalism~\cite{Pound2008,Gair2011a}. During this evolution, the frequencies may become commensurate. Resonances occur when the radial and polar frequencies are rational multiples of each other:
 \begin{equation}
 \nu \equiv \frac{\Omega_r}{\Omega_\theta} = \frac{n_\theta}{n_r},
 \end{equation}
@@ -106,19 +107,19 @@ However, this averaging fails when the ratio of frequencies is the ratio of inte
 
 In this work we seek to characterise the importance of these resonances for the purposes of modelling EMRIs. The amplitude of expected signals is below the level of noise in a space-based GW detector. However, systems remain in band for many hundreds of thousands of cycles and so may be detected using a matched filter, provided we have sufficiently accurate waveform templates. Ensuring the accuracy of EMRI templates requires calculating the impact that passing through a resonance has on the orbital evolution and discovering for which resonances this is significant.
 
-In \secref{problem}, we formulate the specific problem: that of geodesic motion in Kerr spacetime, perturbed by the gravitational self-force. We then study generic properties of transient resonances in \secref{properties}, detailing their location in parameter space, the time-scales over which they affect the motion and the resulting GW flux enhancements. Specific examples are considered to illustrate the effects of resonances in \secref{waveforms}, before finally turning to an astrophysical population in \secref{astrophysics}. Our conclusions can be found in \secref{conclusion}.
+In \secref{problem}, we formulate the specific problem: that of geodesic motion in Kerr spacetime, perturbed by the gravitational self-force. We then study generic properties of transient resonances in \secref{properties}, detailing their location in parameter space, the timescales over which they affect the motion and the resulting GW flux enhancements. Specific examples are considered to illustrate the effects of resonances in \secref{waveforms}, before finally turning to an astrophysical population in \secref{astrophysics}. Our conclusions can be found in \secref{conclusion}.
 
-We use geometric units with $G = c = 1$ throughout. We always use $M$ for the mass of the central SMBH and $a$ as the spin parameter. We also use the dimensionless spin $a_\ast \equiv a/M$; we take the convention that $0 \leq a_\ast < 1$. We assume a standard cosmology with $\Omega_\Lambda = 0.7$, $\Omega_m = 0.3$ and $H_0 = 70\units{km\, s^{-1}\, Mpc^{-1}}$ and do not expect the exact details of the cosmology to significantly alter our results.
+We use geometric units with $G = c = 1$ throughout. We always use $M$ for the mass of the central SMBH and $a$ as the spin parameter. We also use the dimensionless spin $a_\ast \equiv a/M$; we take the convention that $0 \leq a_\ast < 1$. We assume a standard cosmology with $\Omega_\Lambda = 0.7$, $\Omega\sub{m} = 0.3$ and $H_0 = 70\units{km\, s^{-1}\, Mpc^{-1}}$ and do not expect the exact details of the cosmology to significantly alter our results.
 
 \section{The problem of EMRI transient resonances}
 \label{sec:problem}
 
-The evolution of an extreme-mass-ratio ($\eta \ll 1$) system is slow. Instantaneously, the motion of the orbiting mass can be described as geodesic, with the integrals of the motion changing on time-scales of many orbital periods. It is therefore necessary to develop an understanding of the Kerr geodesics (\secref{geodesic}). Transient resonance occur when the radial and polar frequencies become commensurate (\secref{frequencies}); we analyse the behaviour of resonances within the osculating element framework, where the trajectory is described by a sequence of geodesics that each match onto the motion at a particular instance (\secref{forced-motion}). The osculating elements formalism allows for the orbital evolution to be driven by a force, here, a particular model for the self-force (\secref{self-force}) and its adiabatic average (\secref{adiabatic}). In following sections, we study the differences between the adiabatic and full orbital evolutions.
+The evolution of an extreme-mass-ratio ($\eta \ll 1$) system is slow. Instantaneously, the motion of the orbiting mass can be described as geodesic, with the integrals of the motion changing on timescales of many orbital periods. It is therefore necessary to develop an understanding of the Kerr geodesics (\secref{geodesic}). Transient resonance occur when the radial and polar frequencies become commensurate (\secref{frequencies}); we analyse the behaviour of resonances within the osculating element framework, where the trajectory is described by a sequence of geodesics that each match onto the motion at a particular instance (\secref{forced-motion}). The osculating elements formalism allows for the orbital evolution to be driven by a force, here, a particular model for the self-force (\secref{self-force}) and its adiabatic average (\secref{adiabatic}). In following sections, we study the differences between the adiabatic and full orbital evolutions.
 
 \subsection{Kerr geodesics}
 \label{sec:geodesic}
 
-The geodesic equations may be written as~\cite{Carter1968, Chandrasekhar1992} % section 62
+Central to understanding transient resonances in a knowledge of orbits in Kerr spacetime, and hence we begin with details of evolving Kerr geodesics. Those familiar with calculating orbits in Kerr may skip this section. The geodesic equations may be written as~\cite{Carter1968, Chandrasekhar1992} % section 62
 \begin{subequations}
 \begin{align}
 \diff{t}{\lambda} = {} & a\left(L_z - aE\sin^2 \theta\right) + \frac{r^2 + a^2}{\Delta}\mathcal{T},\\
@@ -196,22 +197,18 @@ is the ratio of small integers. At this point, any Fourier series like those in 
 
 For a general non-resonant orbit there is no fixed correlation between the radial and polar coordinates. After a sufficiently long time, the trajectory comes arbitrarily close to every point in the range of motion (with $r\sub{p} \leq r \leq r\sub{a}$ and $\theta_- \leq \theta \leq \pi - \theta_-$); on account of the orbital precession, the whole space is densely covered. This does not happen on resonance, as the radial and polar motions are locked together such that we can express one as a function of the other, and so the trajectory keeps cycling over the same path. The points visited are controlled by the relative phases of the $r$ and $\theta$ motions. To represent this, we use the $r$ phase at the $\theta$ turning point $\psi_{\theta_-} = \psi(\chi = 0)$. Varying $\psi_{\theta_-}$ across its full range allows every point in the range of motion to be reached. Hence averaging over all values of $\psi_{\theta_-}$ for resonant orbits is equivalent to averaging over the $\psi$--$\chi$ $2$-torus for non-resonant orbits.
 
-One might be concerned about the nature of resonances following the inclusion of the self-force: true geodesic motion only exists at zeroth order in $\eta$ and, while it is a good approximation over short time-scales, for small $\eta$ there is a small disparity. The conservative piece of the self-force induces extra precession which leads to a slight shift in the orbital frequencies~\cite{Warburton2012}.\footnote{The Kolmogorov--Arnold--Moser (KAM) theorem states that when an integrable Hamiltonian (i.e. the case for motion in Kerr) is subject to a small perturbation the form of the orbits is preserved albeit slightly deformed~\cite{Arnold1963,Moser1973}. % Chapter II, section 3.3 d)
+One might be concerned about the nature of resonances following the inclusion of the self-force: true geodesic motion only exists at zeroth order in $\eta$ and, while it is a good approximation over short timescales, for small $\eta$ there is a small disparity. The conservative piece of the self-force induces extra precession which leads to a slight shift in the orbital frequencies~\cite{Warburton2012}.\footnote{The Kolmogorov--Arnold--Moser (KAM) theorem states that when an integrable Hamiltonian (i.e. the case for motion in Kerr) is subject to a small perturbation the form of the orbits is preserved albeit slightly deformed~\cite{Arnold1963,Moser1973}. % Chapter II, section 3.3 d)
 This should ensure that, in general, there are only small shifts in the orbital frequencies. However, the KAM theory is only valid for sufficiently incommensurate orbits: close to resonance it does not apply~\cite{Moser1973}. % Chapter V section 1. c) 
 This is a further reason why resonances merit an in-depth investigation.}
 The dissipative piece causes the frequencies to evolve and, hence, the resonance cannot persist for multiple orbits (without some feedback coupling). In effect, we are really considering a period of time about the resonant crossing. The instantaneous orbital frequencies oscillate back and forth around their averaged values. However, there is a time span when the frequencies are consistently close to being commensurate. During this time, the trajectory appears similar to a resonant trajectory, filling only a smaller region of the parameter space. It is this time period that is of interest for transient resonances~\cite{Bosley1992}.
-
-%The Kolmogorov--Arnold--Moser (KAM) theorem states that when an integrable Hamiltonian (i.e., the case for motion in Kerr) is subject to a small perturbation the form of the orbits are preserved albeit slightly deformed~\cite{Arnold1963,Moser1973}. % Chapter II, section 3.3 d)
-%When we average the self-force and follow the adiabatic evolution of the trajectory we are exploiting this behaviour. However, the KAM theory only applies for sufficiently incommensurate orbits: close to resonance it does not apply~\cite{Moser1973}. % Chapter V section 1. c)
-% In these regions the adiabatic approximation breaks down and we need to follow the instantaneous evolution.
 
 
 \subsection{Osculating elements and forced motion}
 \label{sec:forced-motion}
 
-For generic EMRIs, there are two characteristic timescales: the \emph{fast} orbital motion, related to the fundamental frequencies $\sim1/\Omega$, and the \emph{slow} inspiral, related to the change in fundamental frequencies $\sim\Omega/\dot{\Omega}$, where an overdot denotes a derivative with respect to coordinate time $t$. These, along with the resonance timescale, are discussed more in \secref{res-time}. The two-timescale nature of the problem makes it ideally suited to the method of osculating elements~\cite{Gair2011a}: on short timescales, we analyse the unperturbed system resulting in geodesic motion, and then the long-term evolution is described by a sequence of instantaneous geodesics.
+For generic EMRIs, there are two characteristic timescales: the fast orbital motion, related to the fundamental frequencies $\sim1/\Omega$, and the slow inspiral, related to the change in fundamental frequencies $\sim\Omega/\dot{\Omega}$, where an overdot denotes a derivative with respect to coordinate time $t$. These, along with the resonance timescale, are discussed more in \secref{res-time}. The two-timescale nature of the problem makes it ideally suited to the method of osculating elements~\cite{Pound2008,Gair2011a}: on short timescales, we analyse the unperturbed system resulting in geodesic motion, and then the long-term evolution is described by a sequence of instantaneous geodesics.
 
-We require, at each instant in time, that the chosen geodesic matches the true position and velocity of the particle. This amounts to a specific choice of the orbital shape parameters (for example, the set $\{E,L_z,Q\}$ or the generalised action variables $J_\alpha$) and some initial phases at $t=t_0$ (for example, the set $\{\psi_0,\chi_0,\phi_0\}$). Collectively, these are referred to as \emph{osculating elements} and we denote them by $I^A(t)$, making explicit the variation with time. For a sequence of geodesics of a background spacetime, where the evolution is forced by some external acceleration, we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair {\it{et al}}.~\cite{Gair2011a}.
+We require, at each instant in time, that the chosen geodesic matches the true position and velocity of the particle. This amounts to a specific choice of the orbital shape parameters (for example, the set $\{E,L_z,Q\}$ or the generalised action variables $J_\alpha$) and some initial phases at $t=t_0$ (for example, the set $\{\psi_0,\chi_0,\phi_0\}$). Collectively, these are referred to as \emph{osculating elements} and we denote them by $I^A(t)$, making explicit the variation with time. For a sequence of geodesics of a background spacetime, where the evolution is forced by some external acceleration (in our case from the self-force), we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair {\it{et al}}.~\cite{Gair2011a}. 
 
 %Given geodesic motion in some background spacetime with Christoffel symbols $\Gamma^\alpha_{\beta\gamma}$, forced by some external acceleration $f^\alpha$, so that
 %\begin{equation}
@@ -219,7 +216,7 @@ We require, at each instant in time, that the chosen geodesic matches the true p
 %\end{equation}
 %we can calculate the evolution of the osculating elements $\dot{I}^A$. The specific equations for motion in Kerr are derived by Gair {\it{et al}}.~\cite{Gair2011a}.
 
-\subsection{Self-force model}
+\subsection{Gravitational self-force model}
 \label{sec:self-force}
 
 To follow the evolution of the inspiral we must have a means of prescribing the forcing acceleration. We work directly with the gravitational self-force, using the same post-Newtonian (PN) approximation as Flanagan and Hinderer~\cite{Flanagan2012}. For comparison, Flanagan, Hughes and Ruangeri~\cite{Flanagan2012a} use a Teukolsky-equation calculation of GW fluxes to account for the inspiral due to radiation reaction.
@@ -251,10 +248,11 @@ It is convenient to calculate $\Gamma$ as
 \begin{equation}
 \Gamma = \left\langle \diff{t}{\lambda}\right\rangle_{q_r,\,q_\theta},
 \end{equation}
-using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\Lambda_\theta$ from the calculation.\footnote{We compute these integrals using a $300\times 300$ grid of $\{\psi,\chi\}$ values and employing a Newton--Cotes approximation in each dimension. The procedure requires $\mathcal{O}(10^5)$ separate evaluations of the derivatives at each time-step of an evolution, and so is computationally expensive to perform. However, the adiabatic derivatives vary on much longer timescales than the orbital motion (see \secref{res-time}), and so in practice, we can interpolate.} %We calculate the adiabatic derivatives, as above, at three points in the inspiral spaced by $\delta t/\eta$ where $\delta t$ is the orbital time-step. When the system is close to the central point, we use a quadratic fit to estimate the adiabatic derivatives. Once the system evolves close to one of the boundaries, we update the interpolation points, taking the closest boundary to be the new central point.
+using \eqnref{2torus-average}, as this allows us to eliminate $\Lambda_r$ and $\Lambda_\theta$ from the calculation.\footnote{We compute these integrals using a $300\times 300$ grid of $\{\psi,\chi\}$ values and employing a Newton--Cotes approximation in each dimension. The procedure requires $\mathcal{O}(10^5)$ separate evaluations of the derivatives at each time-step of an evolution, and so is computationally expensive to perform. However, the adiabatic derivatives vary on much longer timescales than the orbital motion (see \secref{res-time}), and so in practice, we can interpolate.}
+%We calculate the adiabatic derivatives, as above, at three points in the inspiral spaced by $\delta t/\eta$ where $\delta t$ is the orbital time-step. When the system is close to the central point, we use a quadratic fit to estimate the adiabatic derivatives. Once the system evolves close to one of the boundaries, we update the interpolation points, taking the closest boundary to be the new central point.
 The averaged fluxes successfully describe the leading-order secular evolution of the trajectory (as illustrated in \figref{good-traj}).
 
-%In our parameterisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
+%In our parametrisation of the EMRI system, using $\{\psi,\chi\}$ rather than $\{q_r,q_\theta\}$, we must perform appropriate averages over this new $2$-torus. The osculating elements integration scheme involves computing derivatives with respect to coordinate time, and we shall often be interested in the averaged form of such derivatives. Given a function $X(\psi,\chi)$, we can calculate the 2-torus average \cite{Drasco2005} of the derivative with respect to Mino time in terms of precomputed quantities
 %\begin{widetext}\begin{equation}
 %\label{eq:2torus-average}
 %\left\langle \diff{X}{\lambda}\right\rangle_{\psi,\,\chi} = \frac1{\Lambda_r\Lambda_\theta} \intd{0}{2\pi}{ \intd{0}{2\pi}{ \left(\diff{\psi}{t}\right)^{-1} \left(\diff{\chi}{t}\right)^{-1} \left(\diff{t}{\lambda}\right)^{-1} \dot{X} }{\chi} }{\psi}.
@@ -265,7 +263,7 @@ The averaged fluxes successfully describe the leading-order secular evolution of
 %\end{equation}
 %which is successful at describing the leading-order secular evolution of the trajectory, as illustrated in \figref{good-traj}.
 
-%The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{q_r,\,q_\theta}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
+%The effect of resonances must be completely contained within the pieces of the self-force left after subtraction of the $2$-torus-averaged pieces, $\hat{X}\equiv X-\langle X\rangle_{q_r,\,q_\theta}$. The adiabatic evolution, which contains only a single $2$-torus-averaged forcing term, will therefore not be affected by the occurrence of any transient resonances. Resonances still occur as the fundamental frequencies become commensurate, but as the system passes through each resonance, there is no additional effect on the evolution of the system.
 
 %One method of studying the effect of resonances is then to compare an adiabatic evolution with an instantaneous evolution, using the full knowledge of the self-force. This may be a useful exercise to calibrate and verify adiabatic models that can be generated cheaply; however it cannot be used to distinguish between dephasing effects arising from resonances and those arising from conservative corrections to the phase variables, as both are explicitly eliminated from the adiabatic prescription. We therefore take a different approach, comparing the instantaneous evolution with a quasi-adiabatic evolution, generated by averaging the full available self-force over the $2$-torus, rather than just averaging the term $G_\alpha^{(1)}$.
 
@@ -282,31 +280,31 @@ The averaged fluxes successfully describe the leading-order secular evolution of
 The combination of a full instantaneous evolution and an adiabatic evolution allows us to systematically study the effect of transient resonances on EMRIs over the course of an inspiral. Before approaching this problem, we first investigate the properties of the resonances themselves.
 
 
-\section{Properties of Transient Resonances}
+\section{Properties of transient resonances}
 \label{sec:properties}
 
-The first step in studying the effect of transient resonances is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. When considering the full parameter set of $\{p,e,\iota,a_\ast,\nu\}$, it is apparent that the search for resonances becomes expensive as a consequence of the dimensionality. It is therefore useful to have a guide of where to look. In \apref{location} we build a simple approximate model as a starting point for the numerical search. The resonances occur at relatively small periapses, corresponding to regions of strong-field gravity. Having located where in an inspiral we can expect to encounter a transient resonance, we must now consider its impact. In \secref{res-time} we determine the characteristic time-scales describing resonance, and in \secref{flux-enhance} we look at the impact of passing through a resonance on the evolution of the orbit, including some numerical results.
+The first step in studying the effect of transient resonances is to locate orbital parameters for which the frequencies are commensurate. We can calculate the frequencies and so we are left with the problem of solving $\Omega = n_r \Omega_r - n_\theta \Omega_\theta = 0$ numerically. When considering the full parameter set of $\{p,e,\iota,a_\ast,\nu\}$, it is apparent that the search for resonances becomes expensive as a consequence of the dimensionality. It is therefore useful to have a guide of where to look. In \apref{location} we build a simple approximate model as a starting point for the numerical search. The resonances occur at relatively small periapses, corresponding to regions of strong-field gravity. Having located where in an inspiral we can expect to encounter a transient resonance, we must now consider its impact. In \secref{res-time} we determine the characteristic timescales describing resonance, and in \secref{flux-enhance} we calculate the impact of passing through a resonance on the evolution of the orbit.
 
-\subsection{Time-scales}\label{sec:res-time}
+\subsection{timescales}\label{sec:res-time}
 
-When analysing resonances it is useful to refer to a number of characteristic time-scales.  We always use coordinate time $t$ for these, as this corresponds to what is measured by an observer at infinity. Translation to Mino time can be done with an appropriate factor of $\Gamma$. We use the orbital period $T$, the evolution time-scale $\tau\sub{ev}$, the precession time-scale $\tau\sub{pres}$ and the resonance time-scale $\tau\sub{res}$.
+When analysing resonances it is useful to refer to a number of characteristic timescales.  We always use coordinate time $t$ for these, as this corresponds to what is measured by an observer at infinity. Translation to Mino time can be done with an appropriate factor of $\Gamma$. We use the orbital period $T$, the evolution timescale $\tau\sub{ev}$, the precession timescale $\tau\sub{pres}$ and the resonance timescale $\tau\sub{res}$.
 
-The simplest time-scales are the orbital periods $T_r = 2\pi/\Omega_r$, $T_\theta = 2\pi/\Omega_\theta$ and $T_\phi = 2\pi/\Omega_\phi$. These are the shortest in our set. We use $T$ to denote a time-scale of the same order as the orbital periods.
+The simplest timescales are the orbital periods $T_r = 2\pi/\Omega_r$, $T_\theta = 2\pi/\Omega_\theta$ and $T_\phi = 2\pi/\Omega_\phi$. These are the shortest in our set. We use $T$ to denote a timescale of the same order as the orbital periods.
 
-We define the evolution time-scale as
+We define the evolution timescale as
 \begin{equation}
 \tau\sub{ev} = \frac{\nu}{\dot{\nu}},
 \end{equation}
-where an overdot denotes a derivative with respect to $t$. In general, away from resonance, we take $\nu \equiv \Omega_r/\Omega_\theta$. This time-scale sets the period over which there is a significant change in the frequencies. It acts as an inspiral time-scale. It is long in all cases we study, $\tau\sub{ev} \sim \order{T/\eta}$. It is this property which makes extreme-mass-ratio inspirals interesting, as we can follow the waveform for many cycles, accruing high signal-to-noise ratios. This is also what allows us to use the adiabatic prescription, as it means the trajectory moves slowly through different orbital parameters.
+where an overdot denotes a derivative with respect to $t$. In general, away from resonance, we take $\nu \equiv \Omega_r/\Omega_\theta$. This timescale sets the period over which there is a significant change in the frequencies. It acts as an inspiral timescale. It is long in all cases we study, $\tau\sub{ev} \sim \order{T/\eta}$. It is this property which makes EMRIs interesting, as we can follow the waveform for many cycles, accruing high signal-to-noise ratios. This is also what allows us to use the adiabatic prescription, as it means the trajectory moves slowly through different orbital parameters.
 
-We use the precession time-scale
+We use the precession timescale
 \begin{equation}
 \tau\sub{pres}(t) = \frac{2\pi}{|\Omega(t)|},
 \label{eq:t-pres}
 \end{equation}
-with $\Omega(t) = n_r \Omega_r(t) - n_\theta \Omega_\theta(t)$, where the frequencies are calculated instantaneously and the integers are for the resonance of interest. This time-scale becomes infinite exactly on resonance, but decreases as we get further from resonance, eventually becoming $\order{T}$. It measures the relative precession rate of the radial and polar motions and hence gives an indication of how long it takes to fill the entire $\psi$--$\chi$ $2$-torus.
+with $\Omega(t) = n_r \Omega_r(t) - n_\theta \Omega_\theta(t)$, where the frequencies are calculated instantaneously and the integers are for the resonance of interest. This timescale becomes infinite exactly on resonance, but decreases as we get further from resonance, eventually becoming $\order{T}$. It measures the relative precession rate of the radial and polar motions and hence gives an indication of how long it takes to fill the entire $\psi$--$\chi$ $2$-torus.
 
-We also use the resonance time-scale
+We also use the resonance timescale
 \begin{equation}
 \tau\sub{res} = \left[\frac{2\pi}{\left|\left\langle\dot{\Omega}(0)\right\rangle_{q'}\right|}\right]^{1/2}.
 \label{eq:t-res}
@@ -316,7 +314,7 @@ Here $\dot{\Omega}(0)$ is the rate of change of $\Omega$ at resonance, which we 
 \left|{\Omega(t)}\right| \simeq \left|\left\langle\dot{\Omega}(0)\right\rangle_{q'} t\right|.
 \label{eq:Taylor-Omega}
 \end{equation}
-The resonant time-scale should give an indication of the time over which we expect the effects of the resonance to be felt~\cite{Bosley1992}. Consider the phase of the Mino-time Fourier expansion on resonance; neglecting the constant, the resonant Fourier component has form
+The resonant timescale should give an indication of the time over which we expect the effects of the resonance to be felt~\cite{Bosley1992}. Consider the phase of the Mino-time Fourier expansion on resonance; neglecting the constant, the resonant Fourier component has form
 \begin{equation}
 \varphi_{n_r,\,-n_\theta} \simeq \left(n_r\Upsilon_r - n_\theta\Upsilon_\theta\right)\lambda + \left(n_r\dot{\Upsilon}_r - n_\theta\dot{\Upsilon}_\theta\right)\lambda^2 + \ldots
 \end{equation}
@@ -331,9 +329,9 @@ using \eqnref{t-pres} and \eqnref{Taylor-Omega}. Rearranging and using \eqnref{t
 \begin{equation}
 t\sub{pres} \simeq \tau\sub{res}.
 \end{equation}
-The two time-scales are equivalent: we preferentially use $\tau\sub{res}$ to denote the resonance width. It is shorter than the inspiral time-scale, but longer than an orbital period, $\tau\sub{res} \sim \order{\eta^{1/2}\tau\sub{ev}} \sim \order{\eta^{-1/2}T}$~\cite{Flanagan2012,Gair2011a}; it therefore acts as a bridge between the two time-scales~\cite{Hinderer2008}.
+The two timescales are equivalent: we preferentially use $\tau\sub{res}$ to denote the resonance width. It is shorter than the inspiral timescale, but longer than an orbital period, $\tau\sub{res} \sim \order{\eta^{1/2}\tau\sub{ev}} \sim \order{\eta^{-1/2}T}$~\cite{Flanagan2012,Gair2011a}; it therefore acts as a bridge between the two timescales~\cite{Hinderer2008}.
 
-Since we shall be considering Fourier decompositions, in anticipation of future results, we also define a time-scale for the $s$-th resonant frequency harmonic
+Since we shall be considering Fourier decompositions, in anticipation of future results, we also define a timescale for the $s$-th resonant frequency harmonic
 \begin{align}
 %\tau_{\mathrm{pres},\,s} = {} & \frac{2\pi}{|s\Omega(t)|};\\
 \tau_{\mathrm{res},\,s} = {} & \left[\frac{2\pi}{\left|s\left\langle \dot{\Omega}(0)\right\rangle_{q'}\right|}\right]^{1/2}.
@@ -355,68 +353,37 @@ Here $\widehat{\kappa}_0$ is the orbital phase on resonance and $F_{a,\,s}^{(1)}
 \end{equation}
 A derivation is presented in \apref{res-asymptotic}, which contains a more comprehensive explanation of the various terms. This employs matched asymptotic expansions to track the evolution through resonance, following the approach of Kevorkian~\cite{Kevorkian1987}.
 
-The expression for the change can be understood using our expression for the resonance width, substituting in \eqnref{T-res-s},
+To explain the form of this expression we substitute in our expression for the resonance width from \eqnref{T-res-s},
 \begin{equation}
 \label{eq:delta-I-a}
 \Delta \mathcal{I}_a = \eta\sum_{s\,\neq\,0}F_{a,\,s}^{(1)}\tau_{\mathrm{res},\,s}\exp\left[i\left(s \widehat{\kappa}_0 + \dfrac{\pi}{4} \sgn s\dot{\Omega}\right)\right]. 
 \end{equation}
-Schematically, this can be understood as the magnitude of the forcing function on resonance $\sim \eta F_{a,\,s}$ multiplied by the time on resonance $\sim \tau_{\mathrm{res},\,s}$ and a function that varies with the phase $\widehat{\kappa}_0$. Averaging over all values of $\widehat{\kappa}_0$ is equivalent to averaging over all values of $\psi_{\theta_-}$, and has the same effect as averaging over the $\psi$--$\chi$ $2$-torus; this gives an average discrepancy relative to the adiabatic evolution of
+Schematically, this can then be understood as the magnitude of the forcing function on resonance $\sim \eta F_{a,\,s}$ multiplied by the time on resonance $\sim \tau_{\mathrm{res},\,s}$ and a function that varies with the phase $\widehat{\kappa}_0$. Averaging over all values of $\widehat{\kappa}_0$ is equivalent to averaging over all values of $\psi_{\theta_-}$, and has the same effect as averaging over the $\psi$--$\chi$ $2$-torus; this gives an average discrepancy relative to the adiabatic evolution of
 \begin{equation}
 \left\langle \Delta \mathcal{I}_a \right\rangle_{\hat{\kappa}_0} = 0,
 \end{equation}
 exactly as expected.
 
-\emph{Add in here some numerical results. Definitely plot showing resonant flux enhancement vs eccentricity. Probably not much else.}
-
-We can study the predicted orbital-parameter jumps numerically by considering the long-time-average fluxes for particular (fixed) geodesics. For non-resonant geodesics, this will depend only on the orbital shape parameters, but for resonant orbits there will be an additional dependence on the initial phase difference. We consider a selection of different orbital shape parameters corresponding to low-order resonances and calculate the time-averaged fluxes for $50$ different initial phases. We evolve for an integer number of cycles of both the radial and polar motions. Specifically, when considering a $n_\theta$:$n_r$ resonance, we take $T = 2\pi N n_\theta/\Omega_r = 2\pi N n_r/\Omega_\theta$ for some integer $N$. We have found that taking $N=5$ gives sufficiently accurate results. We can then estimate the jumps by taking the difference between the maximum and minimum time-averaged fluxes.
-
-We expect nearly-circular orbits to show small flux enhancements due to the small volume of the $r\theta$ 2-torus; resonant orbits come close to every allowed point, thus approximating a non-resonant orbit. In \figref{res-flux-rms-p}, we show the root-mean-square (over $a$ and $\cos\iota$) relative flux enhancement for the semi-latus rectum as a function of eccentricity, for a selection of low-order resonances. As expected, it is found that larger eccentricities give rise to larger resonant flux enhancements in general.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.46\textwidth]{res_flux_rms_p}
-\caption{\label{fig:res-flux-rms-p}Relative flux enhancements of $p$, as a function of $e$, marginalised over $a$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use solid (short-dashed; long-dashed) lines. The 2:3 resonance has the largest relative flux enhancement.}
-\end{figure}
-
-\emph{Is this description clear, and is it actually correct? It seems reasonable ...}
-
-It is informative to consider the dependence on the resonance ratio $\nu$. Fixing the eccentricity at $e=0.95$ to emphasise the variation, we compute the flux enhancements for different resonance ratios, shown in \figref{res-flux-rms-p-vsnu}, where we also highlight ratios arising from different values of $n_\theta$. We observe a clear relationship between the flux enhancement and $\nu$ for all resonances with $n_\theta = 1$ or $2$, independent of which of those is considered. However, negligibly small flux enhancements are observed for systems with $n_\theta = 3$ or higher. This can be explained by the quadrupolar nature of GWs. A resonant trajectory averaged over time (and consequently $\phi$) takes $n_\theta$ (possibly repeated) values of $\theta$ at each radial turning point. Considering rings of matter at these coordinates, the dominant spherical harmonic describing the resultant mass distribution has $l=n_\theta$ (and $m=0$). Since GWs are generated by the quadrupole moment at leading order, the most significant resonant enhancements will arise from systems with $n_\theta = 2$. Due to the presence of higher harmonics, $n_\theta = 1$ systems also contribute strongly; it is perhaps more appropriate to treat $1$:$x$ resonances as \emph{de facto} $2$:$2x$ resonances, explaining the linked behaviour of the flux enhancements for $n_\theta = 1$ and $2$ systems.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.46\textwidth]{res_flux_rms_p_e095}
-\caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements of $p$ marginalised over $a$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
-\end{figure}
-
-\emph{Is this bit really needed ...?}
-
-The resonant enhancements to the fluxes of $E$, $L_z$ and $Q$ have been calculated previously using Teukolsky-based methods for a handful of systems Flanagan, Hughes and Ruangeri~\cite{Flanagan2012a}. They consider the 1:2, 1:3, 2:3 and 3:4 resonances for EMRIs with $a_\ast=0.9$, either $e=0.3$ or $0.7$, and $\theta\sub{inc} = 20\text{\textdegree}$ or $70$\textdegree. We compare our results to their published values (in their tables I--IV) in \figref{res-flux-FHR}. There is some qualitative agreement between the two approaches: more eccentric orbits give rise to larger enhancements; and the 3:4 resonance has a negligibly small enhancement. However, for the most significant 2:3 resonance, we typically predict larger orbital parameter jumps. Our results in \secref{astrophysics}, regarding the impact of resonances on a population of EMRIs, are therefore conservative predictions, as our model over-estimates the resonance effects.
-
-\begin{figure*}
-\centering
-\includegraphics[width=\textwidth]{res_flux_FHR}
-\caption{\label{fig:res-flux-FHR}Relative flux enhancements of $E$ (left column), $L_z$ (middle) and $Q$ (right) for resonance ratios corresponding to the 1:3, 1:2, 2:3 and 3:4 resonances. We show results as computed here with a solid red line, and results from Flanagan, Hughes and Ruangeri (FHR14)~\cite{Flanagan2012a} with a dashed blue line. Each row has a different eccentricity and inclination corresponding to tables I--IV in FHR14. All systems have $a_\ast=0.9$.}
-\end{figure*}
-
-Knowing where resonances are found in parameter space, how long they last, and how big an effect they are likely to have, enables us to study and interpret the observable effects of resonances on a population of inspirals.
+Knowing where resonances are found in parameter space, how long they last, and how big an effect they are likely to have, enables us to study and interpret the observable effects of resonances on EMRI waveforms (\secref{waveforms}) and the population of observable inspirals (\secref{astrophysics}).
 
 
-\section{Impact of resonances on gravitational waveforms}
+\section{The impact of resonances on EMRIs}
 \label{sec:waveforms}
 
-Having built an understanding of the properties of transient resonances in EMRIs, we now consider their measurable consequences. EMRIs will be observed through GW observations, hence we are interested in how passing through a resonance impacts this signal. In \secref{kludge} we discuss our chosen waveform generation scheme, giving demonstrations of its accuracy; in subsequent sections we detail the impact of resonances on the measured properties of the GWs. In the following section, we investigate how resonances would impact real-world observations of EMRIs assuming realistic astrophysical population of EMRIs.
+Having built an understanding of the properties of transient resonances, we now consider their impact on GW signals. In \secref{kludge} we discuss our chosen waveform generation scheme, giving a demonstration of its accuracy for evolutions which avoid low-order resonances in \secref{nonres}. In \secref{effres-phase} we detail the impact of resonances on the match between waveforms computed from adiabatic and fully instantaneous evolutions, and in \secref{effres-jump} we look at the changes in orbital parameters across resonance.
 
 \subsection{Waveform model and analysis}
 \label{sec:kludge}
-\emph{Can probably shorten this section a bit.}
 
-To generate gravitational waveforms, we employ the numerical kludge (NK) method of Babak {\it{et al}}.~\cite{Babak2007}, augmented to include evolution of the positional elements. We first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This is quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; overlaps between Teukolsky-based and the best NK waveforms are typically $95\%$ or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
+One of the targets of pre-eLISA research is to generate a bank of waveform templates $\{h(t;\boldsymbol{\Theta}_i)\}$ across a range of parameter space $\{\boldsymbol{\Theta}_i\}$. These can be compared to data to search for the presence of GWs. Templates must accurately reproduce what we expect to observe in nature, without being too computationally expensive. Ideally, we would like to use waveform templates from EMRI systems that are evolved under the instantaneous self-force model, but these are computationally challenging. The alternative is to use cheaper adiabatic waveforms, but these do not include the effect of resonances. To assess the impact of this choice, we compare data $s(t;\bar{\boldsymbol{\Theta}})$ generated using the full self-force model (\secref{forced-motion}) to templates $h(t;\boldsymbol{\Theta})$ generated using our $2$-torus averaged self-force model (\secref{adiabatic}).
 
-Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH using the method of osculating elements detailed in \secref{forced-motion}, with the dissipative part of the post-Newtonian self-force from \secref{self-force}. We then map the Boyer--Lindquist coordinates to spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique, the standard quadrupole formula~\cite{Misner1973}.
+To generate gravitational waveforms, we employ the numerical kludge (NK) method of Babak {\it{et al}}.~\cite{Babak2007}, augmented to include evolution of the positional elements. We first compute inspiral trajectories and then separately (and not necessarily consistently) calculate the GW emission sourced by a compact object moving along that trajectory. This is quicker and easier to calculate than waveforms using Teukolsky-based methods (currently the most accurate prescription available) and yet gives similar results; agreement between Teukolsky-based and the best NK waveforms are typically $95\%$ or higher for a variety of orbits~\cite{Babak2007, Berry2013}.
 
-We expect these waveforms to be sufficiently accurate for our purposes, given the inaccuracy of the self-force model being employed. It would, however, be straight-forward to adopt a different waveform generation scheme, for example by including higher-order multipole moments, should advances be made in determining the self-force.
+Following the NK method, we first compute the inspiral trajectory of the compact object around a central Kerr BH with evolution driven by the dissipative part of self-force either calculated instantaneously or following the adiabatic prescription. We then map the Boyer--Lindquist coordinates to spherical polar coordinates in Minkowski, facilitating the use of a flat-spacetime waveform generation technique, the standard quadrupole formula~\cite{Misner1973}.
 
-Once we have established a waveform generation procedure, we can define a natural inner product between two waveforms, $s(t)$ and $h(t)$, according to~\cite{Finn1992}
+We expect these NK waveforms to be sufficiently accurate for our purposes, given the approximate (post-Newtonian, low-spin) self-force model (\secref{self-force}). Results can be straight-forwardly refined as developments are made in computing more comprehensive self-force models.
+
+The similarity of two waveforms, $s(t)$ and $h(t)$, can be evaluated using the noise-weighted inner product~\cite{Finn1992}
 \begin{equation}
 \label{eq:innerprod}
 \overlap{s}{h} = 2 \intd{0}{\infty}{\frac{\tilde{s}(f)\tilde{h}^*(f)+\tilde{s}^*(f)\tilde{h}(f)}{S_n(f)}}{f},
@@ -426,49 +393,38 @@ where $\tilde{s}(f)$ represents the Fourier transform of $s(t)$ and similarly fo
 %This whole procedure gives more accurate results than interpolating in the Fourier domain since the waveforms are smoother in the time domain.
 A Planck-taper window function~\cite{McKechan2010} is applied to reduce unwanted spectral leakage in the Fourier transforms. 
 %After tapering the projected waveforms, we then calculate overlaps using \eqnref{innerprod} but with discrete Fourier transforms and the integral over frequency replaced with an appropriate sum over Fourier modes.
-} We are interested in the detectability of EMRIs using future space-based GW detectors and so we use a PSD appropriate for describing the eLISA mission concept, the analytic approximation of Amaro-Seoane {\it{et al}}.~\cite{Amaro-Seoane2012a}. We maximise every inner product calculation with respect to some time-offset between the models by computing the correlation between the waveforms, which can be performed cheaply using Fourier transforms. %and can provide a significant increase to the overlap, even though typical offset times are shorter than the orbital timescale.
+} We use the analytic approximation for eLISA of Amaro-Seoane {\it{et al}}.~\cite{Amaro-Seoane2012a}. Following the success for the LISA Pathfinder mission~\cite{Armano2016}, this sensitivity should be achievable in a future mission.
 
-One of the targets of pre-eLISA research is to generate a bank of waveform templates $\{h(t;\boldsymbol{\Theta}_i)\}$ across a range of parameter space given by $\{\boldsymbol{\Theta}_i\}$. These can be compared to data to search for the presence of GWs. At the current time, with a lack of experimental data, we are interested in ensuring that the waveform templates accurately reproduce what we expect to observe in nature, without being too computationally expensive. Ideally, we would like to use waveform templates from EMRI systems that are evolved under the entire self-force model, but these are too expensive. In practice, we are forced to use cheaper adiabatic waveforms, but these do not include the effect of resonances. To assess the impact of this, we compare data $s(t;\bar{\boldsymbol{\Theta}})$ generated using the full self-force model to templates $h(t;\boldsymbol{\Theta})$ generated using our 2-torus averaged self-force model (see \secref{adiabatic}).
-
-We wish to test whether there exists some set of parameters $\boldsymbol{\Theta}$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the signal-to-noise ratio (SNR) for each waveform template,
+We wish to test whether there exists some set of parameters $\boldsymbol{\Theta}$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the signal-to-noise ratio (SNR) for each (normalised) waveform template,
 \begin{equation}
-\rho\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{h}{h}}}.
+\rho\left[h\right] = \max_t \frac{\overlap{s}{h}}{\sqrt{\overlap{h}{h}}}.
 \end{equation}
-If a template were to exactly match the data, it would produce an SNR of $\sqrt{\overlap{s}{s}}$ and so the overlap
+We maximise over the time offset for the template to find the best fit to the data. If a template exactly matches the data, it would produce an SNR of $\sqrt{\overlap{s}{s}}$, hence the overlap
 \begin{equation}
 \label{eq:overlap}
-\mathbb{O}\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{s}{s}}\sqrt{\overlap{h}{h}}}
+\mathbb{O}\left[h\right] = \frac{\overlap{s}{h}}{\sqrt{\overlap{s}{s}}\sqrt{\overlap{h}{h}}},
 \end{equation}
-provides an indication of how well-matched the template is to the data. We leave an investigation into parameter-estimation biases (where the parameters of the best-matching adiabatic $\boldsymbol{\Theta}$ do not agree with the parameters of the system $\bar{\boldsymbol{\Theta}}$) to future work.
+which ranges from $0$ to $1$ provides a convenient indication of how well-matched the template is to the data.
 
-To demonstrate the approach, we can calculate the full evolution and the 2-torus averaged adiabatic evolution over $2$~years for a set of initial parameters chosen to avoid any significant resonances. Example evolutions of the orbital parameters $E$, $L_z$ and $Q$ are shown in \figref{good-traj}, which shows that the adiabatic evolution closely matches the full evolution on longer inspiral timescales. The inset plots show the start of the evolution, on a timescale associated with the orbital motion of the CO; the 2-torus averaging explicitly smooths out the visible structure on this scale.
+\subsection{The non-resonant case}
+\label{sec:nonres}
+
+Before investigating the impact of resonances on an EMRI signal, we first compare results from the full instantaneous evolution and the $2$-torus averaged adiabatic evolution over $2~\mathrm{yr}$ for an inspiral which avoids any significant resonances. Example evolutions of the orbital parameters $E$, $L_z$ and $Q$ are shown in \figref{good-traj}, which shows that the adiabatic evolution closely matches the full evolution on longer inspiral timescales. The inset plots show the start of the evolution, on a timescale associated with the orbital motion of the CO; the $2$-torus averaging explicitly smooths out the visible structure on this scale. The two appraches are in good agreement.
 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{Fig_good_traj}
-\caption{\label{fig:good-traj}The evolution of the orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) under the full (solid line) and adiabatic (dashed) models for an illustrative EMRI system that does not encounter any significant resonances. The inset plots show the behaviour on short timescales, where the fast orbital oscillations can be seen. This system has $\mu = 10 M_{\odot}$, $q = 3\times 10^{-6}$, $a_\ast=0.95$, initial semi-latus rectum $p_0=7.5$, initial eccentricity $e_0=0.7$, initial inclination $\cos \iota_0 = 0.5$ and redshift $z=0.204$.}
+\caption{\label{fig:good-traj}The evolution of the orbital parameters $E$ (left), $L_z$ (center) and $Q$ (right) under the full (solid line) and adiabatic (dashed) models for an illustrative EMRI system that does not encounter any significant resonances. The inset plots show the behaviour on short timescales, where the fast orbital oscillations can be seen. This system has $\mu = 10 M_{\odot}$, $q = 3\times 10^{-6}$, $a_\ast=0.95$, initial semilatus rectum $p_0 = 7.5$, initial eccentricity $e_0 = 0.7$, initial inclination $\cos \iota_0 = 0.5$ and redshift $z=0.204$.}
 \end{figure*}
 
-Once the trajectories have been computed using both methods of evolution, we can calculate the corresponding waveforms. The plus-polarised GW at the start and end of the evolution is shown in \figref{good-waveform}. The adiabatic waveform shows good agreement with the full waveform in both amplitude and phase. We find an overlap $\mathbb{O} = 0.993$, illustrating that adiabatic models can be used in place of the full evolution in cases where resonances are not encountered.
+Using the two trajectories, we can calculate the corresponding NK waveforms. The two waveforms exhibit good agreement in both amplitude and phase across the entire duration. We find an overlap $\mathbb{O} = 0.993$, illustrating that adiabatic models can safely be used when resonances are not encountered.
 
-\begin{figure*}
-\centering
-\includegraphics[width=0.92\textwidth]{Fig_good_waveform}
-\caption{\label{fig:good-waveform}The plus-polarised waveform for an illustrative EMRI system with initial semi-latus rectum $p_0=7.5$, shown for two short segments at the start and end of a $2$ year evolution. The full and adiabatic models are both shown, but are indistinguishable by eye.}
-\end{figure*}
-
-\subsection{The effect of resonances: Dephasing}
+\subsection{The effect of resonances: Dephasing and overlap}
 \label{sec:effres-phase}
 
-The illustrative EMRI system of the previous section does not encounter a significant resonance and the adiabatic evolution provides a good match to the full evolution. We now study a system that does pass through a resonance during its $2$ year evolution. Specifically, we choose the initial conditions to be the same as before but with an initial semi-latus rectum $p=7.85$. This system passes through the $2$:$3$ resonance, the effect of which is to cause a shift in the orbital parameters (and hence in the fundamental frequencies) that is not replicated by the adiabatic evolution, thus resulting in a rapid dephasing of the waveforms. Plotting the plus-polarised GWs at the start and end of the evolution, as before, demonstrates this dephasing, as shown in \figref{dephased-waveform}.
+We now study a system that does pass through a resonance during its $2~\mathrm{yr}$ evolution. Specifically, we choose the initial conditions to be the same as in \secref{nonres}, but with an initial semilatus rectum $p_0 = 7.85$. This system passes through the $2$:$3$ resonance. The effect of passing through resonance is to cause a shift in the orbital parameters (and hence in the fundamental frequencies) that is not replicated by the adiabatic evolution, thus resulting in a rapid dephasing of the waveforms.
 
-\begin{figure*}
-\centering
-\includegraphics[width=0.92\textwidth]{Fig_dephased_waveform}
-\caption{\label{fig:dephased-waveform}The plus-polarised waveform for an illustrative EMRI system with $p=7.85$, shown for two short segments at the start and end of a $2$ year evolution. The full and adiabatic models are both shown; there is a significant dephasing between them by the end of the evolution.}
-\end{figure*}
-
-To highlight the dephasing more quantitatively, we calculate the shortened overlap between the two models as a function of time $t$, defined as the overlap obtained by including only the part of the waveform within some $\Delta t$ of $t$. For our illustrative system, we choose $\Delta t$ such that we can calculate 25 non-overlapping values of this shortened overlap. Before the resonance occurs, the adiabatic model provides a good match to the full evolution but the overlap is reduced near to the resonance and never fully recovers afterwards. This is shown in \figref{overlap-dephasing}, which is centred on the time at which the full evolution crosses the $2$:$3$ resonance.
+To illustrate the dephasing, we calculate as a function of time $t$ the shortened overlap between the two models, defined as the overlap obtained by including only the part of the waveform within $\Delta t$ of $t$. We choose $\Delta t$ such that we can calculate $25$ non-overlapping shortened overlaps. Before the resonance occurs, the adiabatic model provides a good match to the full evolution, but the overlap is reduced near to the resonance and never fully recovers afterwards. This is shown in \figref{overlap-dephasing}, which is centred on the time at which the full evolution crosses the $2$:$3$ resonance. Also shown is the shortened overlap computed between the full evolution and a different adiabatic evolution that is chosen to match the full evolution at the end of the integration. In this case, we see similar behaviour: the adiabatic waveform has a high overlap where it is constructed to match the full evolution, but this is disrupted by the resonance. Passing through resonance can adversely affect the overlap of adiabatic templates.
 
 \begin{figure}
 \centering
@@ -476,24 +432,17 @@ To highlight the dephasing more quantitatively, we calculate the shortened overl
 \caption{\label{fig:overlap-dephasing}The overlap computed between the full evolution and an adiabatic evolution for an illustrative EMRI system with $p=7.85$, as a function of time, including only the parts of the waveforms within some $\Delta t$ of $t$, arbitrarily chosen to give $25$ independent (non-overlapping) calculations. The time axis is centred on the value at which the full evolution crosses the $2$:$3$ resonance.}
 \end{figure}
 
-Also shown is the shortened overlap computed between the full evolution and a different adiabatic evolution that is chosen to match the full evolution at the end of the integration. In this case, we see similar behaviour as before: the adiabatic waveform has a high overlap in the region where it is constructed to match the full evolution and the boundary of that region is set by the presence of an important resonance.
+To be able to detect signals, we must have templates which match the signals. We have seen that overlaps between adiabatic and full instantaneous evolutions dephase following a resonance. However, this does not necessarily mean that no adiabatic evolution will have a low overlap with the observed signal. It is possible that a difference between the instantaneous and adiabatic waveforms could be ameliorated by changing the parameters of the template $\boldsymbol{\Theta}$. In this case, the waveform mismatch would not limit detectability of the signals, but would lead to errors in parameter estimation, a stealth bias caused by incorrect waveforms~\cite{Cutler2007}. We leave an investigation into the impact of transient resonances on parameter estimation to future work.\footnote{If resonances were successfully included in the waveforms used for parameter estimation, the sharp nature of jumps may help construct precise inferences of the source parameters~\cite{Mandel2014}.} However, we consider the possibility of obtaining better waveform matches by varying the parameters of the EMRI.
 
-\subsection{The effect of resonances: Loss of SNR}
-\label{sec:SNRloss}
+The large parameter space of adiabatic waveforms, coupled with the expensive nature of our $2$-torus averaging routine, renders a brute-force approach prohibitively expensive. For this preliminary investigation, we focus on a small subset of parameters that we suspect will produce a large overlap, and make the assumption that a good adiabatic model will \emph{exactly} match the full model at some time $t_{\mathrm{match}}$. This reduces the search to a $1$-parameter family of waveforms that can easily be computed concurrently with the full evolution.
 
-To be able to quantify the effect that the resonance has on an evolution, we turn to the SNR and the overlap between full and adiabatic models computed for the entire length of the observed inspiral. The dephasing means that an adiabatic evolution with the same initial conditions as a full evolution is likely to have a low overlap if a significant resonance is encountered. However, this does not necessarily mean that all adiabatic evolutions have low overlaps; we need to search for optimal adiabatic parameters, such that the overlap is maximal.
+%This $1$-parameter family of adiabatic models does not explore the extrinsic parameter space of different orientations, nor does it consider different values of the constant intrinsic parameters (the masses of the BHs and the SMBH spin). It is possible that small deviations from these true parameters give rise to better matching adiabatic models, to partially correct for the (lack of) resonance effects. Exploring this parameter space would also reveal degeneracies between this parameters. The result of these restrictions is that the maximum overlap calculated using our family is a strict lower bound on the true maximum overlap.
 
-The extremely large parameter space of adiabatic waveforms, coupled with the expensive nature of our 2-torus averaging routine, renders a brute-force approach computationally impossible; it is therefore necessary to restrict the search in some way. For this preliminary investigation into the importance of resonances, we do this by focussing on a small subset of parameters that we suspect will produce a large overlap. We make the assumption that a good adiabatic model will \emph{exactly} match the full model at some time $t_{\mathrm{match}}$. This reduces the search to a one parameter family of waveforms that can easily be computed concurrently with the full evolution.
+The problem of searching over adiabatic templates now reduces to the task of choosing appropriate values of $t_{\mathrm{match}}$. We choose $5\tau\sub{res}$ after each resonance of interest, namely the low-order $1$:$2$ and $2$:$3$ resonances.\footnote{We adjust the values of $t_{\mathrm{match}}$ so that they correspond to times of apoapsis. This ensures that the adiabatic model intersects with the full instantaneous model close to the centre of it oscillatory envelope, as demonstrated by the inset plots in \figref{good-traj}. The generally obtains better matches than if we match close to the extrema of the envelope, which are less representative of the average behaviour.} These matching times lie in a portion of the evolution that is not affected by a resonance, and so should allow for a large overlap with the adiabatic model for that region of the inspiral. For comparison, we also consider templates that match at the start and end of the evolution, and that match exactly on each of the resonances.
 
-The problem of searching over adiabatic templates now reduces to the task of choosing appropriate values of $t_{\mathrm{match}}$. Anticipating that resonances shall play a key role in determining the degree of waveform overlap, we choose matching times situated at $5\tau\sub{res}$ after each resonance of interest, namely the low-order 2:3 and 1:2. These matching times lie in a portion of the evolution that is not affected by a resonance and so should result in a large overlap for that region of the inspiral. We also include templates that match at the start of the evolution, so that we have a model that should match the portion of the evolution before the first resonance, and at the end of the evolution, as this is often where most SNR is accumulated. In addition, we include models that match exactly on each of the resonances as these may achieve partial matching both before and after the resonance and hence perform well.
+%We have tried a more rigid system of choosing the values of $t_{\mathrm{match}}$, producing an adiabatic evolution regularly at fixed intervals, but these generally perform no better than our adaptive match points and require many more adiabatic evolutions to be calculated.
 
-In our experience, we found that these choices were not sufficient to produce a good family of adiabatic waveforms. In particular, if an adiabatic model happened to match the full model close to the edge of the envelope generated by the fast orbital evolution, then the two trajectories eventually diverged and the resulting waveform provided a poor match. We therefore adjust the values of $t_{\mathrm{match}}$ so that they correspond to times of apoapsis. This ensures that the adiabatic model intersects with the full model close to the centre of the envelope, as demonstrated by the inset plots in \figref{good-traj}. As a result, we obtain much higher overlaps in general.
-
-We have tried a more rigid system of choosing the values of $t_{\mathrm{match}}$, producing an adiabatic evolution regularly at fixed intervals, but these generally perform no better than our adaptive match points and require many more adiabatic evolutions to be calculated.
-
-This one-parameter family of adiabatic models does not explore the extrinsic parameter space nor does it consider different values of the constant intrinsic parameters (the masses of the BHs and the central BH spin). It is possible that small deviations from these true parameters give rise to better matching adiabatic models, to partially correct for the (lack of) resonance effects. Indeed, systematic biases in parameter estimation are expected when the model waveforms do not accurately reflect the data~\cite{Cutler2007}. The result of these restrictions is that the maximum overlap calculated using our family is a strict lower bound on the true maximum overlap.
-
-For the illustrative EMRI system detailed in the previous section, we have computed the family of adiabatic models set by $t_{\mathrm{match}}$ and the resulting trajectories are consistent for the length of the evolution. As they cannot be easily distinguished by eye, we plot the difference (in $E$, $L_z$ and $Q$) between the models and the adiabatic evolution that matches at the start, shown in \figref{res-diff-traj}. The jumps in the orbital parameters due to the $2$:$3$ resonance can be clearly seen, as can the fast orbital oscillations present in the full evolution but absent in the adiabatics.
+We have computed this family of adiabatic evolutions for our illustrative resonance. In \figref{res-diff-traj}, we plot the difference in the orbital parameters ($E$, $L_z$ and $Q$) between the various trajectories and the adiabatic evolution that matches at the start. The jumps in the orbital parameters due to the $2$:$3$ resonance can be clearly seen, as can the fast orbital oscillations present in the full instanteous evolution but absent in the adiabatic evolutions.
 
 \begin{figure*}
 \centering
@@ -501,20 +450,21 @@ For the illustrative EMRI system detailed in the previous section, we have compu
 \caption{\label{fig:res-diff-traj}The differences in orbital parameters $E$ (left), $L_z$ (centre) and $Q$ (right) between each evolution scheme and the adiabatic model that matches at the start. The solid line shows the full evolution and the dashed lines show the different adiabatic evolutions, which match the full evolution at different times throughout the inspiral (numbers in parentheses give the overlap with the full evolution): at the start ($0.207$), at the $2$:$3$ resonance ($0.432$), after the $2$:$3$ resonance ($0.258$) and at the end ($0.677$).}
 \end{figure*}
 
-None of the adiabatic models presented here give a particularly high overlap with the full evolution, because of the effects of the resonance. The best-performing adiabatic model was that which matched at the end, giving $\mathbb{O} = 0.677$, while the model that matches at the start gives only $\mathbb{O} = 0.207$. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. 
+None of the adiabatic models presented here give a particularly high overlap with the entire signal, because of the effects of the resonance. In this case, the best-performing adiabatic model was that which matched at the end, giving $\mathbb{O} = 0.677$, while the model that matches at the start gives only $\mathbb{O} = 0.207$. These are similar to the adiabatic matched before and after resonance respectively. These values can be explained qualitatively by the relative lengths of the adiabatic-like regions on either side of the resonance in the full evolution. If we could construct an adiabatic model that includes the jump across resonances, it may give a good overall fit to the signal.
 
 \subsection{The effect of resonances: Jump sizes}
+\label{sec:effres-jump}
 
 \emph{Update this to reflect thesis.}
 
 As demonstrated in \figref{res-diff-traj} and computed analytically in \apref{res-asymptotic}, the full evolution undergoes a rapid change in the orbital parameters with respect to the adiabatic evolutions. To extract the magnitude of this jump from the trajectory data, we first must account for the fast orbital oscillations as well as ensuring that we include the full effect of the resonance, while minimising any changes resulting from other sources.
 
-To achieve this, we isolate spans of data away from the resonance; specifically, looking at data that lies within five and ten resonance timescales away. For both the pre- and post-resonance datasets, we compute $\Delta \mathcal{I} \equiv \mathcal{I}_{\mathrm{full}} - \mathcal{I}\sub{ad}[t_{\mathrm{match}} = t\sub{res}]$ for each of the orbital parameters. We then identify the most horizontal straight lines that bound the data, which give an approximation to the behaviour of the fast orbital oscillations. The resulting data and bounding lines are shown for our illustrative system in \figref{res-jump-calc}.
+To achieve this, we isolate spans of data away from the resonance; specifically, looking at data that lies within five and ten resonance timescales away. For both the pre- and post-resonance datasets, we compute $\Delta \mathcal{I} \equiv \mathcal{I}_{\mathrm{full}} - \mathcal{I}\sub{ad}[t_{\mathrm{match}} = t\sub{res}]$ for each of the orbital parameters~\cite{ColeThesis2015}. We then identify the most horizontal straight lines that bound the data, which give an approximation to the behaviour of the fast orbital oscillations. The resulting data and bounding lines are shown for our illustrative system in \figref{res-jump-calc}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.46\textwidth]{Fig_res_jump_calc}
-\caption{\label{fig:res-jump-calc}The difference in energy between the instantaneous model and adiabatic model that matches at the 2:3 resonance, scaled by the magnitude of the 2:3 resonance jump. The dashed green (yellow) lines show the bounding fits to the data before (after) the resonance, used to numerically estimate the size of the jump. The dotted red line indicates the computed size of the jump. The time axis is centred on the 2:3 resonance and is scaled by the appropriate resonance timescale.}
+\caption{\label{fig:res-jump-calc}The difference in energy between the instantaneous model and adiabatic model that matches at the 2:3 resonance, scaled by the magnitude of the $2$:$3$ resonance jump. The dashed green (yellow) lines show the bounding fits to the data before (after) the resonance, used to numerically estimate the size of the jump. The dotted red line indicates the computed size of the jump. The time axis is centred on the 2:3 resonance and is scaled by the appropriate resonance timescale.}
 \end{figure}
 
 To estimate the size of the jump $\Delta \mathcal{I}_{\mathrm{jump}}$, we extrapolate the bounding lines to the resonance time and calculate the difference between the pre- and post-resonance values, quoting the final result as the average of that obtained using the upper and lower limits. This allows us to take into account any linear drift in $\Delta \mathcal{I}$ that can occur over the resonance timescale due to the inaccuracy of the adiabatic approximation.
@@ -548,6 +498,34 @@ For each system, we compute the overlap between the full evolution and the famil
 The best performing adiabatic for the majority of our systems matched at the end of the inspiral. We can therefore estimate the value of the overlap by assuming that the adiabatic waveforms recover the entire SNR in the region post-resonance, but none at all in the region pre-resonance. We expect the overlap to scale with the fraction of time spent post-resonance, the value of which is demonstrated by the red line in \figref{overlap-vs-q}. There is not an exact equivalence because of the frequency-dependent noise of eLISA; cycles near the end of the inspiral accumulate proportionally more SNR at a frequency closer to the minimum of the eLISA noise curve.
 
 Systems with $|q| \approx \pi/2$ (corresponding to small jumps in $E$ and $L_z$) have higher than average overlaps due to additional accumulation in the pre-resonance region. The adiabatic models of these systems dephase more slowly, but still do not produce very high overlaps due to the jump in $Q$. A small fraction of systems have a lower overlap than expected, at around $0.5$. This is due to a sub-optimal choice of the matching times; making small adjustments to $t\sub{match}$ can lead to higher overlaps, but the exact adjustments required are difficult to predict in advance.
+
+%%%%%%%
+\emph{Add in here some numerical results. Definitely plot showing resonant flux enhancement vs eccentricity. Probably not much else.}
+
+We can study the predicted orbital-parameter jumps numerically by considering the long-time-average fluxes for particular (fixed) geodesics. For non-resonant geodesics, this will depend only on the orbital shape parameters, but for resonant orbits there will be an additional dependence on the initial phase difference. We consider a selection of different orbital shape parameters corresponding to low-order resonances and calculate the time-averaged fluxes for $50$ different initial phases. We evolve for an integer number of cycles of both the radial and polar motions. Specifically, when considering a $n_\theta$:$n_r$ resonance, we take $T = 2\pi N n_\theta/\Omega_r = 2\pi N n_r/\Omega_\theta$ for some integer $N$. We have found that taking $N=5$ gives sufficiently accurate results. We can then estimate the jumps by taking the difference between the maximum and minimum time-averaged fluxes.
+
+We expect nearly-circular orbits to show small flux enhancements due to the small volume of the $r\theta$ 2-torus; resonant orbits come close to every allowed point, thus approximating a non-resonant orbit. In \figref{res-flux-rms-p}, we show the root-mean-square (over $a$ and $\cos\iota$) relative flux enhancement for the semilatus rectum as a function of eccentricity, for a selection of low-order resonances. As expected, it is found that larger eccentricities give rise to larger resonant flux enhancements in general.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.46\textwidth]{res_flux_rms_p}
+\caption{\label{fig:res-flux-rms-p}Relative flux enhancements of $p$, as a function of $e$, marginalised over $a$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use solid (short-dashed; long-dashed) lines. The 2:3 resonance has the largest relative flux enhancement.}
+\end{figure}
+
+\emph{Is this description clear, and is it actually correct? It seems reasonable ...}
+
+It is informative to consider the dependence on the resonance ratio $\nu$. Fixing the eccentricity at $e=0.95$ to emphasise the variation, we compute the flux enhancements for different resonance ratios, shown in \figref{res-flux-rms-p-vsnu}, where we also highlight ratios arising from different values of $n_\theta$. We observe a clear relationship between the flux enhancement and $\nu$ for all resonances with $n_\theta = 1$ or $2$, independent of which of those is considered. However, negligibly small flux enhancements are observed for systems with $n_\theta = 3$ or higher. This can be explained by the quadrupolar nature of GWs. A resonant trajectory averaged over time (and consequently $\phi$) takes $n_\theta$ (possibly repeated) values of $\theta$ at each radial turning point. Considering rings of matter at these coordinates, the dominant spherical harmonic describing the resultant mass distribution has $l=n_\theta$ (and $m=0$). Since GWs are generated by the quadrupole moment at leading order, the most significant resonant enhancements will arise from systems with $n_\theta = 2$. Due to the presence of higher harmonics, $n_\theta = 1$ systems also contribute strongly; it is perhaps more appropriate to treat $1$:$x$ resonances as \emph{de facto} $2$:$2x$ resonances, explaining the linked behaviour of the flux enhancements for $n_\theta = 1$ and $2$ systems.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.46\textwidth]{res_flux_rms_p_e095}
+\caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements of $p$ marginalised over $a$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
+\end{figure}
+
+\emph{Is this bit really needed ...?}
+
+The resonant enhancements to the fluxes of $E$, $L_z$ and $Q$ have been calculated previously using Teukolsky-based methods for a handful of systems Flanagan, Hughes and Ruangeri~\cite{Flanagan2012a}. They consider the $1$:$2$, $1$:$3$, $2$:$3$ and $3$:$4$ resonances for EMRIs with $a_\ast=0.9$, either $e=0.3$ or $0.7$, and $\theta\sub{inc} = 20^\circ$ or $70^\circ$. There is some qualitative agreement between the two approaches: more eccentric orbits give rise to larger enhancements; and the 3:4 resonance has a negligibly small enhancement. However, for the most significant $2$:$3$ resonance, we typically predict larger orbital parameter jumps. Our results in \secref{astrophysics}, regarding the impact of resonances on a population of EMRIs, are therefore conservative predictions, as our model over-estimates the resonance effects.
+%%%%
 
 \section{Astrophysical implications}
 \label{sec:astrophysics}
@@ -591,12 +569,12 @@ f(e) \propto
 \end{equation}\end{widetext}
 where $e\sub{m} = 0.81$ is the maximum observed eccentricity, $e\sub{p} = 0.69$ is the peak of the distribution, and $b=11$ is the exponential index. 
 
-We are interested in EMRI systems close to plunge, as it is here that the GW amplitude is largest. To create our EMRI population, we sample the eccentricity from the distribution given by \eqnref{EMRI-e-distribution}, set the orbital period equal to the fiducial value $T_0$, and evolve the system using the analytic kludge (AK) prescription of Barack and Cutler \cite{Barack2004} until the last stable orbit (LSO).\footnote{The LSO is determined numerically by calculating the roots of $V_r(r)=0$, which we denote in ascending order by $r_4 \leq r_3 \leq r_p \leq r_a$, and stopping the evolution when $r_3 = r_p$, which designates the orbit as marginally stable. This ignores the influence of the self-force.} Each of these systems is then evolved backwards for some time $t\sub{insp}$, chosen uniformly from the range $[0,t\sub{life}]$ for mission lifetime $t\sub{life}$, and the expected GWs are calculated using the AK formalism.
+We are interested in EMRI systems close to plunge, as it is here that the GW amplitude is largest. To create our EMRI population, we sample the eccentricity from the distribution given by \eqnref{EMRI-e-distribution}, set the orbital period equal to the fiducial value $T_0$, and evolve the system using the analytic kludge (AK) prescription of Barack and Cutler \cite{Barack2004} until the last stable orbit (LSO).\footnote{The LSO is determined numerically by calculating the roots of $V_r(r)=0$, which we denote in ascending order by $r_4 \leq r_3 \leq r_p \leq r_a$, and stopping the evolution when $r_3 = r_p$, which designates the orbit as marginally stable. This ignores the (small) influence of the self-force.} Each of these systems is then evolved backwards for some time $t\sub{insp}$, chosen uniformly from the range $[0,t\sub{life}]$ for mission lifetime $t\sub{life}$, and the expected GWs are calculated using the AK formalism.
 
 The size of the required population can be estimated by evaluating an integral of the form \citep{Gair2009}
 \begin{equation}
 \label{eq:EMRI-number}
-N\sub{EMRI} = \intd{z\,=\,0}{z\sub{max}}{ \intd{M\,=\,M\sub{min}}{M\sub{max}}{\mathcal{R}t\sub{life}\diff{n}{\,\ln M} \diff{V\sub{c}}{z}}{\ln M}}{z},
+N\sub{EMRI} = \intd{z\,=\,0}{z\sub{max}}{ \intd{M\,=\,M\sub{min}}{M\sub{max}}{\mathcal{R}t\sub{life}\diff{n}{\,\ln M} \diff{V\sub{c}}{z}}{\,\ln M}}{z},
 \end{equation}
 where $V\sub{c}(z)$ is the comoving volume at redshift $z$, and limits $z\sub{max} = 1.5$, $M\sub{min} = 10^4 M_\odot$ and $M\sub{max} = 10^7 M_\odot$ are chosen to encompass the range of detectable signals. For a mission lifetime of $t\sub{life} = 2\units{yr}$, the integral gives a total of $6333$ EMRI events. This is a lower bound for $N\sub{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
 
@@ -698,7 +676,7 @@ B(a_\ast,\nu) \simeq {} & b_0(1 - b_1\nu)\exp(-b_2\nu)(1 - b_3 a_\ast), \\
 C(a_\ast,\nu) \simeq {} & c_0, \\
 D(a_\ast,\nu) \simeq {} & d_0\left[1 - \exp(a_\ast)\right]\left[1 - d_1\exp(\nu)\right].
 \end{align}
-This gives us a total of $12$ parameters for our fit. Whilst this may sound large, if we were fitting an expansion to quadratic order in combinations of $\{e,\iota,a_\ast,\nu\}$ we would have $15$ parameters.\footnote{This does not give as good a fit as our function.} Our optimised parameters are
+This gives us a total of $12$ parameters for our fit. Whilst this may sound large, if we were fitting an expansion to quadratic order in combinations of $\{e,\iota,a_\ast,\nu\}$ we would have $15$ parameters.\footnote{We find that this does not give as good a fit as our function.} Our optimised parameters are
 \begin{equation}
 \begin{array}{lll}
 a_0 = 5.9854, & a_1 = 3.4116, & a_2 = 0.9253,\\

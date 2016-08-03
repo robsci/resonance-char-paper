@@ -1,9 +1,9 @@
 
 The impact of passing through resonance on the evolution can be modelled analytically using asymptotic expansions~\cite{Gair2012}. Solutions for the motion are constructed far away from resonance and these are matched to a transition region in the vicinity of resonance~\cite{Kevorkian1971,Bosley1992}. By comparing the matched solution, which incorporates the effects of resonance, with the results of an adiabatic evolution, it is possible to estimate the discrepancy in the orbital parameters. This determines the difference in the orbital phase between the two approaches. If this error is sufficiently small, then it is safe to ignore the effects of the resonance; however, only a small difference is needed to impact the subsequent waveform, since the error accumulates over the subsequent observation of $\sim \order{\eta^{-1}}$ cycles~\cite{Flanagan2012}. We derive formulae which can be used to calculate the discrepancy in the orbital parameters.
 
-The following derivation is reproduced from Berry~\cite{BerryThesis2013}. It is is based upon the analysis of Kevorkian~\cite{Kevorkian1987}; small adjustments have been made to adapt to the specific problem of GW inspiral, but the general argument is unchanged.\footnote{The same two time-scale theory underpins the analysis of Hinderer and Flanagan~\cite{Hinderer2008}, but this explicitly ignores resonances.} A similar derivation can be found by van de Meent~\cite{VanDeMeent2014}.
+The following derivation is reproduced from Berry~\cite{BerryThesis2013}. It is is based upon the analysis of Kevorkian~\cite{Kevorkian1987}; small adjustments have been made to adapt to the specific problem of GW inspiral, but the general argument is unchanged.\footnote{The same two timescale theory underpins the analysis of Hinderer and Flanagan~\cite{Hinderer2008}, but this explicitly ignores resonances.} A similar derivation can be found in van de Meent~\cite{VanDeMeent2014}.
 
-We model the system using action--angle variables. We are only concerned with the $r$ and $\theta$ motions, so we have a $2$-dimensional system. We perform a canonical transformation  to isolate the resonant combination $q = n_r q_r - n_\theta q_\theta$~\cite{Bosley1992,VanDeMeent2014}. This becomes one of the new angle variables, the other variable $q'$ can be either $q_r$ or $q_\theta$ (as, on resonance, varying one necessarily changes the other). We use $J$ as the conjugate action variable to $q$ and $\omega = n_r \omega_r - n_\theta \omega_\theta$ as its frequency. Similarly, we use $J'$ as the action variable conjugate to $q'$. The system evolves through resonance slowly, on an evolution time-scale, so we parameterize it in terms of a slow time parameter
+We model the system using action--angle variables. We are only concerned with the $r$ and $\theta$ motions, so we have a $2$-dimensional system. We perform a canonical transformation  to isolate the resonant combination $q = n_r q_r - n_\theta q_\theta$~\cite{Bosley1992,VanDeMeent2014}. This becomes one of the new angle variables, the other variable $q'$ can be either $q_r$ or $q_\theta$ (as, on resonance, varying one necessarily changes the other). We use $J$ as the conjugate action variable to $q$ and $\omega = n_r \omega_r - n_\theta \omega_\theta$ as its frequency. Similarly, we use $J'$ as the action variable conjugate to $q'$. The system evolves through resonance slowly, on an evolution timescale, so we parameterize it in terms of a slow time parameter
 \begin{equation}
 \widetilde{\lambda} = \eta\lambda.
 \end{equation}
@@ -27,7 +27,7 @@ where we have rewritten the forcing terms as Fourier series and adapted the forc
 
 \subsection{Solution before resonance}\label{sec:before-res}
 
-To find a solution away from the resonance, we decompose the problem to be a function of two time-scales~\cite{Kevorkian1971}. We use the slow time $\widetilde{\lambda}$ and, as a proxy for the fast time,
+To find a solution away from the resonance, we decompose the problem to be a function of two timescales~\cite{Kevorkian1971}. We use the slow time $\widetilde{\lambda}$ and, as a proxy for the fast time,
 \begin{equation}
 \Psi = \intd{0}{\lambda}{\omega(\eta\tau)}{\tau} = \recip{\eta}\intd{0}{\tilde{\lambda}}{\omega(\widetilde{\tau})}{\widetilde{\tau}}.
 \end{equation}
@@ -48,12 +48,12 @@ We can also write a series expansion for the frequency, since it is affected by 
 \begin{equation}
 \omega(\lambda;\,\eta) = \omega_0\left(\widetilde{\lambda}\right) + \eta \omega_1\left(\widetilde{\lambda}\right) + \order{\eta^2}.
 \end{equation}
-In the limit of $\eta \rightarrow 0$ we are left with a constant frequency $\omega_0(0)$. The higher-order terms are identified below by matching terms in the series expansions of the equations of motion. Taking the two time-scales as independent, we may write the time derivative to $\order{\eta}$ as
+In the limit of $\eta \rightarrow 0$ we are left with a constant frequency $\omega_0(0)$. The higher-order terms are identified below by matching terms in the series expansions of the equations of motion. Taking the two timescales as independent, we may write the time derivative to $\order{\eta}$ as
 \begin{equation}
 \diffop{\lambda} = \omega_0\partialdiffop{\Psi} + \eta\omega_1\partialdiffop{\Psi} + \eta\partialdiffop{\widetilde{\lambda}}.
 \end{equation}
 
-Using the two time-scale decomposition to replace the time derivatives in the equations of motion, and substituting in the ansatz expansions gives, to first order,
+Using the two timescale decomposition to replace the time derivatives in the equations of motion, and substituting in the ansatz expansions gives, to first order,
 \begin{widetext}
 \begin{subequations}
 \begin{align}
@@ -106,7 +106,7 @@ To find the constants of integration, $\langle q_1\rangle_\Psi$ and $\langle J_1
 
 \subsection{Solution near resonance}\label{sec:interior-res}
 
-Near to resonance, we consider an interior layer expansion~\cite{Kevorkian1971}. As explained in \secref{res-time}, evolution near resonance proceeds on a time-scale intermediate between the slow and fast times. We therefore introduce a rescaled time
+Near to resonance, we consider an interior layer expansion~\cite{Kevorkian1971}. As explained in \secref{res-time}, evolution near resonance proceeds on a timescale intermediate between the slow and fast times. We therefore introduce a rescaled time
 \begin{equation}
 \widehat{\lambda} = \dfrac{\widetilde{\lambda} - \widetilde{\lambda}_\star}{\eta^{1/2}} = \eta^{1/2}(\lambda - \lambda_\star).
 \end{equation}
