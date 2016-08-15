@@ -477,11 +477,12 @@ To extract the magnitude of this jump from the trajectory data, we must account 
 \caption{\label{fig:res-jump-calc}The difference in energy between the instantaneous model and adiabatic model that matches at the $2$:$3$ resonance, scaled by the magnitude of the $2$:$3$ resonance jump. The dashed green (yellow) lines show the bounding fits to the data before (after) the resonance, used to numerically estimate the size of the jump. The dotted red line indicates the computed size of the jump. The time axis is centred on the $2$:$3$ resonance and is scaled by the resonance timescale $\tau\sub{res}$.}
 \end{figure}
 
-%The absolute size of the resonance jump is often not particularly useful, especially when comparing different systems. Instead, we can express the resonance jump as a fraction of the adiabatic change expected across the resonance. For the orbital parameter $\mathcal{I}$,
-%\begin{equation}
-%\label{eq:res-jump-ratio}
-%\frac{\Delta \mathcal{I}\sub{jump}}{\mathcal{I}\sub{ad}(t>t\sub{res})-\mathcal{I}\sub{ad}(t<t\sub{res})} = \frac{\Delta \mathcal{I}\sub{jump}}{\dot{\mathcal{I}}\sub{ad}(t\sub{res})\tau\sub{res}}.
-%\end{equation}
+The absolute size of the resonance jump is often not particularly useful, especially when comparing different systems. Instead, we use the fractional enhancement relative to the adiabatic evolution,
+\begin{equation}
+\label{eq:res-jump-ratio}
+\delta \mathcal{I}^a = \frac{\Delta \mathcal{I}^a\sub{jump}}{\dot{\mathcal{I}}^a\sub{ad}(t\sub{res})\tau\sub{res}}.
+\end{equation}
+Relative enhancements may be of the order of a few percent.
 
 The jump in orbital parameters depends sensitively on the relative phase of radial and poloidal motions. This can be illustrated using an ensemble of orbits with different orbital phases $\psi_{\theta_-}$. According to \eqnref{delta-I-a}, the jumps should oscillate as a function of the phase $q$.\footnote{The overlaps for all of these different phases are similar, clustering around $0.7$, as expected from matching the post-resonance region of the the waveform.} Therefore, assuming that the lowest harmonic dominates, plotting a jump in one parameter against another should trace out an ellipse. We find that this is the case; in \figref{resjump-vs-q} we plot resonant jumps as a function of the phase $q$ constructed from the $\Delta E\sub{jump}$--$\Delta L_{z\,\mathrm{jump}}$ ellipse. The jumps in $E$ and $L_z$ are approximately in phase, but those in $Q$ are found to be offset~\cite{Flanagan2012a}; this means that for every value of $q$, there is always a resonance jump in at least one parameter.
 
@@ -500,7 +501,7 @@ Let us now consider jumps for systems other than our illustrative $2$:$3$ resona
 \centering
 %\includegraphics[width=0.46\textwidth]{res_flux_rms_p}
 \includegraphics[width=0.46\textwidth]{Fig_e_rms_p}
-\caption{\label{fig:res-flux-rms-p}Relative flux enhancements of $p$, as a function of $e$, marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red). The $2$:$3$ resonance has the largest relative flux enhancement.}
+\caption{\label{fig:res-flux-rms-p}Relative flux enhancements for the semilatus rectum $p$, as a function of $e$, marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red). The $2$:$3$ resonance has the largest relative flux enhancement.}
 \end{figure}
 
 We also expect that the effects of passing through resonance will dependent upon the particular resonance. Intuitively, we would expect that when $n_\theta$ and $n_r$ are large, the effects of resonance will be small, since the orbit comes close to all points on the $2$-torus. We have already seen that this is the case, as the adiabatic evolution is a good match to the instantaneous evolution up until it hits a resonance which is the ratio of small integers (like $2$:$3$). In \figref{res-flux-rms-p-vsnu} we plot the root-mean-square (over $a_\ast$ and $\cos\iota$) relative resonant jump for the semilatus rectum as a function of the resonance ratio $\nu$ for various $n_\theta$, the eccentricity is set to $e=0.95$ to emphasise the variation.
@@ -511,7 +512,7 @@ While we might naively expect jumps with $n_\theta = 1$ to be greatest, we see t
 \centering
 %\includegraphics[width=0.46\textwidth]{res_flux_rms_p_e095}
 \includegraphics[width=0.46\textwidth]{Fig_nu_rms_p}
-\caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements of $p$ marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
+\caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements for the semilatus rectum $p$ marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
 \end{figure}
 
 \section{Astrophysical implications}
