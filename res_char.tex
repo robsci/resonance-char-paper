@@ -1,10 +1,10 @@
-\documentclass[aps,prd,amsfonts,amssymb,amsmath,nofootinbib,showpacs,superscriptaddress,twocolumn]{revtex4}
+\documentclass[aps,prd,amsfonts,amssymb,amsmath,nofootinbib,showpacs,superscriptaddress,twocolumn,floatfix]{revtex4-1}
 \usepackage{graphicx}
 \usepackage{color}
 %\usepackage{psfrag}
 \usepackage{mathrsfs}
 \usepackage{dcolumn}
-\usepackage{hyperref}
+\usepackage[breaklinks=true]{hyperref}
 \usepackage{textcomp}
 
 \newcommand{\eqnref}[1]{Eq.~(\ref{eq:#1})}
@@ -579,7 +579,7 @@ N\sub{EMRI} = \intd{z\,=\,0}{z\sub{max}}{ \intd{M\,=\,M\sub{min}}{M\sub{max}}{\m
 \end{equation}
 where $V\sub{c}(z)$ is the comoving volume at redshift $z$, and limits $z\sub{max} = 1.5$, $M\sub{min} = 10^4 M_\odot$ and $M\sub{max} = 10^7 M_\odot$ are chosen to encompass the range of detectable signals. For a mission lifetime of $t\sub{life} = 2\units{yr}$, the integral gives a total of $6333$ EMRI systems. This is a lower bound for $N\sub{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
 
-A given EMRI is classified as observable if its SNR exceeds some threshold value $\rho\sub{thres}$. Calculating SNRs from the generated AK waveforms, assuming $6$ laser links and using the eLISA PSD\cite{Amaro-Seoane2012a}, we find $513$ detectable events across the mission for $\rho\sub{thres} = 15$ (cf.\ \cite{Gair2004,Amaro-Seoane2012a,Mapelli2012}). The parameter distributions for the mass and spin of the SMBH, the orbital shape parameters at plunge, the redshift of the source, and the length of the observation $t\sub{insp}$ are shown in \figref{EMRIpar-dists}, to be contrasted with the distributions of the $5820$ systems with an SNR less than $15$, which are also shown.
+A given EMRI is classified as observable if its SNR exceeds some threshold value $\rho\sub{thres}$. Calculating SNRs from the generated AK waveforms, assuming $6$ laser links and using the eLISA PSD~\cite{Amaro-Seoane2012a}, we find $513$ detectable events across the mission for $\rho\sub{thres} = 15$ (cf.\ \cite{Gair2004,Amaro-Seoane2012a,Mapelli2012}). The parameter distributions for the mass and spin of the SMBH, the orbital shape parameters at plunge, the redshift of the source, and the length of the observation $t\sub{insp}$ are shown in \figref{EMRIpar-dists}, to be contrasted with the distributions of the $5820$ systems with an SNR less than $15$, which are also shown.
 
 \begin{figure*}
 \centering
