@@ -3,6 +3,7 @@
 \usepackage{color}
 %\usepackage{psfrag}
 \usepackage{mathrsfs}
+\usepackage[caption=false]{subfig}
 \usepackage{dcolumn}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{textcomp}
@@ -430,7 +431,7 @@ To illustrate the dephasing, we calculate as a function of time $t$ the shortene
 \begin{figure}
 \centering
 %\includegraphics[width=0.46\textwidth]{Fig_overlap_vs_time}
-\includegraphics[width=0.46\textwidth]{Fig_overlap}
+\includegraphics[width=0.4\textwidth]{Fig_overlap}
 \caption{\label{fig:overlap-dephasing}The overlap computed between the full evolution and an adiabatic evolution for an illustrative EMRI system with $p=7.85$, as a function of time, including only the parts of the waveforms within some $\Delta t$ of $t$, arbitrarily chosen to give $25$ independent (non-overlapping) calculations. The time $t\sub{res} = 0$ is when the full evolution crosses the $2$:$3$ resonance.}
 \end{figure}
 
@@ -489,7 +490,7 @@ The jump in orbital parameters depends sensitively on the relative phase of radi
 \begin{figure}
 \centering
 %\includegraphics[width=0.46\textwidth]{Fig_jump_vs_q}
-\includegraphics[width=0.46\textwidth]{Fig_q_jump}
+\includegraphics[width=0.4\textwidth]{Fig_q_jump}
 \caption{\label{fig:resjump-vs-q}The magnitude of the resonance jump for our illustrative system as a function of the extracted phase parameter $q$ (cf.\ figure 3 of \cite{Flanagan2012a}). The jump is relative to the adiabatic change in each parameter across resonance. The individual jumps as well as a sinusoidal fit are plotted for the energy $E$, angular momentum $L_z$ and Carter constant $Q$.}
 \end{figure}
 
@@ -500,7 +501,7 @@ Let us now consider jumps for systems other than our illustrative $2$:$3$ resona
 \begin{figure}
 \centering
 %\includegraphics[width=0.46\textwidth]{res_flux_rms_p}
-\includegraphics[width=0.46\textwidth]{Fig_e_rms_p}
+\includegraphics[width=0.4\textwidth]{Fig_e_rms_p}
 \caption{\label{fig:res-flux-rms-p}Relative flux enhancements for the semilatus rectum $p$, as a function of $e$, marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square of a grid of values. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red). The $2$:$3$ resonance has the largest relative flux enhancement.}
 \end{figure}
 
@@ -511,7 +512,7 @@ While we might naively expect jumps with $n_\theta = 1$ to be greatest, we see t
 \begin{figure}
 \centering
 %\includegraphics[width=0.46\textwidth]{res_flux_rms_p_e095}
-\includegraphics[width=0.46\textwidth]{Fig_nu_rms_p}
+\includegraphics[width=0.4\textwidth]{Fig_nu_rms_p}
 \caption{\label{fig:res-flux-rms-p-vsnu}Relative flux enhancements for the semilatus rectum $p$ marginalised over $a_\ast$ and $\cos\iota$ by taking the root-mean-square. Resonances with $n_\theta = 1$ ($2$; $3$) are coloured blue (gold; red) and use circular (square; triangular) points.}
 \end{figure}
 
@@ -577,14 +578,22 @@ The estimated size of the EMRI population can be by evaluating from~\cite{Gair20
 \label{eq:EMRI-number}
 N\sub{EMRI} = \intd{z\,=\,0}{z\sub{max}}{ \intd{M\,=\,M\sub{min}}{M\sub{max}}{\mathcal{R}t\sub{life}\diff{n}{\,\ln M} \diff{V\sub{c}}{z}}{\,\ln M}}{z},
 \end{equation}
-where $V\sub{c}(z)$ is the comoving volume at redshift $z$, and limits $z\sub{max} = 1.5$, $M\sub{min} = 10^4 M_\odot$ and $M\sub{max} = 10^7 M_\odot$ are chosen to encompass the range of detectable signals. For a mission lifetime of $t\sub{life} = 2\units{yr}$, the integral gives a total of $6333$ EMRI systems. This is a lower bound for $N\sub{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
+where $V\sub{c}(z)$ is the comoving volume at redshift $z$, and limits $z\sub{max} = 1.5$, $M\sub{min} = 10^4 M_\odot$ and $M\sub{max} = 10^7 M_\odot$ are chosen to encompass the range of detectable signals. For a mission lifetime of $t\sub{life} = 2\units{yr}$, the integral gives a total of $6330$ EMRI systems. This is a lower bound for $N\sub{EMRI}$ as we are neglecting EMRIs that merge outside the observation window but nevertheless accumulate sufficient SNR during this time to be observable.
 
-A given EMRI is classified as observable if its SNR exceeds some threshold value $\rho\sub{thres}$. Calculating SNRs from the generated AK waveforms, assuming $6$ laser links and using the eLISA PSD~\cite{Amaro-Seoane2012a}, we find $513$ detectable events across the mission for $\rho\sub{thres} = 15$ (cf.\ \cite{Gair2004,Amaro-Seoane2012a,Mapelli2012}). The parameter distributions for the mass and spin of the SMBH, the orbital shape parameters at plunge, the redshift of the source, and the length of the observation $t\sub{insp}$ are shown in \figref{EMRIpar-dists}, to be contrasted with the distributions of the $5820$ systems with an SNR less than $15$, which are also shown.
+A given EMRI is classified as observable if its SNR exceeds some threshold value $\rho\sub{thres}$. Calculating SNRs from the generated AK waveforms, assuming $6$ laser links and using the eLISA PSD~\cite{Amaro-Seoane2012a}, we find $513$ detectable events across the mission for $\rho\sub{thres} = 15$ (cf.\ \cite{Gair2004,Amaro-Seoane2012a,Mapelli2012}). The parameter distributions for the mass and spin of the SMBH, the orbital shape parameters at plunge, the redshift of the source, and the length of the observation $t\sub{insp}$ are shown in \figref{EMRIpar-dists}, to be contrasted with the distributions of the $5820$ systems with an SNR less than $15$, which are also shown.%Total = 5819 + 513 = 6332
 
 \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{EMRIpar_dists}
-\caption{\label{fig:EMRIpar-dists}The parameter distributions at plunge for our detectable EMRI systems (dark blue), alongside those of the undetectable systems (light pink). In each case, the y-axis values are the probability of a system being found in a particular bin, given that they are either detectable or undetectable. The exception to this is in the final plot for the SNR, where we show the number of systems in each bin. The SNRs quoted here are calculated using the AK model.}
+%\includegraphics[width=\textwidth]{EMRIpar_dists}
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_M} \quad
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_a} \\ \vspace{0.1cm}
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_z} \quad
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_p} \\ \vspace{0.1cm}
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_e} \quad
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_iota} \\ \vspace{0.1cm}
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_t} \quad
+\includegraphics[width=0.37\textwidth]{Fig_res_pop_SNR}
+\caption{\label{fig:EMRIpar-dists}Parameter distributions at plunge for our detectable EMRI systems (dashed outline), alongside those of the undetectable systems (solid outline). For the system parameters, the ordinate-axis values are the probability of a system being found in a particular bin, given that they are either detectable or undetectable. In the final plot for the SNR, we show the number of systems in each bin. The SNRs quoted here are calculated using the AK model and we assume a detection threshold of $\rho\sub{thres} = 15$.}
 \end{figure*}
 
 The mass distribution for detectable EMRIs is peaked such that the typical GW frequency occurs at the base of the eLISA noise PSD. Systems at higher redshifts start to tail off because the GW amplitude scales inversely to the luminosity distance; by $z = 1.5$, the distribution of detectable EMRIs with eLISA has essentially vanished. Eccentric prograde orbits around SMBHs with larger spins tend to produce larger SNRs because the periapsis in such systems can get much closer to the SMBH, and so the GWs are intrinsically louder. This effect also causes the detectable EMRIs to have smaller values of $p$ at plunge, as observed in its distribution.
@@ -601,8 +610,9 @@ In \figref{pop-adSNR-vs-eta} we plot the difference between the computed maximum
 
 \begin{figure}
 \centering
-\includegraphics[width=0.46\textwidth]{pop_adSNR_vs_eta}
-\caption{\label{fig:pop-adSNR-vs-eta}The difference between the maximum overlap and the expected value $t\sub{ad} / t\sub{insp}$, as a function of the mass ratio, for our population of $513$ EMRI signals. Each system encounters either $0$ (blue squares), $1$ (gold triangles) or $2$ (green circles) resonances during the observation window $t\sub{insp}$, with $t\sub{ad}$ the largest time spent by the inspiral without encountering any resonances.}
+%\includegraphics[width=0.46\textwidth]{pop_adSNR_vs_eta}
+\includegraphics[width=0.4\textwidth]{Fig_res_overlap_t}
+\caption{\label{fig:pop-adSNR-vs-eta}The difference between the maximum overlap and the expected value $t\sub{ad} / t\sub{insp}$, as a function of the mass ratio for our population of $513$ EMRI signals. Each system encounters either $0$ (circles), $1$ (squares) or $2$ (triangles) resonances during the observation window $t\sub{insp}$, with $t\sub{ad}$ the largest time spent by the inspiral without encountering any resonances.}
 \end{figure}
 
 A small proportion of systems have overlaps below the expected value (approximately $4\%$ have values less than $-0.05$). This might be caused by higher-order resonances disrupting the evolution, in which case $t\sub{ad}$ should be smaller and the systems would lie on the expectation line. However, a more likely explanation is that larger a sub-optimal matching time $t\sub{match}$ was used, and a larger overlap is achievable with a different choice of adiabatic evolution.
@@ -615,8 +625,9 @@ Even assuming that all overlap reductions are due to transient resonances (negle
 
 \begin{figure}
 \centering
-\includegraphics[width=0.46\textwidth]{pop_SNR_dist}
-\caption{\label{fig:pop-SNR-dist}Histogram showing the probability distribution function for the detectable EMRI SNRs, as calculated using the AK formalism (light pink) and modified by the maximum adiabatic overlap (dark blue).}
+%\includegraphics[width=0.46\textwidth]{pop_SNR_dist}
+\includegraphics[width=0.4\textwidth]{Fig_res_pop_SNR_overlap}
+\caption{\label{fig:pop-SNR-dist}Histogram showing the probability distribution function for the detectable EMRI SNRs, as calculated using the AK formalism (solid outline) and modified by the maximum adiabatic overlap (dashed outline). The tail below $\rho\sub{thres} = 15$ indicates the detections lost because of resonances.}
 \end{figure}
 
 \section{Conclusion}
@@ -636,7 +647,7 @@ Adiabatic waveform models can still be used for EMRIs away from resonance. There
 
 
 \begin{acknowledgments}
-The authors extend our sincere gratitude to \'{E}anna Flanagan and Tanja Hinderer for providing their PN self-force code, without which this work would not be possible. We thank Tanja Hinderer, Jeandrew Brink, Maarten van de Meent, Leor Barack, Scott Hughes and Nico Yunes for useful conversations; Stanislav Babak for examining both \cite{BerryThesis2013} and \cite{ColeThesis2015}, and Christopher Moore with help preparing this manuscript. RHC was supported by STFC; CPLB thanks STFC and the Cambridge Philosophical Society; PC was supported by a Marie Curie Fellowship, and JRG was supported by the Royal Society.
+The authors extend our sincere gratitude to \'{E}anna Flanagan and Tanja Hinderer for providing their PN self-force code, without which this work would not be possible. We thank Tanja Hinderer, Jeandrew Brink, Maarten van de Meent, Leor Barack, Scott Hughes and Nico Yunes for useful conversations; Stanislav Babak for examining both \cite{BerryThesis2013} and \cite{ColeThesis2015}, and Christopher Moore with help preparing this manuscript. RHC was supported by STFC; CPLB thanks STFC and the Cambridge Philosophical Society; PC was supported by a Marie Curie Fellowship, and JRG was supported by the Royal Society. This is LIGO Document P1600251. 
 \end{acknowledgments}
 
 \appendix
