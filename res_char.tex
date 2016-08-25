@@ -94,7 +94,7 @@ where $n_r$ and $n_\theta$ are integers (with no common factors). During resonan
 Resonances involving the azimuthal motion do not produce a comparable effect because of the axisymmetry of the background spacetime. However, both $\theta$--$\phi$ resonances~\cite{Hirata2011} and $r$--$\phi$ resonances~\cite{VanDeMeent2013} can lead to extrinsic effects; the GWs from such systems are not emitted isotropically and the imbalance produces a kick velocity that is, in some cases, sufficient to eject the central BH from its host.
 
 Geodesic motion in Kerr spacetime can be described by use of the action--angle formalism~\cite{Goldstein2002}. % Chapter 10
-We consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$,\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.} and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$ \citep{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
+We consider a body of mass $\mu$ orbiting a BH of mass $M$, with $\eta = \mu/M \ll 1$,\footnote{To first order, the mass ratio $\eta$ is the same as the symmetric mass ratio $\mu M/(\mu+M)^2$.} and describe the motion in the directions of the standard Boyer--Lindquist coordinates $\{t,r,\theta,\phi\}$ using generalised angle variables $q_\alpha = \{q_t,q_r,q_\theta,q_\phi\}$~\cite{Hinderer2008}. We denote the first integrals of the geodesic motion, the generalised action variables, by $J_\alpha$. These are some combination of the energy per unit mass $E$ and the axial angular momentum per unit mass $L_z$, which arise from isometries of the metric in $t$ and $\phi$, and the Carter constant per unit mass squared $Q$~\cite{Carter1968}, which is related to the separability of the equations of motion in $r$ and $\theta$. The system evolves following~\cite{Flanagan2012}
 \begin{subequations}
 \label{eq:Mino-E-o-M}
 \begin{align}
@@ -297,7 +297,7 @@ We define the evolution timescale as
 \begin{equation}
 \tau\sub{ev} = \frac{\nu}{\dot{\nu}},
 \end{equation}
-where an overdot denotes a derivative with respect to $t$. In general, away from resonance, we take $\nu \equiv \Omega_r/\Omega_\theta$. This timescale sets the period over which there is a significant change in the frequencies. It acts as an inspiral timescale. It is long in all cases we study, $\tau\sub{ev} \sim \order{T/\eta}$. It is this property which makes EMRIs interesting, as we can follow the waveform for many cycles, accruing high signal-to-noise ratios. This is also what allows us to use the adiabatic prescription, as it means the trajectory moves slowly through different orbital parameters.
+where an overdot denotes a derivative with respect to $t$. In general, away from resonance, we take $\nu \equiv \Omega_r/\Omega_\theta$. This timescale sets the period over which there is a significant change in the frequencies. It acts as an inspiral timescale. It is long in all cases we study, $\tau\sub{ev} \sim \order{T/\eta}$. It is this property which makes EMRIs interesting, as we can follow the waveform for many cycles, accruing high signal-to-noise ratios (SNRs). This is also what allows us to use the adiabatic prescription, as it means the trajectory moves slowly through different orbital parameters.
 
 We use the precession timescale
 \begin{equation}
@@ -306,7 +306,7 @@ We use the precession timescale
 \end{equation}
 with $\Omega(t) = n_r \Omega_r(t) - n_\theta \Omega_\theta(t)$, where the frequencies are calculated instantaneously and the integers are for the resonance of interest. This timescale becomes infinite exactly on resonance, but decreases as we get further from resonance, eventually becoming $\order{T}$. It measures the relative precession rate of the radial and polar motions and hence gives an indication of how long it takes to fill the entire $\psi$--$\chi$ $2$-torus.
 
-We also use the resonance timescale
+We also use the resonance timescale (cf.\ \cite{Ruangsri2014})
 \begin{equation}
 \tau\sub{res} = \left[\frac{2\pi}{\left|\left\langle\dot{\Omega}(0)\right\rangle_{q'}\right|}\right]^{1/2}.
 \label{eq:t-res}
@@ -320,7 +320,7 @@ The resonant timescale should give an indication of the time over which we expec
 \begin{equation}
 \varphi_{n_r,\,-n_\theta} \simeq \left(n_r\Upsilon_r - n_\theta\Upsilon_\theta\right)\lambda + \left(n_r\dot{\Upsilon}_r - n_\theta\dot{\Upsilon}_\theta\right)\lambda^2 + \ldots
 \end{equation}
-Typically, the first term is non-zero and this gives the familiar oscillation. On resonance, it is zero, leaving the next-order term to govern the behaviour~\cite{Flanagan2012}. Only once we have moved far enough away from resonance for the first term to dominate the second do we recapture the non-resonant behaviour. The first term (translating from Mino time to coordinate time) sets $\tau\sub{pres}$, the second sets $\tau\sub{res}$.
+Typically, the first term is non-zero and this gives the familiar oscillation. On resonance, it is zero, leaving the next-order term to govern the behaviour~\cite{Flanagan2012,Ruangsri2014}. Only once we have moved far enough away from resonance for the first term to dominate the second do we recapture the non-resonant behaviour. The first term (translating from Mino time to coordinate time) sets $\tau\sub{pres}$, the second sets $\tau\sub{res}$.
 
 Since we have argued that the effect of resonance can be thought of as a consequence of not densely covering the $\psi$--$\chi$ $2$-torus, we might expect that $\tau\sub{pres}$, as well as $\tau\sub{res}$, could be used for setting the resonance duration: the resonance ends once sufficient time has elapsed that the $2$-torus could be filled. This is indeed the case. Let $t\sub{pres}$ be the time taken to fill the torus, then
 \begin{align}
@@ -399,7 +399,7 @@ A Planck-taper window function~\cite{McKechan2010} is applied to reduce unwanted
 
 We use the analytic approximation for the eLISA PSD of Amaro-Seoane {\it{et al}}.~\cite{Amaro-Seoane2012a}. Following the success for the LISA Pathfinder mission~\cite{Armano2016}, this sensitivity should be achievable in a future mission.
 
-We wish to test whether there exists some set of parameters $\boldsymbol{\Theta}$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the signal-to-noise ratio (SNR) for each (normalised) waveform template,
+We wish to test whether there exists some set of parameters $\boldsymbol{\Theta}$ such that the resulting adiabatic waveform is sufficiently similar to the full waveform. We do this by evaluating the SNR for each (normalised) waveform template,
 \begin{equation}
 \rho\left[h\right] = \max_t \frac{\overlap{s}{h}}{\sqrt{\overlap{h}{h}}}.
 \end{equation}
@@ -498,7 +498,7 @@ The jump in orbital parameters depends sensitively on the relative phase of radi
 
 %For each system, we compute the overlap between the full evolution and the family of adiabatics given by our set of match times $t\sub{match}$ described in the previous section. The largest overlap in each case appears to be roughly independent of the value of $q$ and hence with the relative sizes of the orbital parameter jumps. Systems with $|q| \approx \pi/2$ (corresponding to small jumps in $E$ and $L_z$) have higher than average overlaps due to additional accumulation in the pre-resonance region. The adiabatic models of these systems dephase more slowly, but still do not produce very high overlaps due to the jump in $Q$. We expect the overlap to scale with the fraction of time spent post-resonance.
 
-Let us now consider jumps for systems other than our illustrative $2$:$3$ resonance. We expect nearly-circular orbits to encounter smaller jumps than more eccentric orbits because they have a smaller $r$--$\theta$ $2$-torus, meaning that resonant orbits come closer to every allowed point, nearer approximating a non-resonant orbit. In \figref{res-flux-rms-p}, we show the root-mean-square (over a grid of $a_\ast$ and $\cos\iota$ values) relative resonant jump for the semilatus rectum as a function of eccentricity for a selection of low-order resonances. The other orbital shape parameters show a similar trend with increasing eccentircity~\cite{ColeThesis2015}. Larger eccentricities do give rise to larger jumps, matching our expectations and Teukolsky-based calculations by Flanagan, Hughes and Ruangsri~\cite{Flanagan2012a}.
+Let us now consider jumps for systems other than our illustrative $2$:$3$ resonance. We expect nearly-circular orbits to encounter smaller jumps than more eccentric orbits~\cite{Flanagan2012} because they have a smaller $r$--$\theta$ $2$-torus, meaning that resonant orbits come closer to every allowed point, nearer approximating a non-resonant orbit. In \figref{res-flux-rms-p}, we show the root-mean-square (over a grid of $a_\ast$ and $\cos\iota$ values) relative resonant jump for the semilatus rectum as a function of eccentricity for a selection of low-order resonances. The other orbital shape parameters show a similar trend with increasing eccentircity~\cite{ColeThesis2015}. Larger eccentricities do give rise to larger jumps, matching our expectations and Teukolsky-based calculations by Flanagan, Hughes and Ruangsri~\cite{Flanagan2012a}.
 
 \begin{figure}
 \centering
@@ -635,7 +635,7 @@ Even assuming that all overlap reductions are due to transient resonances (negle
 \section{Conclusion}
 \label{sec:conclusion}
 
-Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral. Passing through resonance can lead to an enhancement or decrement in the radiated fluxes associated with orbital evolution, which in turn leads to a jump in the orbital parameters across the resonance. Including the signature of resonances is necessary for optimal analysis on EMRI signals. 
+Transient resonances in EMRIs are an important consideration in waveform modelling due to the high proportion of expected systems encountering a low-order resonance in the later stages of inspiral~\cite{Ruangsri2014}. Passing through resonance can lead to an enhancement or decrement in the radiated fluxes associated with orbital evolution, which in turn leads to a jump in the orbital parameters across the resonance. Including the signature of resonances is necessary for optimal analysis on EMRI signals. 
 
 The duration of resonances and their effect on orbital parameters can be calculated. However, this requires a self-force model. We have made use of a low spin, first-order PN self force. This is of limited validity and so the results should be taken as qualitative estimates; however, the self-force model should suffice for illustrating the potential effects of resonances.
 
