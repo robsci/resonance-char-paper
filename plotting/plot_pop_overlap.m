@@ -60,7 +60,7 @@ function plot_pop_overlap
     ylabel('\Large{}Count per bin')
     xlabel('\Large{}Signal-to-noise ratio')
     set(gca,'YTickLabel',{'$0$','$10$','$20$','$30$','$40$','$50$','$60$','$70$','$80$'})
-    set(gca,'XTickLabel',{'$0$','$10$','$20$','$30$','$40$','$50$'})
+    set(gca,'XTickLabel',{'$5$','$10$','$15$','$20$','$25$','$30$','$35$','$40$','$45$','$50$'})
     l = legend('\large{}Adaibatic SNR $\rho_\mathrm{AK}$', '\large{}Overlap-weighted SNR $\mathbb{O} \rho_\mathrm{AK}$');
     set(l,'Box', 'off','Color','none');
     set(l, 'Position', [0.65 0.75 0.25 0.1]);
