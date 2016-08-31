@@ -68,11 +68,10 @@
 
 \begin{abstract}
 The inspiral of stellar-mass compact objects, like neutron stars or stellar-mass black holes, into supermassive black holes provides a wealth of information about the strong gravitational-field regime via the emission of gravitational waves.
-In order to detect and analyse these signals, accurate waveform templates which include the effects of the compact object's gravitational self-force are required. For computational efficiency, adiabatic templates are often used. These accurately reproduce orbit-averaged trajectories arising from the first-order gravitational self-force, but neglect other effects, such as transient resonances, where the radial and poloidal fundamental frequencies become commensurate.
+In order to detect and analyse these signals, accurate waveform templates which include the effects of the compact object's gravitational self-force are required. For computational efficiency, adiabatic templates are often used. These accurately reproduce orbit-averaged trajectories arising from the first-order self-force, but neglect other effects, such as transient resonances, where the radial and poloidal fundamental frequencies become commensurate.
 During such resonances the flux of gravitational waves can be diminished or enhanced, leading to a shift in the compact object's trajectory and the phase of the waveform.
 We present an evolution scheme for studying the effects of transient resonances and apply this to an astrophysically motivated population.
 We find that a large proportion of systems encounter a low-order resonance in the later stages of inspiral; however, the resulting effect on signal-to-noise recovery is small as a consequence of the low eccentricity of the inspirals. Neglecting the effects of transient resonances leads to a loss of $4\%$ of detectable signals.
-
 \end{abstract}
 
 % 04.25.Nx 	Post-Newtonian approximation; perturbation theory; related approximations
@@ -744,6 +743,7 @@ where we have rewritten the forcing terms as Fourier series and adapted the forc
 To find a solution away from the resonance, we decompose the problem to be a function of two timescales~\cite{Kevorkian1971}. We use the slow time $\widetilde{\lambda}$ and, as a proxy for the fast time,
 \begin{equation}
 \Psi = \intd{0}{\lambda}{\omega(\eta\tau)}{\tau} = \recip{\eta}\intd{0}{\tilde{\lambda}}{\omega(\widetilde{\tau})}{\widetilde{\tau}}.
+\vspace{0.000cm}
 \end{equation}
 From this
 \begin{equation}
