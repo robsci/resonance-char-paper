@@ -619,7 +619,7 @@ EMRI systems within our populations have small eccentricities at plunge than ini
 \subsection{Loss of signal-to-noise ratio}
 \label{sec:population-SNR}
 
-We can study the effect of resonances, by comparing the adiabatic evolution to the full instantaneous evolution; a loss in SNR will reduce the number of detected events. For each inspiral, we denote the longest period of time $t\sub{ad}$ in which neither the $1$:$2$ nor the $2$:$3$ resonance is encountered. From the results of \secref{effres-phase}, we expect the recovered overlap to be approximately given by the proportion of time spent in a resonance-free region, that is $t\sub{ad} / t\sub{insp}$. This assumes that there is perfect overlap in the absence of a resonance and zero overlap across an overlap, with all times during the inspiral contributing equally. 
+We can study the effect of resonances, by comparing the adiabatic evolution to the full instantaneous evolution; a loss in SNR will reduce the number of detected events. For each inspiral, we denote the longest period of time $t\sub{ad}$ in which neither the $1$:$2$ nor the $2$:$3$ resonance is encountered. From the results of \secref{effres-phase}, we expect the recovered overlap to be approximately given by the proportion of time spent in a resonance-free region, that is $t\sub{ad} / t\sub{insp}$. This assumes that there is perfect overlap in the absence of a resonance and zero overlap across a resonance, with all times during the inspiral contributing equally. 
 %In \figref{pop-adSNR-vs-Tad}, we plot the maximum overlap between the instantaneous and adiabatic models against this ratio, highlighting the number of resonances, $N\sub{res}$, each system encounters. In the majority of cases, there is no significant impact on the recovered overlap using adiabatic models.
 %We can better understand the overlap distribution from \figref{pop-adSNR-vs-Tad} by considering the behaviour with the mass ratio.
 In \figref{pop-adSNR-vs-eta} we plot the difference between the computed maximum overlap and the value expected from the time between resonances, highlighting the number of resonances $N\sub{res}$ each system encounters.
@@ -663,7 +663,7 @@ Adiabatic waveform models can still be used for EMRIs away from resonance. There
 
 
 \begin{acknowledgments}
-The authors extend our sincere gratitude to \'{E}anna Flanagan and Tanja Hinderer for providing their PN self-force code, without which this work would not be possible. We are grateful to Stanislav Babak for examining both \cite{BerryThesis2013} and \cite{ColeThesis2015}, and for providing comments on this draft. We thank Tanja Hinderer, Jeandrew Brink, Maarten van de Meent, Leor Barack, Scott Hughes and Nico Yunes for useful conversations, and Christopher Moore with help preparing this manuscript. RHC was supported by STFC; CPLB thanks STFC and the Cambridge Philosophical Society; PC's work was supported by a Marie Curie Intra-European Fellowship within the 7th European Community Framework Programme (PIEF-GA-2011-299190), and JRG was supported by the Royal Society. This is LIGO Document P1600251. 
+The authors extend our sincere gratitude to \'{E}anna Flanagan and Tanja Hinderer for providing their PN self-force code, without which this work would not be possible. We are grateful to Stanislav Babak for examining both \cite{BerryThesis2013} and \cite{ColeThesis2015}, and for providing comments on this draft. We thank Tanja Hinderer, Jeandrew Brink, Maarten van de Meent, Leor Barack, Scott Hughes and Nico Yunes for useful conversations, and Christopher Moore with help preparing this manuscript. We are grateful to the anonymous referee for their exceptional careful reading of the paper. RHC was supported by STFC; CPLB thanks STFC and the Cambridge Philosophical Society; PC's work was supported by a Marie Curie Intra-European Fellowship within the 7th European Community Framework Programme (PIEF-GA-2011-299190), and JRG was supported by the Royal Society. This is LIGO Document P1600251. 
 \end{acknowledgments}
 
 \appendix
@@ -797,10 +797,10 @@ From this we can identify the terms that originate from the frequency and, match
 This leaves
 \begin{align}
 \partialdiff{q_0}{\widetilde{\lambda}} = {} & g_0^{(1)}(J_0), \\
-q_0 = {} & \kappa_0 + \intd{0}{\tilde{\lambda}}{g_0^{(1)}[J_0(\tau)]}{\tau}.
+q_0 = {} & \kappa_0 + \intd{0}{\tilde{\lambda}}{g_0^{(1)}[J_0(\tau)]}{\tau},
 \label{eq:q-0-sol}
 \end{align}
-We now have expressions for the lowest-order terms in the expansions.
+where $\kappa_0$ is the constant of integration. We now have expressions for the lowest-order terms in the expansions.
 
 Subtracting the $s = 0$ components from \eqnref{J-1} leaves
 \begin{equation}
@@ -828,7 +828,7 @@ As for the before resonance solution, we can create a series expansion; however,
 \begin{subequations}
 \begin{align}
 q\left(\widehat{\lambda};\,\eta\right) = {} & \widehat{q}_0\left(\widehat{\lambda}\right) + \eta^{1/2} \widehat{q}_{1/2}\left(\widehat{\lambda}\right) + \order{\eta}, \\
-J\left(\widehat{\lambda};\,\eta\right) = {} & \widehat{J}_0 + \eta^{1/2} \widehat{J}_1\left(\widehat{\lambda}\right) + \order{\eta}.
+J\left(\widehat{\lambda};\,\eta\right) = {} & \widehat{J}_0 + \eta^{1/2} \widehat{J}_{1/2}\left(\widehat{\lambda}\right) + \order{\eta}.
 \end{align}
 \end{subequations}
 The series expansion for the frequency, \eqnref{omega-series}, can be rewritten as
@@ -851,16 +851,16 @@ From the equations of motion we can match terms by their order in $\eta^{1/2}$. 
 \end{equation}
 is constant, and
 \begin{equation}
-\widehat{q}_0 = \widehat{\kappa}_0 + \dfrac{\varpi_1\widehat{\lambda}^2}{2}.
+\widehat{q}_0 = \widehat{\kappa}_0 + \dfrac{\varpi_1\widehat{\lambda}^2}{2},
 \end{equation}
-Using these, we can build the next-order terms
+where $\widehat{\varrho}_0$ and $\widehat{\kappa}_0$ are the constants of integration. Using these, we can build the next-order terms
 \begin{align}
 \widehat{q}_{1/2} = {} & \widehat{\kappa}_{1/2} + \dfrac{\varpi_2\widehat{\lambda}^3}{3} + g_0^{(1)}(\widehat{\varrho}_0)\widehat{\lambda} \nonumber \\ 
  {} & + \sum_{s\,\neq\,0}g_s^{(1)}(\widehat{\varrho}_0)\exp(is \widehat{\kappa}_0)\intd{0}{\hat{\lambda}}{\exp\left(\dfrac{is \varpi_1\tau^2}{2}\right)}{\tau}, \\
 \widehat{J}_{1/2} = {} & \widehat{\varrho}_{1/2} + G_0^{(1)}(\widehat{\varrho}_0)\widehat{\lambda} \nonumber \\
- {} & + \sum_{s\,\neq\,0}G_s^{(1)}(\widehat{\varrho}_0)\exp(is \widehat{\kappa}_0)\intd{0}{\hat{\lambda}}{\exp\left(\dfrac{is \varpi_1\tau^2}{2}\right)}{\tau}.
+ {} & + \sum_{s\,\neq\,0}G_s^{(1)}(\widehat{\varrho}_0)\exp(is \widehat{\kappa}_0)\intd{0}{\hat{\lambda}}{\exp\left(\dfrac{is \varpi_1\tau^2}{2}\right)}{\tau},
 \end{align}
-Both of these involve the complex Fresnel integral~\cite{Olver2010}, the details of which are given in the following section. We have now constructed the interior solution. % chapter 7
+introducing integration constants $\widehat{q}_{1/2}$ and $\widehat{\varrho}_{1/2}$. Both the above expressions involve the complex Fresnel integral~\cite{Olver2010}, the details of which are given in the following section. We have now constructed the interior solution. % chapter 7
 
 \subsection{The complex Fresnel integral}
 
@@ -879,7 +879,7 @@ W\left(\widehat{\lambda}\right) = \sqrt{\dfrac{\pi}{s\varpi_1}}\mathcal{Y}\left(
 
 We are interested in the asymptotic behaviour for $|\widehat{\lambda}| \rightarrow \infty$. The complex Fresnel integral has the limit~\cite{Olver2010} % [7.5.3, 7.5.4, 7.12.2, 7.12.3]
 \begin{equation}
-\lim_{|z|\,\rightarrow\,\infty} \mathcal{Y}(z) \sim \dfrac{\sgn z}{\sqrt{2}} \exp\left(\dfrac{i\pi}{4}\right) - \dfrac{i}{\pi z}\exp\left(-\dfrac{i\pi z^2}{2}\right),
+\lim_{|z|\,\rightarrow\,\infty} \mathcal{Y}(z) \sim \dfrac{\sgn z}{\sqrt{2}} \exp\left(\dfrac{i\pi}{4}\right) - \dfrac{i}{\pi z}\exp\left(\dfrac{i\pi z^2}{2}\right),
 \end{equation}
 where 
 \begin{equation}
@@ -891,7 +891,7 @@ where
 Hence,
 \begin{align}
 \lim_{|\widehat{\lambda}|\,\rightarrow\,\infty}W\left(\widehat{\lambda}\right) \sim {} & \dfrac{\sgn \widehat{\lambda}}{\sqrt{2}}\sqrt{\dfrac{\pi}{|s\varpi_1|}}\exp\left[\sgn(s\varpi_1)\dfrac{i\pi}{4}\right] \nonumber \\
-  {} & + \recip{is\varpi_1}\exp\left(\dfrac{is \varpi_1 \widehat{\lambda}^2}{2}\right).
+  {} & + \recip{is\varpi_1 \widehat{\lambda}}\exp\left(\dfrac{is \varpi_1 \widehat{\lambda}^2}{2}\right).
 \label{eq:Fres-limit}
 \end{align}
 

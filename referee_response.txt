@@ -1,0 +1,67 @@
+We thank the referee for their careful reading of our document, especially given its length! We have implemented almost all of their suggestions, as indicated below, and we feel that the manuscript has been improved by these changes.
+
+I addition to the changes commented below, we have updated some of the references and added the referee to the acknowledgements.
+
+#1
+In Fig.2, is it possible for authors to add the values of semilatus
+rectum p and eccentricity e at t=t_{res}? I would like to compare the
+values with those in Fig.8 as a reference.
+
+>> Figure 8 shows the orbital parameters at plunge, rather than at resonance...
+
+#2
+In Sec.V.A the distribution of inclination angle is assume to be
+uniform. Do the authors know any reference to justify this assumption?
+
+For example, in Ref.[78], Flanagan and Hinderer (2007), Ref.[83], Sago
+et al, and Ref.[84], Ganz et al, of this manuscript, it is found that
+gravitational radiation reaction drives the orbital plane to
+anti-align with the symmetry axis. The effect would be very small, but
+it might be commented on the effect (ex. in a footnote).
+
+>> The true inclination distribution is currently uncertain, as we are not sure of the dynamics at the very centre of galaxies. We used a uniform distribution as the least constraining proposal in absence of better information. It is true that radiation reaction will lead to anti-alignment, but we are considering the initial distribution of orbits from which inspirals begin, this is the same reason why not all the orbits are circular, despite the circularising effect of radiation reaction. Adding a comment on potential alignment is a sensible recommendation, so we have added a footnote to explain this...
+
+#3
+In the last paragraph in Sec.VI, there is the sentence ends with "if
+the phase on resonance and the magnitude of the self-force can be
+predicted with sufficient accuracy.".
+
+If the authors would think that interpolation formulas of the
+gravitational self-force in Kerr spacetime, which might be an
+extension of Ref.[75], Warburton et al (2012), could be used for this
+purpose, it might be commented in the same paragraph in Sec.VI.
+
+#4
+In Appendix B it might be mentioned that \kappa_0 in Eq.(B14),
+\hat\varrho_0 in Eq.(B22), \hat\kappa_0 in Eq.(B23), \hat\kappa_{1/2}
+in Eq.(B24) and \hat\varrho_{1/2} in Eq.(B25), are the constants of
+integration when they appear for the first time although it might be
+understood if readers would follow equations.
+
+>> This is a good suggestion, we have added clarifications after each of the equations (or pairs of equations).
+
+#5
+I might find some typos. Please check if the authors could agree with
+them:
+
+a. In Eq.(5), parenthesis might be added to the integrand.
+
+>> Yes, but we think it is clear as it is.
+
+b. In the first paragraph in Sec.V.B, is "across an overlap" replaced
+by "across a resonance"?
+
+>> Yes, this has been corrected.
+
+c. In Eq.(B19b), \hat{J_{1}} may be replaced by \hat{J_{1/2}}.
+
+>> Yes, this has been fixed.
+
+d. In Eq.(B29), exp(-i\pi z^2/2) may be replaced by exp(i\pi z^2/2).
+
+>> Yes, this is extremely well spotted!
+
+e. In Eq.(B31), 1/(is\varpi_1) may be replaced by
+1/(is\varpi_1\hat{\lambda}).
+
+>> Yes, this has been corrected.

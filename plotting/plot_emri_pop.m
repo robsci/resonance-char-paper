@@ -154,7 +154,7 @@ function plot_emri_pop
     ylabel('\Large{}Fraction per bin')
     xlabel('\Large{}Inclination $\cos \iota$')
     set(gca,'YTickLabel',{'$0.00$','$0.01$','$0.02$','$0.03$','$0.04$','$0.05$','$0.06$','$0.07$'})
-    set(gca,'XTickLabel',{'$-1.0$','$-0.5$','$0.0$','$0.5$''$1.0$'})
+    set(gca,'XTickLabel',{'$-1.0$','$-0.5$','$0.0$','$0.5$','$1.0$'})
     laprint(gcf, 'res_pop_iota')
     
     figure;
