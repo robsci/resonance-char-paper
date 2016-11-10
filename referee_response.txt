@@ -1,13 +1,13 @@
 We thank the referee for their careful reading of our document, especially given its length! We have implemented almost all of their suggestions, as indicated below, and we feel that the manuscript has been improved by these changes.
 
-I addition to the changes commented below, we have updated some of the references and added the referee to the acknowledgements.
+In addition to the changes commented below, we have updated some of the references and added the referee to the acknowledgements. We have also removed the mention in the Introduction that $\Omega_r < \Omega_\theta < \Omega_\phi$ as Maarten van de Meent has pointed out to us that this hierarchy is not always true; this does not effect anything else in the paper.
 
 #1
 In Fig.2, is it possible for authors to add the values of semilatus
 rectum p and eccentricity e at t=t_{res}? I would like to compare the
 values with those in Fig.8 as a reference.
 
->> Figure 8 shows the orbital parameters at plunge, rather than at resonance...
+>> The values on resonance are p = 7.67, e = 0.674 and cos(iota) = 0.497. Figure 8 shows the orbital parameters at plunge, rather than at resonance, so these can't be compared directly. This example doesn't reach plunge during it's two-year window, so we think it would be confusing to add these numbers to the text. This example is to illustrate what resonances can be like, and the calculation of what they are typically like is left for later on in the paper.
 
 #2
 In Sec.V.A the distribution of inclination angle is assume to be
@@ -19,7 +19,7 @@ gravitational radiation reaction drives the orbital plane to
 anti-align with the symmetry axis. The effect would be very small, but
 it might be commented on the effect (ex. in a footnote).
 
->> The true inclination distribution is currently uncertain, as we are not sure of the dynamics at the very centre of galaxies. We used a uniform distribution as the least constraining proposal in absence of better information. It is true that radiation reaction will lead to anti-alignment, but we are considering the initial distribution of orbits from which inspirals begin, this is the same reason why not all the orbits are circular, despite the circularising effect of radiation reaction. Adding a comment on potential alignment is a sensible recommendation, so we have added a footnote to explain this...
+>> The true inclination distribution is currently uncertain, as we are not sure of the dynamics at the very centre of galaxies. We used a uniform distribution as the least constraining proposal in absence of better information. It is true that radiation reaction will lead to anti-alignment, but we are considering the initial distribution of orbits from which inspirals begin; this is the same reason why not all the orbits are circular, despite the circularising effect of radiation reaction. Adding a comment on potential alignment is a sensible recommendation, so we have added a footnote to explain this while discussing the evolution of the analytic kludge model.
 
 #3
 In the last paragraph in Sec.VI, there is the sentence ends with "if
@@ -30,6 +30,8 @@ If the authors would think that interpolation formulas of the
 gravitational self-force in Kerr spacetime, which might be an
 extension of Ref.[75], Warburton et al (2012), could be used for this
 purpose, it might be commented in the same paragraph in Sec.VI.
+
+>> We think that interpolation formulae could certainly be used if there is sufficient numerical data to calibrate these. We have added a footnote to highlight this as suggested.
 
 #4
 In Appendix B it might be mentioned that \kappa_0 in Eq.(B14),
