@@ -7,7 +7,7 @@ In Fig.2, is it possible for authors to add the values of semilatus
 rectum p and eccentricity e at t=t_{res}? I would like to compare the
 values with those in Fig.8 as a reference.
 
->> The values on resonance are p = 7.67, e = 0.674 and cos(iota) = 0.497. Figure 8 shows the orbital parameters at plunge, rather than at resonance, so these can't be compared directly. This example doesn't reach plunge during it's two-year window, so we think it would be confusing to add these numbers to the text. This example is to illustrate what resonances can be like, and the calculation of what they are typically like is left for later on in the paper.
+>> The values on resonance are p = 7.67, e = 0.674 and cos(iota) = 0.497, and we have added these to the figure caption. Figure 8 shows the orbital parameters at plunge, rather than at resonance, so these can't be compared directly. This example doesn't reach plunge during it's two-year window, so we think it would be confusing to add these numbers to the text. This example is to illustrate what resonances can be like, and the calculation of what they are typically like is left for later on in the paper.
 
 #2
 In Sec.V.A the distribution of inclination angle is assume to be
