@@ -2,6 +2,7 @@ We thank the referee for their careful reading of our document, especially given
 
 In addition to the changes commented below, we have updated some of the references and added the referee to the acknowledgements. We have also removed the mention in the Introduction that $\Omega_r < \Omega_\theta < \Omega_\phi$ as Maarten van de Meent has pointed out to us that this hierarchy is not always true; this does not affect anything else in the paper.
 
+
 #1
 In Fig.2, is it possible for authors to add the values of semilatus
 rectum p and eccentricity e at t=t_{res}? I would like to compare the
